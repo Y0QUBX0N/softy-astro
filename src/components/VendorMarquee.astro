@@ -1,0 +1,64 @@
+---
+import { getContent, type Lang } from "../lib/i18n";
+import { VENDORS } from "../lib/vendors";
+const { lang } = Astro.props as { lang: Lang };
+const c = getContent(lang);
+const loop = [...VENDORS, ...VENDORS];
+---
+
+<section id="vendors" class="border-y border-hairline bg-ink py-10">
+  <div class="container-x">
+    <p class="reveal eyebrow text-muted">{c.vendors.label}</p>
+  </div>
+  <!-- White rail so brand colors (Microsoft, Adobe, Bitdefender etc.)
+       read correctly even on the dark page. -->
+  <div class="marquee-mask relative mt-7 overflow-hidden bg-paper py-8 md:py-9" id="marquee">
+    <div class="marquee-track flex w-max items-center gap-16 px-6 md:gap-24" id="marqueeTrack">
+      {
+        loop.map((v) => (
+          <img
+            src={`/vendors/${v.slug}.svg`}
+            alt={v.name}
+            loading="lazy"
+            decoding="async"
+            width="200"
+            height="64"
+            data-slug={v.slug}
+            class="vendor-logo h-12 w-auto shrink-0 md:h-14"
+            data-cursor
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  /* Always-on full color — no silhouette filter. Subtle hover scale gives
+     a sign of life without overwhelming the brand colors. */
+  .vendor-logo {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @media (pointer: fine) {
+    .vendor-logo:hover { transform: scale(1.08); }
+  }
+  /* Per-vendor size compensation — Kaspersky/Veeam ship horizontal
+     wordmark SVGs that look small next to icon-style marks at the same
+     CSS height. Scale them up so the marquee reads balanced. */
+  .vendor-logo[data-slug="kaspersky"],
+  .vendor-logo[data-slug="veeam"]    { transform: scale(1.75); transform-origin: center; }
+  .vendor-logo[data-slug="ibm"]      { transform: scale(1.3); }
+  .vendor-logo[data-slug="microsoft"]{ transform: scale(1.18); }
+  .vendor-logo[data-slug="fortinet"] { transform: scale(1.1); }
+  @media (pointer: fine) {
+    .vendor-logo[data-slug="kaspersky"]:hover,
+    .vendor-logo[data-slug="veeam"]:hover { transform: scale(1.88); }
+    .vendor-logo[data-slug="ibm"]:hover   { transform: scale(1.4); }
+    .vendor-logo[data-slug="microsoft"]:hover { transform: scale(1.27); }
+    .vendor-logo[data-slug="fortinet"]:hover { transform: scale(1.2); }
+  }
+</style>

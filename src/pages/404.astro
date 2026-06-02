@@ -1,0 +1,51 @@
+---
+import { DEFAULT_LANG, getContent } from "../lib/i18n";
+import { pageUrl } from "../lib/nav";
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+// Detect language from the requested path so the 404 stays in-locale.
+const path = Astro.url.pathname || "/";
+const seg = path.split("/").filter(Boolean)[0];
+const lang = ["uz", "ru", "en", "kk", "ky", "tg"].includes(seg) ? (seg as any) : DEFAULT_LANG;
+const c = getContent(lang);
+
+const COPY: Record<string, { eyebrow: string; title: string; lead: string; home: string; catalog: string; contact: string }> = {
+  uz: { eyebrow: "404 · Sahifa topilmadi", title: "Bu sahifa mavjud emas.", lead: "Manzilda xatolik bo'lishi yoki sahifa ko'chirilgan bo'lishi mumkin. Boshlang'ich sahifaga qayting yoki katalogni ko'ring.", home: "Bosh sahifa", catalog: "Katalogga o'tish", contact: "Aloqa" },
+  ru: { eyebrow: "404 · Страница не найдена", title: "Такой страницы нет.", lead: "Возможно, ссылка содержит ошибку или страница перемещена. Вернитесь на главную или посмотрите каталог.", home: "На главную", catalog: "Перейти в каталог", contact: "Контакты" },
+  en: { eyebrow: "404 · Page not found", title: "This page doesn't exist.", lead: "The link may be broken or the page may have moved. Head back home or explore the catalog.", home: "Back home", catalog: "Open catalog", contact: "Contact" },
+  kk: { eyebrow: "404 · Бет табылмады", title: "Мұндай бет жоқ.", lead: "Сілтемеде қате болуы немесе бет ауыстырылған болуы мүмкін. Басты бетке оралыңыз немесе каталогты қараңыз.", home: "Басты бетке", catalog: "Каталогты ашу", contact: "Байланыс" },
+  ky: { eyebrow: "404 · Барак табылган жок", title: "Мындай барак жок.", lead: "Шилтемеде ката болушу же барак көчүрүлгөн болушу мүмкүн. Башкы бетке кайтыңыз же каталогду карап чыгыңыз.", home: "Башкы бетке", catalog: "Каталогду ачуу", contact: "Байланыш" },
+  tg: { eyebrow: "404 · Саҳифа ёфт нашуд", title: "Чунин саҳифа вуҷуд надорад.", lead: "Шояд дар пайванд хатогӣ бошад ё саҳифа ҷойи худро иваз кардааст. Ба саҳифаи аввал баргардед ё каталогро бинед.", home: "Ба саҳифаи аввал", catalog: "Кушодани каталог", contact: "Тамос" },
+};
+const t = COPY[lang] ?? COPY.uz;
+---
+
+<Base lang={lang} page="home">
+  <Nav lang={lang} page="home" />
+  <main id="main" class="relative flex min-h-[100svh] items-center pt-[68px]">
+    <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+      <div class="absolute inset-0" style="background:radial-gradient(85% 90% at 75% 0%, rgba(0,217,163,0.16) 0%, rgba(14,16,20,0) 55%), radial-gradient(70% 75% at 10% 100%, rgba(36,86,224,0.12) 0%, rgba(14,16,20,0) 55%);"></div>
+      <div class="absolute -top-[10%] right-[-8%] h-[40vw] max-h-[560px] w-[40vw] max-w-[560px] rounded-full blur-[80px]" style="background:radial-gradient(circle, rgba(0,217,163,0.28), transparent 65%);"></div>
+      <div class="absolute -bottom-[22%] left-[-10%] h-[36vw] max-h-[480px] w-[36vw] max-w-[480px] rounded-full blur-[80px]" style="background:radial-gradient(circle, rgba(36,86,224,0.24), transparent 70%);"></div>
+    </div>
+
+    <div class="container-x py-24">
+      <div class="reveal in mx-auto max-w-[820px] text-center">
+        <span class="eyebrow">{t.eyebrow}</span>
+        <h1 class="display mt-6">{t.title}</h1>
+        <p class="body-xl mt-8 mx-auto max-w-[560px] text-primary/85">{t.lead}</p>
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <a href={pageUrl(lang, "home")} class="btn btn-accent" data-cursor>
+            {t.home}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href={pageUrl(lang, "catalog")} class="btn btn-ghost" data-cursor>{t.catalog}</a>
+          <a href={pageUrl(lang, "contact")} class="btn btn-ghost" data-cursor>{t.contact}</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer lang={lang} page="home" />
+</Base>

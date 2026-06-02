@@ -1,0 +1,37 @@
+---
+import { getContent, type Lang } from "../lib/i18n";
+import { VENDORS } from "../lib/vendors";
+const { lang } = Astro.props as { lang: Lang };
+const c = getContent(lang);
+---
+
+<section id="partners" class="border-t border-hairline py-24 md:py-32">
+  <div class="container-x">
+    <div class="reveal max-w-prose">
+      <span class="eyebrow">{c.partners.eyebrow}</span>
+      <h2 class="h2 mt-5 text-balance">{c.partners.title}</h2>
+      <p class="body-lg mt-6 text-secondary">{c.partners.sub}</p>
+    </div>
+
+    <div data-stagger class="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-5 lg:grid-cols-4">
+      {
+        VENDORS.map((v) => (
+          <div
+            class="card-3d group grid aspect-[5/3] place-items-center rounded-xl border border-hairline bg-paper p-7 md:p-9"
+            title={v.name}
+          >
+            <img
+              src={`/vendors/${v.slug}.svg`}
+              alt={`${v.name} — Softy LLC partner`}
+              loading="lazy"
+              decoding="async"
+              width="220"
+              height="72"
+              class="max-h-16 w-auto max-w-[88%] opacity-95 transition-opacity duration-300 group-hover:opacity-100 md:max-h-[72px]"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

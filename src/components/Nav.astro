@@ -1,0 +1,90 @@
+---
+import { getContent, type Lang, type PageKey } from "../lib/i18n";
+import { NAV_ITEMS, pageUrl } from "../lib/nav";
+import LangSwitcher from "./LangSwitcher.astro";
+const { lang, page } = Astro.props as { lang: Lang; page: PageKey };
+const c = getContent(lang);
+const home = pageUrl(lang, "home");
+const contactHref = pageUrl(lang, "contact");
+---
+
+<header
+  id="nav"
+  class="fixed left-0 right-0 top-0 z-[140] border-b border-transparent transition-all duration-500"
+  data-state="top"
+>
+  <div class="container-x flex h-[68px] items-center justify-between">
+    <a href={home} class="group flex items-center" aria-label="Softy LLC">
+      <img
+        src="/softy-logo-white.svg"
+        alt="Softy"
+        width="124"
+        height="28"
+        class="h-7 w-auto transition-opacity duration-300 group-hover:opacity-80"
+      />
+    </a>
+
+    <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">
+      {
+        NAV_ITEMS.map((item) => {
+          const active = item.key === page;
+          return (
+            <a
+              href={pageUrl(lang, item.key)}
+              aria-current={active ? "page" : undefined}
+              class={`rounded px-3.5 py-2 text-[15px] transition-colors ${active ? "text-accent" : "text-primary/70 hover:text-primary"}`}
+            >
+              {c.nav[item.key]}
+            </a>
+          );
+        })
+      }
+    </nav>
+
+    <div class="flex items-center gap-2.5">
+      <div class="hidden sm:block"><LangSwitcher lang={lang} page={page} /></div>
+      <a href={contactHref} class="btn btn-accent hidden h-10 px-5 text-sm sm:inline-flex">
+        {c.nav.cta}
+      </a>
+      <button
+        id="burger"
+        class="grid h-10 w-10 place-items-center rounded border border-[rgba(245,242,236,0.14)] lg:hidden"
+        aria-label="Menu"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div
+  id="mobileMenu"
+  class="fixed inset-0 z-[130] hidden flex-col bg-ink/98 px-6 pb-8 pt-24 backdrop-blur-xl lg:hidden"
+>
+  <nav class="flex flex-col gap-1" aria-label="Mobile">
+    {
+      NAV_ITEMS.map((item) => (
+        <a
+          href={pageUrl(lang, item.key)}
+          data-close
+          aria-current={item.key === page ? "page" : undefined}
+          class={`border-b border-hairline py-4 text-2xl font-medium tracking-tight ${item.key === page ? "text-accent" : ""}`}
+        >
+          {c.nav[item.key]}
+        </a>
+      ))
+    }
+  </nav>
+  <div class="mt-auto flex flex-col gap-4">
+    <a href={contactHref} data-close class="btn btn-accent w-full">{c.nav.cta}</a>
+    <div class="flex items-center justify-between">
+      <span class="text-sm text-muted">{c.nav.language}</span>
+      <LangSwitcher lang={lang} page={page} align="right" />
+    </div>
+  </div>
+</div>

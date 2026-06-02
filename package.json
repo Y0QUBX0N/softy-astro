@@ -1,0 +1,31 @@
+{
+  "name": "softy-astro",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/astro-run.mjs dev",
+    "build": "node scripts/astro-run.mjs build",
+    "preview": "node scripts/astro-run.mjs preview",
+    "astro": "node scripts/astro-run.mjs"
+  },
+  "dependencies": {
+    "@astrojs/node": "^8.3.4",
+    "@astrojs/react": "^3.6.2",
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/tailwind": "^5.1.2",
+    "@types/three": "^0.184.1",
+    "astro": "^4.16.18",
+    "gsap": "^3.12.5",
+    "nodemailer": "^8.0.10",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.15",
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^8.0.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1"
+  }
+}

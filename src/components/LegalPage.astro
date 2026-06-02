@@ -1,0 +1,87 @@
+---
+import type { Lang } from "../lib/i18n";
+import type { LegalPage } from "../lib/legal";
+import { pageUrl } from "../lib/nav";
+interface Props { lang: Lang; page: LegalPage }
+const { lang, page } = Astro.props;
+const home = pageUrl(lang, "home");
+const slugify = (s: string) => s.toLowerCase().replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-");
+---
+
+<header class="page-header relative overflow-hidden border-b border-hairline pt-[140px]">
+  <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+    <div class="page-header__base absolute inset-0"></div>
+    <div class="page-header__grid absolute inset-0"></div>
+    <div class="page-header__aurora absolute inset-0"></div>
+    <div class="page-header__glow page-header__glow--a absolute"></div>
+    <div class="page-header__glow page-header__glow--b absolute"></div>
+  </div>
+  <div class="container-x pb-20 md:pb-24">
+    <nav class="reveal mb-10 flex items-center gap-2.5 text-[15px] text-muted" aria-label="Breadcrumb">
+      <a href={home} class="transition-colors hover:text-accent">Softy</a>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-60"><path d="M9 6l6 6-6 6"/></svg>
+      <span class="text-primary/85">{page.title}</span>
+    </nav>
+    <span class="reveal eyebrow">Softy LLC</span>
+    <h1 class="reveal h2 mt-6 max-w-[22ch]">{page.title}</h1>
+    <p class="reveal body-xl mt-8 max-w-[640px] text-primary/85">{page.subtitle}</p>
+    <p class="reveal mt-4 font-mono text-[13px] uppercase tracking-eyebrow text-muted">{page.effective}</p>
+  </div>
+</header>
+
+<section class="py-20 md:py-28">
+  <div class="container-x grid gap-12 lg:grid-cols-[260px_1fr] lg:gap-20">
+    <aside class="reveal lg:sticky lg:top-28 lg:self-start">
+      <h2 class="font-mono text-xs uppercase tracking-eyebrow text-muted">{page.toc}</h2>
+      <ol class="mt-5 flex flex-col gap-2.5 text-[15px] text-primary/80">
+        {page.sections.map((s) => (
+          <li><a class="transition-colors hover:text-accent" href={`#${slugify(s.title)}`}>{s.title}</a></li>
+        ))}
+      </ol>
+    </aside>
+    <article class="reveal flex flex-col gap-12">
+      {page.sections.map((s) => (
+        <section id={slugify(s.title)} class="scroll-mt-28">
+          <h3 class="text-[26px] font-medium leading-tight tracking-tight md:text-[30px]">{s.title}</h3>
+          <div class="mt-5 flex flex-col gap-5">
+            {s.paragraphs.map((p) => <p class="body-lg text-primary/85">{p}</p>)}
+          </div>
+        </section>
+      ))}
+    </article>
+  </div>
+</section>
+
+<style>
+  .page-header__base {
+    background:
+      radial-gradient(85% 90% at 78% 0%, rgba(0, 217, 163, 0.14) 0%, rgba(14, 16, 20, 0) 55%),
+      radial-gradient(70% 75% at 10% 100%, rgba(36, 86, 224, 0.12) 0%, rgba(14, 16, 20, 0) 55%);
+  }
+  .page-header__grid {
+    background-image:
+      linear-gradient(rgba(245, 242, 236, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245, 242, 236, 0.035) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(110% 80% at 70% 20%, #000 0%, transparent 75%);
+    mask-image: radial-gradient(110% 80% at 70% 20%, #000 0%, transparent 75%);
+  }
+  .page-header__aurora {
+    background: conic-gradient(
+      from 140deg at 70% 28%,
+      rgba(0, 217, 163, 0) 0deg,
+      rgba(0, 217, 163, 0.10) 70deg,
+      rgba(36, 86, 224, 0.08) 170deg,
+      rgba(0, 217, 163, 0) 250deg
+    );
+    filter: blur(56px);
+    opacity: 0.5;
+    mix-blend-mode: screen;
+    animation: lpAurora 40s linear infinite;
+  }
+  .page-header__glow { border-radius: 9999px; filter: blur(80px); opacity: 0.5; }
+  .page-header__glow--a { top: -10%; right: -8%; width: 40vw; height: 40vw; max-width: 560px; max-height: 560px; background: radial-gradient(circle, rgba(0,217,163,0.28), transparent 65%); }
+  .page-header__glow--b { bottom: -22%; left: -10%; width: 36vw; height: 36vw; max-width: 480px; max-height: 480px; background: radial-gradient(circle, rgba(36,86,224,0.24), transparent 70%); }
+  @keyframes lpAurora { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .page-header__aurora { animation: none; } }
+</style>

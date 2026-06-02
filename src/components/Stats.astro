@@ -1,0 +1,27 @@
+---
+import { getContent, type Lang } from "../lib/i18n";
+const { lang } = Astro.props as { lang: Lang };
+const c = getContent(lang);
+---
+
+<section class="border-y border-hairline bg-ink-2">
+  <div class="container-x">
+    <p class="reveal py-8 eyebrow text-muted">{c.stats.eyebrow}</p>
+    <div class="grid grid-cols-2 lg:grid-cols-4">
+      {
+        c.stats.items.map((s, i) => (
+          <div
+            class={`reveal flex flex-col gap-2 border-hairline py-12 lg:py-16 ${i % 2 === 1 ? "border-l pl-6 lg:pl-10" : "pl-0 lg:pl-10"} ${i >= 2 ? "border-t lg:border-t-0" : ""} ${i >= 1 ? "lg:border-l" : ""}`}
+          >
+            <div class="serif tabnum flex items-baseline text-accent" style="font-size:clamp(48px,6vw,88px);font-weight:500;line-height:1">
+              {s.prefix && <span>{s.prefix}</span>}
+              <span class="count" data-count={s.value}>0</span>
+              {s.suffix && <span>{s.suffix}</span>}
+            </div>
+            <div class="text-[15px] leading-snug text-secondary">{s.label}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

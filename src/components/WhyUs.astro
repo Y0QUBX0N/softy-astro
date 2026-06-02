@@ -1,0 +1,77 @@
+---
+import { getContent, type Lang } from "../lib/i18n";
+import { pageUrl } from "../lib/nav";
+const { lang } = Astro.props as { lang: Lang };
+const c = getContent(lang);
+const v = c.values;
+const aboutHref = pageUrl(lang, "about");
+
+// Distinct supporting line (not reused elsewhere on the page).
+const sub: Record<Lang, string> = {
+  uz: "Litsenziya sotishdan ko'ra ko'proq narsa. Biz IT-muhitingizni rasmiy, xavfsiz va arzonroq qilib quramiz — va shu holatda ushlab turamiz.",
+  ru: "Больше, чем продажа лицензий. Мы выстраиваем вашу ИТ-среду — официально, безопасно и выгодно — и поддерживаем её в этом состоянии.",
+  en: "More than selling licenses. We build your IT environment to be official, secure and cost-efficient — and keep it that way.",
+  kk: "Лицензия сатудан да көп нәрсе. Біз IT-ортаңызды ресми, қауіпсіз әрі тиімді етіп құрамыз — және сол күйде ұстаймыз.",
+  ky: "Лицензия сатуудан көбүрөөк нерсе. Биз IT-чөйрөңүздү расмий, коопсуз жана үнөмдүү кылып курабыз — жана ошол бойдон сактайбыз.",
+  tg: "Бештар аз фурӯши литсензия. Мо муҳити IT-и шуморо расмӣ, бехатар ва сарфакорона месозем — ва ҳамин тавр нигоҳ медорем.",
+};
+
+// Line icons matched to the four differentiators (loyalty · official/
+// transparent · technical excellence · ongoing support). Decorative.
+const ICONS = [
+  '<path d="M20.8 5.6a5.5 5.5 0 0 0-8.8 1.4 5.5 5.5 0 0 0-8.8-1.4C1 8 1.6 11.6 4 14l8 7 8-7c2.4-2.4 3-6 0.8-8.4Z"/>',
+  '<path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/>',
+  '<path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5L19 19M19 5l-2.5 2.5M7.5 16.5L5 19"/><circle cx="12" cy="12" r="3.2"/>',
+  '<path d="M3 12a9 9 0 0 1 18 0"/><path d="M21 12v4a3 3 0 0 1-3 3h-3"/><rect x="2.5" y="11" width="4" height="7" rx="1.2"/><rect x="17.5" y="11" width="4" height="7" rx="1.2"/>',
+];
+---
+
+<section id="why" class="relative overflow-hidden border-t border-hairline py-24 md:py-32">
+  <!-- faint ambient so the band has its own quiet atmosphere -->
+  <div
+    class="pointer-events-none absolute inset-0 -z-10"
+    aria-hidden="true"
+    style="background:radial-gradient(70% 60% at 100% 0%, rgba(0,217,163,0.06) 0%, rgba(14,16,20,0) 60%)"
+  >
+  </div>
+
+  <div class="container-x grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+    <!-- sticky header -->
+    <div class="reveal lg:sticky lg:top-28 lg:self-start">
+      <span class="eyebrow">{v.eyebrow}</span>
+      <h2 class="h2 mt-5 text-balance">{v.title}</h2>
+      <p class="body-lg mt-7 max-w-prose text-secondary">{sub[lang]}</p>
+      <a
+        href={aboutHref}
+        class="group mt-9 inline-flex items-center gap-2 text-[15px] font-medium text-accent"
+        data-cursor
+      >
+        {c.nav.about}
+        <svg
+          class="transition-transform duration-300 group-hover:translate-x-1"
+          width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+        ><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+      </a>
+    </div>
+
+    <!-- differentiators -->
+    <ul data-stagger class="flex flex-col">
+      {
+        v.items.map((it, i) => (
+          <li class={`why-row group grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 py-8 md:gap-x-8 md:py-9 ${i > 0 ? "border-t border-hairline" : ""}`}>
+            <div class="flex flex-col items-center gap-4">
+              <span class="grid h-12 w-12 place-items-center rounded-xl border border-hairline text-accent transition-colors duration-300 group-hover:border-accent/55 group-hover:bg-accent/10">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" set:html={ICONS[i]} />
+              </span>
+              <span class="serif text-sm leading-none text-primary/25">0{i + 1}</span>
+            </div>
+            <div class="pt-1">
+              <h3 class="text-[22px] font-medium leading-tight tracking-tight md:text-[26px]">{it.title}</h3>
+              <p class="mt-3 max-w-[46ch] text-[16.5px] leading-relaxed text-secondary">{it.desc}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

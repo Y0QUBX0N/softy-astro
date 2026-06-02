@@ -1,0 +1,206 @@
+---
+import "../styles/global.css";
+import { LANGS, LANG_META, getContent, type Lang, type PageKey } from "../lib/i18n";
+import { pageUrl } from "../lib/nav";
+import CookieBanner from "../components/CookieBanner.astro";
+
+interface Props {
+  lang: Lang;
+  page: PageKey;
+}
+const { lang, page } = Astro.props;
+const c = getContent(lang);
+const pm = c.pageMeta[page];
+const site = "https://softy.uz";
+const canonical = `${site}${pageUrl(lang, page)}`;
+// Single branded OG image (SVG + raster fallback if the project later adds /og.png).
+const ogImage = `${site}/og.svg`;
+
+// Privacy-friendly analytics: enabled only when PUBLIC_PLAUSIBLE_DOMAIN is set.
+const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN as string | undefined;
+
+const phone = "+998956400404";
+const telegram = "https://t.me/Softy_admin";
+
+const orgLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Softy LLC",
+  url: site,
+  logo: `${site}/favicon.svg`,
+  description: c.meta.description,
+  email: "info@softy.uz",
+  telephone: phone,
+  sameAs: [telegram, "https://www.linkedin.com/company/softysolution", "https://www.instagram.com/softy_group/", "https://youtube.com/@softy"],
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "81 Kichik Halqa Yo'li, Firdavsiy MFY, Yunusobod",
+    addressLocality: "Tashkent",
+    postalCode: "100084",
+    addressCountry: "UZ",
+  },
+};
+
+const localBusinessLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Softy LLC",
+  image: ogImage,
+  "@id": site,
+  url: site,
+  telephone: phone,
+  priceRange: "$$",
+  address: orgLd.address,
+  geo: { "@type": "GeoCoordinates", latitude: 41.3651, longitude: 69.2869 },
+  areaServed: ["UZ", "KZ", "KG", "TJ", "TM", "AZ", "RU"],
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "09:00",
+    closes: "19:00",
+  },
+};
+
+const servicesLd =
+  page === "services"
+    ? c.pillars.items.map((p) => ({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        serviceType: p.title,
+        provider: { "@type": "Organization", name: "Softy LLC", url: site },
+        description: p.desc,
+        areaServed: "CIS",
+      }))
+    : null;
+
+const faqLd =
+  page === "contact"
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: c.faq.items.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }
+    : null;
+
+const crumbs = [{ name: "Home", url: `${site}${pageUrl(lang, "home")}` }];
+if (page !== "home") crumbs.push({ name: pm.title, url: canonical });
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: crumbs.map((cr, i) => ({ "@type": "ListItem", position: i + 1, name: cr.name, item: cr.url })),
+};
+---
+
+<!doctype html>
+<html lang={lang} dir={LANG_META[lang].dir} class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon: white starburst on a brand-accent green disc. Pops on
+         both light and dark browser chrome (Chrome tabs, Safari pinned).
+         `?v=` busts the cache when the asset is updated. -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=6" />
+    <link rel="alternate icon" href="/favicon.svg?v=6" />
+    <link rel="apple-touch-icon" href="/favicon.svg?v=6" />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="theme-color" content="#0E1014" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{pm.title}</title>
+    <meta name="description" content={pm.description} />
+    <meta name="keywords" content="Softy LLC, Microsoft 365, Adobe Creative Cloud, Kaspersky, Autodesk, Veeam, Fortinet, Bitrix24, IT integrator, software licensing, cloud, EDR, DLP, Tashkent, Uzbekistan, CIS" />
+    <link rel="canonical" href={canonical} />
+
+    {LANGS.map((l) => (
+      <link rel="alternate" hreflang={l} href={`${site}${pageUrl(l, page)}`} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={`${site}${pageUrl("uz", page)}`} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Softy LLC" />
+    <meta property="og:title" content={pm.title} />
+    <meta property="og:description" content={pm.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={lang} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pm.title} />
+    <meta name="twitter:description" content={pm.description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessLd)} />
+    {servicesLd && <script type="application/ld+json" set:html={JSON.stringify(servicesLd)} />}
+    {faqLd && <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />}
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
+
+    <!-- progressive enhancement flag (runs before paint).
+         Sets js-on so the reveal CSS waits for IO; if `animations.ts` never
+         loads, a 1.4s fallback strips js-on so reveal CSS falls back to
+         its keyframe — content is *never* stuck invisible. -->
+    <script is:inline>
+      document.documentElement.classList.remove("no-js");
+      document.documentElement.classList.add("js-on");
+      setTimeout(function () {
+        // If after 1.4s no .reveal has been activated, animations.ts failed to
+        // load; remove js-on so the CSS @keyframes takes over and content shows.
+        if (!document.querySelector(".reveal.in")) {
+          document.documentElement.classList.remove("js-on");
+        }
+      }, 1400);
+    </script>
+
+    {plausibleDomain && (
+      <script defer data-domain={plausibleDomain} src="https://plausible.io/js/script.js"></script>
+    )}
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[10000] focus:bg-accent focus:px-4 focus:py-2 focus:text-ink focus:rounded"
+      >Skip to content</a
+    >
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <slot />
+    <a
+      href="https://t.me/Softy_admin"
+      target="_blank"
+      rel="noopener"
+      aria-label="Telegram"
+      class="telegram-float fixed bottom-6 right-6 z-[90] grid h-14 w-14 place-items-center rounded-full bg-accent text-ink shadow-[0_12px_30px_-8px_rgba(0,217,163,0.6)] transition-[bottom,transform] duration-300 hover:scale-110"
+      data-cursor
+    >
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4L2.5 11.5l6 2 2.5 7 3-4.5 5 4z" /></svg>
+    </a>
+    <CookieBanner lang={lang} />
+    <script>
+      import "../scripts/animations";
+    </script>
+    <style is:global>
+      @media (max-width: 767px) {
+        body.cookie-banner-open .telegram-float {
+          bottom: 12.5rem;
+        }
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+---
+import { LANGS, isLang, DEFAULT_LANG, getContent, type Lang } from "../../../lib/i18n";
+import Base from "../../../layouts/Base.astro";
+import Nav from "../../../components/Nav.astro";
+import PageHeader from "../../../components/PageHeader.astro";
+import Coverage from "../../../components/Coverage.astro";
+import Stats from "../../../components/Stats.astro";
+import FinalCta from "../../../components/FinalCta.astro";
+import Footer from "../../../components/Footer.astro";
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+const { lang: raw } = Astro.params;
+const lang: Lang = isLang(raw) ? raw : DEFAULT_LANG;
+const c = getContent(lang);
+---
+
+<Base lang={lang} page="coverage">
+  <Nav lang={lang} page="coverage" />
+  <main id="main">
+    <PageHeader lang={lang} page="coverage" eyebrow={c.coverage.eyebrow} title={c.coverage.title} lead={c.coverage.sub} />
+    <Coverage lang={lang} hideHeader />
+    <Stats lang={lang} />
+    <FinalCta lang={lang} />
+  </main>
+  <Footer lang={lang} page="coverage" />
+</Base>

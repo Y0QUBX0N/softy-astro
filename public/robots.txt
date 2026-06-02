@@ -1,0 +1,7 @@
+# softy.uz — robots
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Auto-generated sitemap (built by @astrojs/sitemap).
+Sitemap: https://softy.uz/sitemap-index.xml

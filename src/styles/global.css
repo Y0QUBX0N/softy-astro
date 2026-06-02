@@ -1,0 +1,395 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-dark: #0e1014;
+    --bg-light: #fafaf7;
+    --text-primary: #f5f2ec;
+    /* Body copy — reads as comfortable primary running text on dark. */
+    --text-secondary: #c9cbd2;
+    /* Labels / captions — brightened so the page no longer feels faint/thin. */
+    --text-muted: #9aa0ad;
+    --accent: #00d9a3;
+    --brand-blue: #2456e0;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Larger base typography for comfortable reading on desktop AND mobile. */
+    font-size: 17px;
+  }
+  @media (min-width: 768px) {
+    html { font-size: 18px; }
+  }
+
+  body {
+    position: relative;
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: "Inter Tight", Inter, system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv01";
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Global ambient background — subtle premium glow visible on every page,
+     scaled back where the hero already paints its own. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(60vw 50vh at 85% 0%, rgba(0, 217, 163, 0.06) 0%, transparent 60%),
+      radial-gradient(70vw 60vh at 0% 100%, rgba(36, 86, 224, 0.07) 0%, transparent 65%);
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  ::selection {
+    background: rgba(0, 217, 163, 0.25);
+    color: #fff;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+  }
+
+  /* Custom scrollbar (desktop) */
+  @media (pointer: fine) {
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0c0f;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a2f3a;
+      border-radius: 0;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #3a4150;
+    }
+  }
+}
+
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: clamp(20px, 5vw, 64px);
+  }
+
+  .eyebrow {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .display {
+    /* Capped at 104px so 3-4 word headings fit on one line at the container width
+       while remaining bold and impactful. */
+    font-size: clamp(48px, 7.4vw, 104px);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    text-wrap: balance;
+  }
+
+  .h2 {
+    font-size: clamp(36px, 5vw, 76px);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+  .h3 {
+    font-size: clamp(22px, 2.6vw, 30px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  /* Body text helpers — generous, editorial reading sizes. */
+  .body-md {
+    font-size: clamp(16px, 1.05vw, 18px);
+    line-height: 1.65;
+  }
+  .body-lg {
+    font-size: clamp(18px, 1.25vw, 21px);
+    line-height: 1.65;
+  }
+  .body-xl {
+    font-size: clamp(20px, 1.55vw, 24px);
+    line-height: 1.55;
+  }
+
+  .serif {
+    font-family: "Fraunces", Georgia, serif;
+    font-optical-sizing: auto;
+  }
+
+  /* Buttons — sharp, max 8px radius */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 52px;
+    padding-inline: 28px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      background 0.3s, color 0.3s, border-color 0.3s;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn-accent {
+    background: var(--accent);
+    color: #04130f;
+  }
+  .btn-accent:hover {
+    transform: translateY(-2px);
+    background: #1ee7b3;
+  }
+  .btn-ghost {
+    border: 1px solid var(--hairline, rgba(245, 242, 236, 0.18));
+    color: var(--text-primary);
+    border-color: rgba(245, 242, 236, 0.18);
+  }
+  .btn-ghost:hover {
+    border-color: rgba(0, 217, 163, 0.6);
+    color: var(--accent);
+  }
+  .btn-dark {
+    background: #0e1014;
+    color: #f5f2ec;
+  }
+  .btn-dark:hover {
+    transform: translateY(-2px);
+  }
+
+  .hairline {
+    border-color: rgba(245, 242, 236, 0.1);
+  }
+
+  .glass {
+    background: rgba(14, 16, 20, 0.55);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+  }
+
+  /* Section reveal — CSS-driven so content is ALWAYS visible even if JS fails.
+     Optional JS in animations.ts adds IntersectionObserver for as-you-scroll
+     timing on long pages, but the default animation runs on page load. */
+  .reveal {
+    animation: reveal-in 0.75s 0.05s cubic-bezier(0.16, 1, 0.3, 1) both;
+    will-change: transform, opacity;
+  }
+  @keyframes reveal-in {
+    from { opacity: 0; transform: translateY(26px); }
+    to   { opacity: 1; transform: none; }
+  }
+  /* When JS is on we hand control to the IO-based reveal; the `.in` class
+     is added on intersect for a smoother scroll-triggered feel. */
+  html.js-on .reveal { animation: none; opacity: 0; transform: translateY(26px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+  html.js-on .reveal.in { opacity: 1; transform: none; }
+
+  /* Staggered child cascade — children of [data-stagger] reveal one by one.
+     Driven by the attribute (present in HTML) + js-on (set before paint),
+     so there is no flash; animations.ts sets each child's transition-delay. */
+  html.js-on [data-stagger] > * {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  html.js-on [data-stagger].stagger-in > * {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ─────────────── 3D / engagement layer ─────────────── */
+
+  /* Hero word reveal — CSS-only slide-in from below. Works without JS.
+     The inner span starts pushed down and slides into place, staggered. */
+  .hero-word { perspective: 600px; }
+  .hero-word-inner {
+    display: inline-block;
+    transform: translateY(110%);
+    animation: hero-word-up 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .hero-word:nth-child(1) .hero-word-inner { animation-delay: 0.10s; }
+  .hero-word:nth-child(2) .hero-word-inner { animation-delay: 0.18s; }
+  .hero-word:nth-child(3) .hero-word-inner { animation-delay: 0.26s; }
+  .hero-word:nth-child(4) .hero-word-inner { animation-delay: 0.34s; }
+  .hero-word:nth-child(5) .hero-word-inner { animation-delay: 0.42s; }
+  .hero-word:nth-child(6) .hero-word-inner { animation-delay: 0.50s; }
+  .hero-word:nth-child(7) .hero-word-inner { animation-delay: 0.58s; }
+  .hero-word:nth-child(8) .hero-word-inner { animation-delay: 0.66s; }
+  @keyframes hero-word-up {
+    from { transform: translateY(110%) rotate(2deg); }
+    to   { transform: translateY(0) rotate(0); }
+  }
+
+  /* Page entrance — main content lifts into view on every navigation,
+     giving the site its characteristic "opens beautifully" feel. */
+  main {
+    animation: page-enter 0.85s 0.05s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes page-enter {
+    from { opacity: 0; transform: translateY(18px) scale(0.992); filter: blur(4px); }
+    to   { opacity: 1; transform: none; filter: none; }
+  }
+
+  /* 3D card tilt on hover — adds depth without heavy JS.
+     Apply with class="card-3d" to product cards, partner cards, vendor cards. */
+  .card-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.4s ease;
+    will-change: transform;
+  }
+  @media (pointer: fine) {
+    .card-3d:hover {
+      transform: perspective(1200px) translateY(-8px) rotateX(3deg) rotateY(-2deg) scale(1.015);
+      box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.7),
+                  0 0 0 1px rgba(0, 217, 163, 0.18);
+    }
+    /* paper (white) cards get a subtle accent ring on hover. */
+    .card-3d.bg-paper:hover {
+      box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.7),
+                  0 0 0 2px rgba(0, 217, 163, 0.35);
+    }
+  }
+
+  /* Magnetic-feel CTA — the button "lifts" toward the cursor on hover. */
+  .btn-accent, .btn-ghost {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  .btn-accent:hover {
+    box-shadow: 0 18px 40px -12px rgba(0, 217, 163, 0.55);
+  }
+
+  /* Heading shimmer accent — adds subtle motion on text-accent gradients. */
+  .text-accent.shimmer {
+    background: linear-gradient(120deg, #00D9A3 0%, #5BF5C9 30%, #00D9A3 60%);
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: text-shimmer 4.5s linear infinite;
+  }
+  @keyframes text-shimmer {
+    from { background-position: 0% 0%; }
+    to   { background-position: -220% 0%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-word-inner,
+    main,
+    .text-accent.shimmer { animation: none !important; }
+    .hero-word-inner { transform: none; }
+    main { opacity: 1 !important; transform: none !important; filter: none !important; }
+  }
+}
+
+@layer utilities {
+  .tabnum {
+    font-variant-numeric: tabular-nums;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom cursor (desktop fine-pointer only) */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+}
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  transform: translate(-50%, -50%);
+}
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transform: translate(-50%, -50%);
+  transition: width 0.25s, height 0.25s, border-color 0.25s, background 0.25s;
+}
+.cursor-ring.is-hover {
+  width: 54px;
+  height: 54px;
+  border-color: var(--accent);
+  background: rgba(0, 217, 163, 0.08);
+}
+@media (pointer: coarse), (max-width: 900px) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}
+
+/* No-JS / reduced-motion safety: always show content */
+.no-js .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  [data-stagger] > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,0 +1,40 @@
+---
+import { getContent, type Lang } from "../lib/i18n";
+const { lang, hideHeader = false } = Astro.props as { lang: Lang; hideHeader?: boolean };
+const c = getContent(lang);
+const cv = c.coverage;
+---
+
+<section id="coverage" class="py-24 md:py-32">
+  <div class="container-x">
+    <div class="grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
+      <div class="reveal lg:sticky lg:top-28 lg:self-start">
+        {!hideHeader && (
+          <>
+            <span class="eyebrow">{cv.eyebrow}</span>
+            <h2 class="h2 mt-5 text-balance">{cv.title}</h2>
+            <p class="body-lg mt-6 max-w-prose text-secondary">{cv.sub}</p>
+          </>
+        )}
+        <div class={`flex items-baseline gap-4 ${hideHeader ? "" : "mt-10"}`}>
+          <span class="serif text-accent" style="font-size:clamp(64px,9vw,120px);font-weight:500;line-height:1">9+</span>
+          <span class="max-w-[14ch] text-sm uppercase tracking-eyebrow text-muted">{cv.statLabel}</span>
+        </div>
+      </div>
+
+      <ul class="grid gap-px overflow-hidden rounded-lg border border-hairline bg-hairline sm:grid-cols-2">
+        {
+          cv.countries.map((country) => (
+            <li class="reveal flex items-center justify-between gap-4 bg-ink px-6 py-6 transition-colors hover:bg-ink-2">
+              <div>
+                <div class="text-lg font-medium tracking-tight">{country.name}</div>
+                <div class="mt-1 text-[13px] text-muted">{country.note}</div>
+              </div>
+              <span class="h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

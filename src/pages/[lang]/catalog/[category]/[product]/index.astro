@@ -1,0 +1,156 @@
+---
+import { LANGS, isLang, DEFAULT_LANG, getContent, type Lang } from "../../../../../lib/i18n";
+import { CATEGORIES, PRODUCTS, getCategory, getProduct, productsByCategory } from "../../../../../lib/catalog";
+import { productCopy } from "../../../../../lib/catalog-i18n";
+import { pageUrl } from "../../../../../lib/nav";
+import Base from "../../../../../layouts/Base.astro";
+import Nav from "../../../../../components/Nav.astro";
+import FinalCta from "../../../../../components/FinalCta.astro";
+import Footer from "../../../../../components/Footer.astro";
+
+export function getStaticPaths() {
+  return LANGS.flatMap((lang) =>
+    PRODUCTS.map((p) => ({ params: { lang, category: p.category, product: p.slug } }))
+  );
+}
+
+const { lang: rawLang, category: rawCat, product: rawProd } = Astro.params;
+const lang: Lang = isLang(rawLang) ? rawLang : DEFAULT_LANG;
+const category = getCategory(rawCat ?? "");
+const product = getProduct(rawProd ?? "");
+if (!category || !product || product.category !== category.slug) {
+  return Astro.redirect(`/${lang}/catalog/`);
+}
+
+const c = getContent(lang);
+const meta = c.catalog.categories[category.key];
+const copy = productCopy(product.slug, lang);
+const catalogHref = pageUrl(lang, "catalog");
+const categoryHref = `${catalogHref}${category.slug}/`;
+const contactHref = pageUrl(lang, "contact");
+const related = productsByCategory(category.slug).filter((p) => p.slug !== product.slug).slice(0, 3);
+---
+
+<Base lang={lang} page="catalog">
+  <Nav lang={lang} page="catalog" />
+  <main id="main">
+    <section class="border-t border-hairline pb-12 pt-32 md:pt-40">
+      <div class="container-x">
+        <nav aria-label="Breadcrumb" class="mb-10 flex flex-wrap items-center gap-2 text-sm text-muted">
+          <a href={catalogHref} class="transition-colors hover:text-accent">{c.catalog.eyebrow}</a>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+          <a href={categoryHref} class="transition-colors hover:text-accent">{meta.name}</a>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+          <span class="text-primary">{product.name}</span>
+        </nav>
+
+        <div class="reveal grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+          <div class="card-3d flex h-80 items-center justify-center rounded-3xl bg-paper p-6 sm:p-8 lg:h-[28rem] lg:p-10">
+            <img
+              src={`/vendors/${product.slug}.svg`}
+              alt={product.vendor}
+              width="520"
+              height="260"
+              class="h-auto max-h-[16rem] w-auto max-w-[88%] lg:max-h-[20rem]"
+            />
+          </div>
+
+          <div class="flex flex-col justify-center">
+            <div class="font-mono text-xs uppercase tracking-eyebrow text-accent">{c.catalog.partnerOf} · {product.vendor}</div>
+            <h1 class="h2 mt-4 text-balance">{product.name}</h1>
+            <p class="body-xl mt-6 text-primary/90">{copy.tagline}</p>
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+              <a href={contactHref} class="btn btn-accent" data-cursor>
+                {c.catalog.ctaQuote}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <a href={categoryHref} class="btn btn-ghost" data-cursor>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+                {c.catalog.ctaBack}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-hairline py-20 md:py-28">
+      <div class="container-x">
+        <div class="grid gap-16 lg:grid-cols-3">
+          <div class="reveal lg:col-span-2">
+            <p class="body-lg leading-relaxed text-secondary">{copy.summary}</p>
+
+            <h2 class="mt-14 text-2xl font-medium tracking-tight">{c.catalog.featuresLabel}</h2>
+            <ul class="mt-7 grid gap-3 sm:grid-cols-2">
+              {
+                copy.features.map((f) => (
+                  <li class="flex items-start gap-3 text-[15px] leading-relaxed">
+                    <svg class="mt-1 shrink-0 text-accent" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                    <span>{f}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+
+          <aside class="reveal flex flex-col gap-6 rounded-2xl border border-hairline bg-ink-2/40 p-7">
+            <div>
+              <div class="font-mono text-[11px] uppercase tracking-eyebrow text-muted">{c.catalog.vendorLabel}</div>
+              <div class="mt-1.5 text-lg font-medium">{product.vendor}</div>
+            </div>
+            <div>
+              <div class="font-mono text-[11px] uppercase tracking-eyebrow text-muted">{c.catalog.osLabel}</div>
+              <div class="mt-2 flex flex-wrap gap-1.5">
+                {product.os.map((o) => (
+                  <span class="rounded-md border border-hairline bg-ink-3/40 px-2.5 py-1 text-xs">{o}</span>
+                ))}
+              </div>
+            </div>
+            {copy.audience && (
+              <div>
+                <div class="font-mono text-[11px] uppercase tracking-eyebrow text-muted">{c.catalog.audienceLabel}</div>
+                <div class="mt-1.5 text-[15px] leading-relaxed text-secondary">{copy.audience}</div>
+              </div>
+            )}
+            <a href={contactHref} class="btn btn-accent mt-2 w-full" data-cursor>
+              {c.catalog.ctaQuote}
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    {related.length > 0 && (
+      <section class="border-t border-hairline py-20">
+        <div class="container-x">
+          <div class="reveal mb-10 flex items-end justify-between gap-6">
+            <h2 class="text-2xl font-medium tracking-tight">{meta.name}</h2>
+            <a href={categoryHref} class="text-sm text-accent transition-transform hover:translate-x-1" data-cursor>{c.catalog.allCategories} →</a>
+          </div>
+          <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {
+              related.map((p) => (
+                <a
+                  href={`${catalogHref}${category.slug}/${p.slug}/`}
+                  class="card-3d reveal group flex flex-col gap-4 rounded-2xl border border-hairline bg-ink-2/40 p-6 hover:border-accent/40"
+                  data-cursor
+                >
+                  <div class="flex h-28 items-center justify-center rounded-lg bg-paper p-5">
+                    <img src={`/vendors/${p.slug}.svg`} alt={p.vendor} loading="lazy" width="180" height="64" class="max-h-16 w-auto max-w-[82%]" />
+                  </div>
+                  <div>
+                    <div class="font-mono text-[11px] uppercase tracking-eyebrow text-muted">{p.vendor}</div>
+                    <div class="mt-1 text-lg font-medium leading-tight">{p.name}</div>
+                  </div>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+    )}
+
+    <FinalCta lang={lang} />
+  </main>
+  <Footer lang={lang} page="catalog" />
+</Base>

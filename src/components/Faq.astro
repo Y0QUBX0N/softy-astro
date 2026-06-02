@@ -1,0 +1,56 @@
+---
+import { getContent, type Lang } from "../lib/i18n";
+const { lang } = Astro.props as { lang: Lang };
+const c = getContent(lang);
+---
+
+<section id="faq" class="py-24 md:py-32">
+  <div class="container-x grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+    <div class="reveal lg:sticky lg:top-28 lg:self-start">
+      <span class="eyebrow">{c.faq.eyebrow}</span>
+      <h2 class="h2 mt-5 text-balance">{c.faq.title}</h2>
+    </div>
+
+    <div class="faq-list" id="faqList">
+      {
+        c.faq.items.map((f, i) => (
+          <div class="faq-item reveal border-b border-hairline" data-open={i === 0 ? "true" : "false"}>
+            <button
+              class="faq-q flex w-full items-center justify-between gap-6 py-6 text-left"
+              aria-expanded={i === 0 ? "true" : "false"}
+            >
+              <span class="text-lg font-medium md:text-xl">{f.q}</span>
+              <span class="faq-icon relative grid h-8 w-8 shrink-0 place-items-center rounded-full border border-hairline text-accent">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M12 5v14M5 12h14" class="faq-plus-v" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq-a grid transition-[grid-template-rows] duration-300 ease-out" style={`grid-template-rows:${i === 0 ? "1fr" : "0fr"}`}>
+              <div class="overflow-hidden">
+                <p class="max-w-prose pb-6 text-[16.5px] leading-relaxed text-secondary">{f.a}</p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-item[data-open="true"] .faq-plus-v {
+    transform: rotate(45deg);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+  .faq-item[data-open="false"] .faq-plus-v {
+    transform: rotate(0deg);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+  .faq-item[data-open="true"] .faq-icon {
+    background: rgba(0, 217, 163, 0.12);
+    border-color: rgba(0, 217, 163, 0.4);
+  }
+</style>

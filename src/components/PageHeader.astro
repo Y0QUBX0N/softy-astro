@@ -1,0 +1,107 @@
+---
+import { getContent, type Lang, type PageKey } from "../lib/i18n";
+import { pageUrl } from "../lib/nav";
+interface Props {
+  lang: Lang;
+  page: PageKey;
+  eyebrow: string;
+  title: string;
+  lead?: string;
+}
+const { lang, page, eyebrow, title, lead } = Astro.props;
+const c = getContent(lang);
+const crumbLabel = page === "home" ? "" : c.nav[page as Exclude<PageKey, "home">];
+---
+
+<header class="page-header relative overflow-hidden border-b border-hairline pt-[140px]">
+  <!-- premium ambient: dual glow + drifting aurora + faint grid -->
+  <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+    <div class="page-header__base absolute inset-0"></div>
+    <div class="page-header__grid absolute inset-0"></div>
+    <div class="page-header__aurora absolute inset-0"></div>
+    <div class="page-header__glow page-header__glow--a absolute"></div>
+    <div class="page-header__glow page-header__glow--b absolute"></div>
+  </div>
+
+  <div class="container-x pb-20 md:pb-28">
+    <nav class="reveal mb-10 flex items-center gap-2.5 text-[15px] text-muted" aria-label="Breadcrumb">
+      <a href={pageUrl(lang, "home")} class="transition-colors hover:text-accent">Softy</a>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-60"><path d="M9 6l6 6-6 6"/></svg>
+      <span class="text-primary/85">{crumbLabel}</span>
+    </nav>
+    <span class="reveal eyebrow">{eyebrow}</span>
+    <h1 class="reveal h2 mt-6 max-w-[22ch]">{title}</h1>
+    {lead && <p class="reveal body-xl mt-8 max-w-[660px] text-primary/90">{lead}</p>}
+  </div>
+</header>
+
+<style>
+  .page-header__base {
+    background:
+      radial-gradient(85% 90% at 78% 0%, rgba(0, 217, 163, 0.16) 0%, rgba(14, 16, 20, 0) 55%),
+      radial-gradient(70% 75% at 10% 100%, rgba(36, 86, 224, 0.13) 0%, rgba(14, 16, 20, 0) 55%);
+  }
+  .page-header__grid {
+    background-image:
+      linear-gradient(rgba(245, 242, 236, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245, 242, 236, 0.035) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(110% 80% at 70% 20%, #000 0%, transparent 75%);
+    mask-image: radial-gradient(110% 80% at 70% 20%, #000 0%, transparent 75%);
+  }
+  .page-header__aurora {
+    background:
+      conic-gradient(
+        from 140deg at 70% 28%,
+        rgba(0, 217, 163, 0) 0deg,
+        rgba(0, 217, 163, 0.12) 70deg,
+        rgba(36, 86, 224, 0.09) 170deg,
+        rgba(0, 217, 163, 0) 250deg
+      );
+    filter: blur(56px);
+    opacity: 0.55;
+    mix-blend-mode: screen;
+    -webkit-mask-image: radial-gradient(95% 70% at 60% 35%, #000 0%, transparent 80%);
+    mask-image: radial-gradient(95% 70% at 60% 35%, #000 0%, transparent 80%);
+    animation: phAurora 40s linear infinite;
+  }
+  .page-header__glow {
+    border-radius: 9999px;
+    filter: blur(80px);
+    opacity: 0.55;
+  }
+  .page-header__glow--a {
+    top: -10%;
+    right: -8%;
+    width: 40vw;
+    height: 40vw;
+    max-width: 560px;
+    max-height: 560px;
+    background: radial-gradient(circle, rgba(0, 217, 163, 0.32), transparent 65%);
+    animation: phFloatA 18s ease-in-out infinite;
+  }
+  .page-header__glow--b {
+    bottom: -22%;
+    left: -10%;
+    width: 36vw;
+    height: 36vw;
+    max-width: 480px;
+    max-height: 480px;
+    background: radial-gradient(circle, rgba(36, 86, 224, 0.28), transparent 70%);
+    animation: phFloatB 22s ease-in-out infinite;
+  }
+  @keyframes phAurora { to { transform: rotate(360deg); } }
+  @keyframes phFloatA {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-3%, 4%) scale(1.07); }
+  }
+  @keyframes phFloatB {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(4%, -3%) scale(1.08); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .page-header__aurora,
+    .page-header__glow--a,
+    .page-header__glow--b { animation: none; }
+  }
+</style>

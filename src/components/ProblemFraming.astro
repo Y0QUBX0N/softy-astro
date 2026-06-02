@@ -1,0 +1,30 @@
+---
+import { getContent, type Lang } from "../lib/i18n";
+const { lang } = Astro.props as { lang: Lang };
+const c = getContent(lang);
+---
+
+<section id="problem" class="relative overflow-hidden py-28 md:py-40">
+  <div class="container-x grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+    <div>
+      <span class="reveal eyebrow">{c.problem.eyebrow}</span>
+      <h2 class="reveal h2 mt-5 max-w-[15ch] text-balance">{c.problem.title}</h2>
+      <p class="reveal body-lg mt-7 max-w-prose text-secondary">{c.problem.sub}</p>
+    </div>
+
+    <div class="reveal relative flex flex-col items-start lg:items-end">
+      <div
+        class="serif relative leading-none text-accent"
+        style="font-size:clamp(72px,13vw,184px);font-weight:500;"
+        data-figure
+        data-target={c.problem.figure}
+        data-parallax="0.6"
+      >
+        {c.problem.figure}
+      </div>
+      <p class="mt-3 max-w-[22ch] text-right text-sm uppercase tracking-eyebrow text-muted lg:text-right">
+        {c.problem.figureCaption}
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,59 @@
+---
+import { getContent, type Lang } from "../lib/i18n";
+import { pageUrl } from "../lib/nav";
+interface Props {
+  lang: Lang;
+  variant?: "full" | "preview";
+  hideHeader?: boolean;
+}
+const { lang, variant = "full", hideHeader = false } = Astro.props;
+const c = getContent(lang);
+const preview = variant === "preview";
+---
+
+<section id="services" class="bg-paper text-ink">
+  <div class="container-x py-24 md:py-32">
+    {!hideHeader && (
+      <div class="reveal flex flex-wrap items-end justify-between gap-6">
+        <div class="max-w-3xl">
+          <span class="eyebrow" style="color:#06b08a">{c.pillars.eyebrow}</span>
+          <h2 class="h2 mt-5 text-balance" style="color:#0E1014">{c.pillars.title}</h2>
+        </div>
+        {preview && (
+          <a href={pageUrl(lang, "services")} class="btn btn-dark h-11 px-5 text-sm" data-cursor>
+            {c.common.allServices}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </a>
+        )}
+      </div>
+    )}
+
+    <div class={hideHeader ? "" : "mt-16"}>
+      {
+        c.pillars.items.map((p, i) => (
+          <article
+            class={`pillar-row reveal grid gap-8 py-12 md:gap-12 ${preview ? "md:grid-cols-[auto_1fr]" : "md:grid-cols-[auto_1.1fr_1fr]"} ${i > 0 ? "border-t border-hairline-dark" : ""}`}
+          >
+            <div class="serif text-5xl leading-none text-ink/25 md:text-6xl">{p.num}</div>
+            <div>
+              <h3 class="text-2xl font-semibold tracking-tight md:text-3xl" style="color:#0E1014">
+                {p.title}
+              </h3>
+              <p class="mt-4 max-w-md text-[18px] leading-relaxed text-ink/70">{p.desc}</p>
+            </div>
+            {!preview && (
+              <ul class="flex flex-col justify-center gap-3 md:border-l md:border-hairline-dark md:pl-10">
+                {p.bullets.map((b) => (
+                  <li class="flex items-start gap-3 text-[16px] text-ink/80">
+                    <svg class="mt-1 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06b08a" stroke-width="2.5"><path d="M20 6L9 17l-5-5" /></svg>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

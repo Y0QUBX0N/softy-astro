@@ -1,0 +1,93 @@
+---
+import { getContent, type Lang } from "../lib/i18n";
+const { lang, hideHeader = false } = Astro.props as { lang: Lang; hideHeader?: boolean };
+const c = getContent(lang);
+const icons = [
+  '<path d="M3 5h18M3 12h18M3 19h12"/>',
+  '<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',
+  '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  '<path d="M22 12A10 10 0 1112 2"/><path d="M12 6v6l4 2"/>',
+];
+---
+
+<section id="process" class="relative border-t border-hairline py-24 md:py-32">
+  <div class="container-x">
+    {!hideHeader && (
+      <div class="reveal max-w-2xl">
+        <span class="eyebrow">{c.process.eyebrow}</span>
+        <h2 class="h2 mt-5 text-balance">{c.process.title}</h2>
+        <p class="mt-6 max-w-prose text-lg text-muted">{c.process.sub}</p>
+      </div>
+    )}
+
+    <div id="storyWrap" class={`grid gap-12 lg:grid-cols-2 lg:gap-20 ${hideHeader ? "" : "mt-16"}`}>
+      <!-- pinned visual -->
+      <div class="hidden lg:block">
+        <div id="storyPin" class="flex h-[80svh] flex-col justify-center">
+          <div class="relative aspect-square w-full max-w-[440px] overflow-hidden rounded-lg border border-hairline bg-ink-2">
+            <div
+              class="pointer-events-none absolute inset-0"
+              style="background:radial-gradient(80% 80% at 50% 40%, rgba(0,217,163,0.12), transparent 70%)"
+            >
+            </div>
+            <div class="absolute left-8 top-8 font-mono text-sm tracking-widest text-accent" id="storyCounter">01 / 0{c.process.steps.length}</div>
+            <div class="absolute inset-0 grid place-items-center">
+              <div
+                id="storyNum"
+                class="serif leading-none text-primary transition-all duration-500"
+                style="font-size:clamp(120px,22vw,260px);font-weight:500"
+              >
+                01
+              </div>
+            </div>
+            <div class="absolute bottom-8 left-8 right-8">
+              <div id="storyTitle" class="text-2xl font-semibold tracking-tight transition-all duration-500">
+                {c.process.steps[0].title}
+              </div>
+              <div class="mt-4 h-px w-full bg-hairline">
+                <div id="storyBar" class="h-px bg-accent transition-all duration-300" style="width:25%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- steps -->
+      <div class="flex flex-col">
+        {
+          c.process.steps.map((s, i) => (
+            <div
+              class="story-step reveal flex gap-6 border-b border-hairline py-10 last:border-0"
+              data-step={i}
+              data-title={s.title}
+              data-num={s.num}
+            >
+              <div class="flex flex-col items-center">
+                <div class="story-dot grid h-12 w-12 shrink-0 place-items-center rounded-full border border-hairline font-mono text-sm text-accent transition-colors duration-300">
+                  {s.num}
+                </div>
+              </div>
+              <div>
+                <div class="mb-3 text-accent" set:html={`<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">${icons[i]}</svg>`} />
+                <h3 class="text-2xl font-semibold tracking-tight md:text-3xl">{s.title}</h3>
+                <p class="mt-3 max-w-md text-[17px] leading-relaxed text-muted">{s.desc}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .story-step .story-dot {
+      opacity: 0.5;
+    }
+    .story-step.story-active .story-dot {
+      opacity: 1;
+      background: #00d9a3;
+      color: #0e1014;
+      border-color: #00d9a3;
+    }
+  </style>
+</section>

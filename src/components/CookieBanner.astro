@@ -1,0 +1,53 @@
+---
+import { LEGAL_LABELS } from "../lib/legal";
+import { pageUrl } from "../lib/nav";
+import type { Lang } from "../lib/i18n";
+const { lang } = Astro.props as { lang: Lang };
+const t = LEGAL_LABELS[lang].cookies;
+const privacyHref = `${pageUrl(lang, "home")}privacy/`;
+---
+
+<div
+  id="cookieBanner"
+  class="fixed inset-x-3 bottom-3 z-[120] hidden translate-y-2 opacity-0 transition-all duration-300 sm:inset-x-6 sm:bottom-6 md:left-auto md:right-6 md:max-w-md"
+  role="region"
+  aria-label="Cookie notice"
+>
+  <div class="flex flex-col gap-4 rounded-xl border border-hairline bg-ink-2/95 p-5 shadow-2xl backdrop-blur-xl">
+    <p class="text-[15px] leading-relaxed text-primary/90">{t.msg}</p>
+    <div class="flex items-center gap-2.5">
+      <button id="cookieAccept" class="btn btn-accent h-9 px-4 text-[13px]" type="button">{t.accept}</button>
+      <a href={privacyHref} class="text-[13px] text-muted underline decoration-muted/40 underline-offset-2 transition-colors hover:text-accent">{t.learnMore}</a>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var KEY = "softy-cookie-ack";
+    function ready(fn) {
+      if (document.readyState !== "loading") fn();
+      else document.addEventListener("DOMContentLoaded", fn);
+    }
+    ready(function () {
+      try {
+        if (localStorage.getItem(KEY) === "1") return;
+      } catch (e) { /* private mode */ }
+      var el = document.getElementById("cookieBanner");
+      if (!el) return;
+      document.body.classList.add("cookie-banner-open");
+      el.classList.remove("hidden");
+      // next frame for transition
+      requestAnimationFrame(function () {
+        el.classList.remove("translate-y-2", "opacity-0");
+      });
+      var btn = document.getElementById("cookieAccept");
+      btn && btn.addEventListener("click", function () {
+        try { localStorage.setItem(KEY, "1"); } catch (e) { /* ignore */ }
+        document.body.classList.remove("cookie-banner-open");
+        el.classList.add("translate-y-2", "opacity-0");
+        window.setTimeout(function () { el.classList.add("hidden"); }, 320);
+      });
+    });
+  })();
+</script>

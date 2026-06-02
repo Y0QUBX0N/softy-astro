@@ -1,0 +1,59 @@
+---
+import { LANGS, LANG_META, type Lang, type PageKey } from "../lib/i18n";
+import { pageUrl } from "../lib/nav";
+
+interface Props {
+  lang: Lang;
+  page: PageKey;
+  align?: "left" | "right";
+}
+const { lang, page, align = "right" } = Astro.props;
+
+// lang code → SVG flag in /public/flags/
+const FLAG: Record<Lang, string> = {
+  uz: "/flags/uz.svg",
+  ru: "/flags/ru.svg",
+  en: "/flags/gb.svg",
+  kk: "/flags/kz.svg",
+  ky: "/flags/kg.svg",
+  tg: "/flags/tj.svg",
+};
+---
+
+<details class="lang-switch relative">
+  <summary
+    class="flex h-10 cursor-pointer list-none items-center gap-2 rounded border border-[rgba(245,242,236,0.14)] px-2.5 text-sm text-primary transition-colors hover:border-accent/60"
+    aria-label={LANG_META[lang].label}
+  >
+    <img src={FLAG[lang]} alt="" aria-hidden="true" width="22" height="16" class="h-4 w-[22px] rounded-[2px] object-cover shadow-[0_0_0_1px_rgba(0,0,0,0.25)]" />
+    <span class="font-mono text-xs uppercase tracking-wider">{lang}</span>
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="opacity-60"><path d="M6 9l6 6 6-6" /></svg>
+  </summary>
+  <ul
+    class={`absolute z-50 mt-2 min-w-[200px] overflow-hidden rounded-lg border border-hairline bg-ink-2/95 backdrop-blur-lg shadow-2xl ${align === "right" ? "right-0" : "left-0"}`}
+  >
+    {
+      LANGS.map((l) => (
+        <li>
+          <a
+            href={pageUrl(l, page)}
+            class={`flex items-center gap-3 px-4 py-2.5 text-sm transition-colors hover:bg-accent/10 hover:text-accent ${l === lang ? "text-accent" : "text-primary"}`}
+            hreflang={l}
+          >
+            <img src={FLAG[l]} alt="" aria-hidden="true" width="24" height="18" class="h-[18px] w-6 rounded-[3px] object-cover shadow-[0_0_0_1px_rgba(0,0,0,0.3)]" />
+            <span>{LANG_META[l].native}</span>
+            {l === lang && (
+              <svg class="ml-auto" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5" /></svg>
+            )}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</details>
+
+<style>
+  .lang-switch summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

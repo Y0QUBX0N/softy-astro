@@ -1,0 +1,23 @@
+---
+import { LANGS, isLang, DEFAULT_LANG, type Lang } from "../../../lib/i18n";
+import { getLegalPage } from "../../../lib/legal";
+import Base from "../../../layouts/Base.astro";
+import Nav from "../../../components/Nav.astro";
+import LegalPage from "../../../components/LegalPage.astro";
+import Footer from "../../../components/Footer.astro";
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+const { lang: raw } = Astro.params;
+const lang: Lang = isLang(raw) ? raw : DEFAULT_LANG;
+const page = getLegalPage("terms", lang);
+---
+
+<Base lang={lang} page="about">
+  <Nav lang={lang} page="about" />
+  <main id="main">
+    <LegalPage lang={lang} page={page} />
+  </main>
+  <Footer lang={lang} page="about" />
+</Base>

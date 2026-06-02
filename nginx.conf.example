@@ -1,0 +1,103 @@
+# ─────────────────────────────────────────────────────────────────────
+# Softy LLC — Nginx reverse proxy template for the Node (Astro) server.
+#
+# 1. Install certbot + nginx plugin:
+#      sudo apt install nginx certbot python3-certbot-nginx
+# 2. Copy this file to /etc/nginx/sites-available/softy.uz, then:
+#      sudo ln -s /etc/nginx/sites-available/softy.uz /etc/nginx/sites-enabled/
+# 3. Provision an SSL certificate (HTTP-01 challenge):
+#      sudo certbot --nginx -d softy.uz -d www.softy.uz
+#    certbot rewrites the server block to add the certificate paths.
+# 4. Reload nginx:
+#      sudo nginx -t && sudo systemctl reload nginx
+# ─────────────────────────────────────────────────────────────────────
+
+# Limit form submissions to 10 requests/min/IP at the proxy layer
+# (additional defence in front of the in-process rate limiter).
+limit_req_zone $binary_remote_addr zone=softy_contact:10m rate=10r/m;
+
+upstream softy_node {
+    server 127.0.0.1:4321 fail_timeout=5s;
+    keepalive 16;
+}
+
+# Redirect plain HTTP → HTTPS (and apex → www, or vice-versa to your taste).
+server {
+    listen 80;
+    listen [::]:80;
+    server_name softy.uz www.softy.uz;
+    return 301 https://softy.uz$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name softy.uz www.softy.uz;
+
+    # certbot fills these in. If you run TLS termination elsewhere, remove.
+    # ssl_certificate     /etc/letsencrypt/live/softy.uz/fullchain.pem;
+    # ssl_certificate_key /etc/letsencrypt/live/softy.uz/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers off;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 1d;
+
+    # ── Security headers ─────────────────────────────────────────────
+    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-Frame-Options "DENY" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
+    # Tight CSP for a marketing site: same-origin assets + Google Fonts + Plausible.
+    # Loosen "script-src" if you add new tools.
+    add_header Content-Security-Policy "
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://plausible.io;
+        style-src  'self' 'unsafe-inline' https://fonts.googleapis.com;
+        font-src   'self' https://fonts.gstatic.com data:;
+        img-src    'self' data: https:;
+        connect-src 'self' https://api.telegram.org https://plausible.io;
+        frame-ancestors 'none';
+        base-uri 'self';
+        form-action 'self';
+    " always;
+
+    # ── Tuning ───────────────────────────────────────────────────────
+    client_max_body_size 2m;          # contact form bodies are tiny
+    gzip on;
+    gzip_types text/plain text/css application/javascript application/json image/svg+xml application/xml;
+    gzip_min_length 1024;
+    gzip_proxied any;
+
+    # ── Static asset caching (long-lived) ───────────────────────────
+    location ~* \.(?:css|js|woff2?|ttf|otf|svg|png|jpg|jpeg|webp|avif|ico|gif|mp4)$ {
+        proxy_pass http://softy_node;
+        proxy_cache_valid 200 30d;
+        add_header Cache-Control "public, max-age=2592000, immutable";
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+    }
+
+    # ── Rate-limited contact endpoint ───────────────────────────────
+    location = /api/contact/ {
+        limit_req zone=softy_contact burst=5 nodelay;
+        proxy_pass http://softy_node;
+        proxy_http_version 1.1;
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 30s;
+    }
+
+    # ── Everything else → Astro/Node ────────────────────────────────
+    location / {
+        proxy_pass http://softy_node;
+        proxy_http_version 1.1;
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 30s;
+    }
+}

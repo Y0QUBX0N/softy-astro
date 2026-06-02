@@ -1,0 +1,165 @@
+---
+import { getContent, type Lang } from "../lib/i18n";
+const { lang } = Astro.props as { lang: Lang };
+const c = getContent(lang);
+// Anonymised quotes — role/industry only, no fabricated personal identities.
+// Replace with real client quotes once consent is on file.
+const items = c.testimonials.items;
+const sideText: Record<Lang, string> = {
+  uz: `${c.testimonials.title} — anonim. Litsenziyalash auditi, bulutga migratsiya va 24/7 yordam orqali mijozlarimiz real natijalarga erishadi.`,
+  ru: `${c.testimonials.title} Отзывы анонимизированы. Аудит лицензий, миграция в облако и поддержка 24/7 помогают клиентам получать измеримый результат.`,
+  en: `${c.testimonials.title} Client quotes are anonymised. License audits, cloud migration, and 24/7 support help customers get measurable results.`,
+  kk: `${c.testimonials.title} Пікірлер анонимдендірілген. Лицензия аудиті, бұлтқа көшу және 24/7 қолдау клиенттерге нақты нәтиже береді.`,
+  ky: `${c.testimonials.title} Пикирлер анонимдештирилген. Лицензия аудити, булутка миграция жана 24/7 колдоо кардарларга өлчөнө турган натыйжа берет.`,
+  tg: `${c.testimonials.title} Назарҳо беном оварда шудаанд. Аудити литсензия, гузариш ба абр ва дастгирии 24/7 ба муштариён натиҷаи воқеӣ медиҳанд.`,
+};
+---
+
+<section id="testimonials" class="relative overflow-hidden border-y border-hairline py-24 md:py-32">
+  <div class="container-x">
+    <div class="reveal max-w-2xl">
+      <span class="eyebrow">{c.testimonials.eyebrow}</span>
+      <h2 class="h2 mt-5 text-balance">{c.testimonials.title}</h2>
+    </div>
+
+    <div class="reveal mt-16 grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+      <!-- Stack stage — cards layer with depth, advance automatically. -->
+      <div class="t-stage relative mx-auto h-[420px] w-full max-w-[560px]" id="tStage" data-count={items.length}>
+        {items.map((t, i) => (
+          <article
+            class="t-card absolute inset-0 flex flex-col justify-between rounded-2xl border border-hairline bg-ink-2/85 p-7 backdrop-blur-xl md:p-9"
+            data-i={i}
+            aria-hidden={i === 0 ? "false" : "true"}
+          >
+            <svg class="text-accent/55" width="40" height="40" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M6 17h3l2-4V7H5v6h3l-2 4Zm8 0h3l2-4V7h-6v6h3l-2 4Z"/>
+            </svg>
+            <blockquote class="mt-2 text-[19px] leading-relaxed text-primary/95 md:text-[21px]">{t.quote}</blockquote>
+            <footer class="mt-7 flex items-center justify-between border-t border-hairline pt-6">
+              <span class="font-mono text-[11px] uppercase tracking-eyebrow text-accent">{t.role}</span>
+              <span class="font-mono text-[11px] text-muted">0{i + 1} / 0{items.length}</span>
+            </footer>
+          </article>
+        ))}
+      </div>
+
+      <!-- Side: pagination dots + lateral arrows + brand line -->
+      <aside class="flex flex-col gap-8">
+        <p class="body-lg max-w-md text-secondary">
+          {sideText[lang]}
+        </p>
+        <div class="flex items-center gap-3" id="tDots" aria-label="Testimonial pagination">
+          {items.map((_, i) => (
+            <button
+              type="button"
+              class="t-dot group relative h-1.5 w-12 overflow-hidden rounded-full bg-hairline transition-colors"
+              data-i={i}
+              aria-label={`Show testimonial ${i + 1}`}
+            >
+              <span class="t-dot-fill absolute inset-y-0 left-0 w-0 bg-accent transition-[width] duration-300"></span>
+            </button>
+          ))}
+        </div>
+        <div class="flex items-center gap-3">
+          <button type="button" id="tPrev" class="grid h-11 w-11 place-items-center rounded-full border border-hairline transition-colors hover:border-accent/60 hover:text-accent" aria-label="Previous">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+          </button>
+          <button type="button" id="tNext" class="grid h-11 w-11 place-items-center rounded-full border border-hairline transition-colors hover:border-accent/60 hover:text-accent" aria-label="Next">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Stack physics — each card sits behind the front one with a decaying
+     scale + translate. We mutate `--i` per card from script. */
+  .t-card {
+    --i: 0;
+    transform-origin: top center;
+    transform: translateY(calc(var(--i) * -10px)) scale(calc(1 - var(--i) * 0.04));
+    opacity: calc(1 - var(--i) * 0.18);
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    box-shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.7);
+  }
+  .t-card[data-front] { pointer-events: auto; box-shadow: 0 36px 80px -28px rgba(0, 217, 163, 0.18), 0 12px 40px -12px rgba(0, 0, 0, 0.65); }
+  .t-card[data-out]   { transform: translateY(-40px) scale(0.96) rotate(-2deg); opacity: 0; }
+
+  /* Auto-progress bar inside the active dot. */
+  .t-dot[data-active] .t-dot-fill { width: 100%; transition-duration: 5200ms; transition-timing-function: linear; }
+</style>
+
+<script is:inline>
+  (function () {
+    function init() {
+      var stage = document.getElementById("tStage");
+      if (!stage) return;
+      var cards = Array.from(stage.querySelectorAll(".t-card"));
+      var dots = Array.from(document.querySelectorAll(".t-dot"));
+      var prev = document.getElementById("tPrev");
+      var next = document.getElementById("tNext");
+      var count = cards.length;
+      var idx = 0;
+      var timer;
+
+      function render() {
+        cards.forEach(function (el, i) {
+          var rel = (i - idx + count) % count;
+          el.style.setProperty("--i", String(Math.min(rel, 3)));
+          el.removeAttribute("data-front");
+          el.removeAttribute("data-out");
+          if (rel === 0) el.setAttribute("data-front", "");
+          if (rel >= 4) el.setAttribute("data-out", "");
+          el.setAttribute("aria-hidden", rel === 0 ? "false" : "true");
+          el.style.zIndex = String(100 - rel);
+        });
+        dots.forEach(function (d, i) {
+          if (i === idx) d.setAttribute("data-active", "");
+          else d.removeAttribute("data-active");
+        });
+      }
+
+      function go(to) {
+        idx = (to + count) % count;
+        render();
+        // restart auto-advance — force a reflow so the progress bar
+        // resets cleanly each time.
+        if (timer) clearTimeout(timer);
+        var active = document.querySelector(".t-dot[data-active] .t-dot-fill");
+        if (active) {
+          active.style.transition = "none";
+          active.style.width = "0%";
+          // reflow
+          void active.offsetWidth;
+          active.style.transition = "";
+        }
+        timer = setTimeout(function () { go(idx + 1); }, 5200);
+      }
+
+      dots.forEach(function (d, i) { d.addEventListener("click", function () { go(i); }); });
+      prev && prev.addEventListener("click", function () { go(idx - 1); });
+      next && next.addEventListener("click", function () { go(idx + 1); });
+
+      // Pause when the section is off-screen.
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            if (!timer) timer = setTimeout(function () { go(idx + 1); }, 5200);
+          } else {
+            clearTimeout(timer);
+            timer = null;
+          }
+        });
+      }, { threshold: 0 });
+      io.observe(stage);
+
+      go(0);
+    }
+    if (document.readyState !== "loading") init();
+    else document.addEventListener("DOMContentLoaded", init);
+  })();
+</script>
