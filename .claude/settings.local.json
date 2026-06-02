@@ -14,7 +14,26 @@
       "mcp__Claude_in_Chrome__tabs_create_mcp",
       "mcp__Claude_in_Chrome__navigate",
       "Bash(git remote *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(nslookup -type=A softy.uz 8.8.8.8)",
+      "Bash(nslookup -type=A www.softy.uz 8.8.8.8)",
+      "Bash(nslookup -type=NS softy.uz 8.8.8.8)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(curl -s -m 15 -H \"Host: softy.uz\" -I http://93.127.213.246/)",
+      "Bash(curl -s -m 15 -H \"Host: softy.uz\" http://93.127.213.246/uz/)",
+      "Bash(curl -s -m 15 -H 'Host: softy.uz' -o /dev/null -w '%{http_code} → redirect: %{redirect_url}\\\\n' http://93.127.213.246/)",
+      "Bash(curl -s -m 15 -H 'Host: softy.uz' http://93.127.213.246/ru/)",
+      "Bash(nslookup -type=A softy.uz 1.1.1.1)",
+      "Bash(nslookup -type=A softy.uz rdns1.ahost.uz)",
+      "Bash(curl --resolve softy.uz:443:148.113.35.233 -s -L -i https://softy.uz/)",
+      "Bash(nslookup softy.uz)",
+      "PowerShell(ipconfig /flushdns | Out-Null; \"Flushed.\"; \"Default resolver:\"; \\(Resolve-DnsName softy.uz -Type A -ErrorAction SilentlyContinue | Where-Object {$_.IPAddress} | Select-Object -First 1\\).IPAddress; \"Via Cloudflare 1.1.1.1:\"; \\(Resolve-DnsName softy.uz -Type A -Server 1.1.1.1 -ErrorAction SilentlyContinue | Where-Object {$_.IPAddress} | Select-Object -First 1\\).IPAddress)",
+      "Bash(echo \"=== Authoritative \\(ahost rdns1\\) — hozir ===\")",
+      "Bash(echo \" softy.uz:\")",
+      "Bash(nslookup -type=CNAME www.softy.uz rdns1.ahost.uz)",
+      "Bash(git rm *)",
+      "Bash(npm run *)",
+      "Bash(echo \"EXIT=$?\")"
     ]
   }
 }

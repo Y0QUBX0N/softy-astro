@@ -19,6 +19,11 @@ const ogImage = `${site}/og.svg`;
 // Privacy-friendly analytics: enabled only when PUBLIC_PLAUSIBLE_DOMAIN is set.
 const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN as string | undefined;
 
+// Search-engine verification codes (Google Search Console / Yandex Webmaster).
+// Set in .env and rebuild; the meta tags render only when present.
+const googleVerify = import.meta.env.PUBLIC_GOOGLE_VERIFICATION as string | undefined;
+const yandexVerify = import.meta.env.PUBLIC_YANDEX_VERIFICATION as string | undefined;
+
 const phone = "+998956400404";
 const telegram = "https://t.me/Softy_admin";
 
@@ -109,6 +114,10 @@ const breadcrumbLd = {
     <meta name="msapplication-TileColor" content="#FFFFFF" />
     <meta name="theme-color" content="#0E1014" />
     <meta name="generator" content={Astro.generator} />
+
+    {/* Search-engine ownership verification (render only when configured) */}
+    {googleVerify && <meta name="google-site-verification" content={googleVerify} />}
+    {yandexVerify && <meta name="yandex-verification" content={yandexVerify} />}
 
     <title>{pm.title}</title>
     <meta name="description" content={pm.description} />
