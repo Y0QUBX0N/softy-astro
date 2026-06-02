@@ -1,3 +1,8 @@
 ---
-return Astro.redirect("/uz/");
+// Landing redirect. Server-rendered (prerender=false) so the root issues a
+// real HTTP 302 straight to the Russian homepage — no "Redirecting…"
+// interstitial page. Russian is the default for the CIS audience; visitors
+// can switch language any time via the header switcher.
+export const prerender = false;
+return Astro.redirect("/ru/", 302);
 ---

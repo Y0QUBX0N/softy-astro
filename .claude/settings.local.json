@@ -33,7 +33,9 @@
       "Bash(nslookup -type=CNAME www.softy.uz rdns1.ahost.uz)",
       "Bash(git rm *)",
       "Bash(npm run *)",
-      "Bash(echo \"EXIT=$?\")"
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(curl --resolve softy.uz:443:93.127.213.246 -s https://softy.uz/robots.txt)",
+      "Bash(grep -oE '<meta name=\"description\" content=\"[^\"]{0,80}|<h1[^>]*>[^<]{0,60}')"
     ]
   }
 }
