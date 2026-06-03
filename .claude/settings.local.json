@@ -49,7 +49,13 @@
       "Bash(ls -la \"D:\\\\LOGOLAR\\\\Mijozlar\" 2>&1 | head -40; echo \"=== fayl turlari ===\"; ls \"D:\\\\LOGOLAR\\\\Mijozlar\" 2>&1 | sed 's/.*\\\\.//' | sort | uniq -c 2>/dev/null)",
       "Bash(cd 'D:\\\\softy-astro' && mkdir -p public/clients && cp \"D:\\\\LOGOLAR\\\\Mijozlar\\\\\"*.png public/clients/ && echo \"=== ko'chirildi ===\" && ls public/clients/ && echo \"=== soni ===\" && ls public/clients/*.png | wc -l)",
       "Bash(mkdir -p public/clients)",
-      "Bash(cp /d/LOGOLAR/Mijozlar/*.png public/clients/)"
+      "Bash(cp /d/LOGOLAR/Mijozlar/*.png public/clients/)",
+      "PowerShell(Get-Process node -ErrorAction SilentlyContinue)",
+      "PowerShell(Stop-Process -Force -ErrorAction SilentlyContinue)",
+      "PowerShell(\"node stopped\")",
+      "Bash(curl -s -m 3 http://127.0.0.1:4321/uz/ -o /dev/null -w \"%{http_code}\\\\n\")",
+      "Bash(curl -s -m 5 http://127.0.0.1:4321/uz/)",
+      "Bash(grep -nA1 \"testimonials: {\" src/lib/i18n.ts)"
     ]
   }
 }

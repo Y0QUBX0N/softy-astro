@@ -299,7 +299,7 @@ const uz: Content = {
     ],
   },
   testimonials: {
-    eyebrow: "Mijozlar",
+    eyebrow: "Fikrlar",
     title: "Aqlli kompaniyalar bizga ishonadi.",
     items: [
       { quote: "Softy bizning litsenziya xarajatlarimizni bir choragda 34% ga kamaytirdi. Endi 12 ta hisob o'rniga bitta hisobni boshqaramiz.", name: "Dilshod Karimov", role: "IT direktor, mid-market logistika", initials: "DK" },
@@ -561,7 +561,7 @@ const ru: Content = {
     ],
   },
   testimonials: {
-    eyebrow: "Клиенты",
+    eyebrow: "Отзывы",
     title: "Умные компании нам доверяют.",
     items: [
       { quote: "Softy снизил наши расходы на лицензии на 34% за квартал. Теперь один счёт вместо двенадцати.", name: "Дильшод Каримов", role: "IT-директор, логистика", initials: "ДК" },
@@ -823,7 +823,7 @@ const en: Content = {
     ],
   },
   testimonials: {
-    eyebrow: "Clients",
+    eyebrow: "Feedback",
     title: "Smart companies trust us.",
     items: [
       { quote: "Softy cut our licensing costs by 34% in a single quarter. We now manage one bill instead of twelve.", name: "Dilshod Karimov", role: "IT Director, logistics", initials: "DK" },
@@ -1085,7 +1085,7 @@ const kk: Content = {
     ],
   },
   testimonials: {
-    eyebrow: "Клиенттер",
+    eyebrow: "Пікірлер",
     title: "Ақылды компаниялар бізге сенеді.",
     items: [
       { quote: "Softy біздің лицензия шығынымызды бір тоқсанда 34%-ға қысқартты. Енді 12 есепшоттың орнына біреуін басқарамыз.", name: "Дилшод Каримов", role: "IT директор, орта нарық логистикасы", initials: "DK" },
@@ -1347,7 +1347,7 @@ const ky: Content = {
     ],
   },
   testimonials: {
-    eyebrow: "Кардарлар",
+    eyebrow: "Пикирлер",
     title: "Акылдуу компаниялар бизге ишенет.",
     items: [
       { quote: "Softy биздин лицензия чыгымыбызды бир чейректе 34%га кыскартты. Эми 12 эсептин ордуна бирөөнү башкарабыз.", name: "Дилшод Каримов", role: "IT директору, орто рынок логистикасы", initials: "DK" },
@@ -1609,7 +1609,7 @@ const tg: Content = {
     ],
   },
   testimonials: {
-    eyebrow: "Муштариён",
+    eyebrow: "Шарҳҳо",
     title: "Ширкатҳои доно ба мо бовар мекунанд.",
     items: [
       { quote: "Softy хароҷоти литсензияи моро дар як семоҳа 34% коҳиш дод. Акнун ба ҷои 12 ҳисоб якторо идора мекунем.", name: "Дилшод Каримов", role: "Директори IT, логистикаи бозори миёна", initials: "DK" },
