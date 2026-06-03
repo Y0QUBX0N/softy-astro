@@ -42,7 +42,10 @@
       "Bash(rm -f astro-dev.log)",
       "Bash(curl -s -m 3 http://127.0.0.1:4321/ru/ -o /dev/null -w \"dev server: %{http_code}\\\\n\")",
       "mcp__Claude_Preview__preview_start",
-      "Bash(cd 'D:\\\\softy-astro' && echo \"=== public/vendors/ \\(mavjud logolar\\) ===\" && ls public/vendors/ 2>/dev/null | head -30 *)"
+      "Bash(cd 'D:\\\\softy-astro' && echo \"=== public/vendors/ \\(mavjud logolar\\) ===\" && ls public/vendors/ 2>/dev/null | head -30 *)",
+      "Bash(cp /tmp/logotest/adobe.svg public/vendors/adobe.svg)",
+      "Bash(ls -la public/vendors/googlecloud.svg)",
+      "Bash([ -f \"public/vendors/$v.svg\" ])"
     ]
   }
 }

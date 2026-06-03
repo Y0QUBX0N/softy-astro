@@ -15,19 +15,29 @@ const loop = [...VENDORS, ...VENDORS];
   <div class="marquee-mask relative mt-7 overflow-hidden bg-paper py-8 md:py-9" id="marquee">
     <div class="marquee-track flex w-max items-center gap-16 px-6 md:gap-24" id="marqueeTrack">
       {
-        loop.map((v) => (
-          <img
-            src={`/vendors/${v.slug}.svg`}
-            alt={v.name}
-            loading="lazy"
-            decoding="async"
-            width="200"
-            height="64"
-            data-slug={v.slug}
-            class="vendor-logo h-12 w-auto shrink-0 md:h-14"
-            data-cursor
-          />
-        ))
+        loop.map((v) =>
+          v.logo === false ? (
+            <span
+              data-slug={v.slug}
+              class="vendor-wordmark shrink-0 select-none whitespace-nowrap text-[26px] font-semibold tracking-tight text-ink md:text-[30px]"
+              data-cursor
+            >
+              {v.name}
+            </span>
+          ) : (
+            <img
+              src={`/vendors/${v.slug}.svg`}
+              alt={v.name}
+              loading="lazy"
+              decoding="async"
+              width="200"
+              height="64"
+              data-slug={v.slug}
+              class="vendor-logo h-12 w-auto shrink-0 md:h-14"
+              data-cursor
+            />
+          ),
+        )
       }
     </div>
   </div>
