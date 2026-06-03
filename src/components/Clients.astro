@@ -25,8 +25,8 @@ const loop = [...CLIENTS, ...CLIENTS];
   </div>
 
   <!-- White rail so brand-coloured client logos read on the dark page. -->
-  <div class="clients-mask relative mt-8 overflow-hidden bg-paper py-8 md:py-10">
-    <div class="clients-track flex w-max items-center gap-12 px-6 md:gap-16" id="clientsTrack">
+  <div class="clients-mask relative mt-8 overflow-hidden bg-paper py-10 md:py-12">
+    <div class="clients-track flex w-max items-center gap-10 px-6 md:gap-14" id="clientsTrack">
       {
         loop.map((cl) =>
           cl.logo ? (
@@ -35,7 +35,7 @@ const loop = [...CLIENTS, ...CLIENTS];
               alt={cl.name}
               loading="lazy"
               decoding="async"
-              class="client-logo h-12 w-auto shrink-0 object-contain md:h-16"
+              class="client-logo h-16 w-auto shrink-0 object-contain md:h-24"
             />
           ) : (
             <span class="shrink-0 select-none whitespace-nowrap text-base font-semibold tracking-tight text-ink/75 md:text-lg">
