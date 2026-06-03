@@ -1,0 +1,156 @@
+---
+import { type Lang } from "../lib/i18n";
+import { pageUrl } from "../lib/nav";
+const { lang, hideHeader = false } = Astro.props as { lang: Lang; hideHeader?: boolean };
+
+interface Svc { title: string; desc: string }
+interface Copy { eyebrow: string; title: string; sub: string; cta: string; items: Svc[] }
+
+// Eight integrator service lines, framed honestly as supply + deploy + support
+// of the vendor portfolio Softy is an authorised reseller for.
+const T: Record<Lang, Copy> = {
+  uz: {
+    eyebrow: "Xizmatlar",
+    title: "Korxonangiz uchun to'liq IT-yechimlar",
+    sub: "Litsenziyadan kiberxavfsizlik, cloud va infratuzilmagacha — barchasini bir integrator orqali yetkazamiz, joriy qilamiz va qo'llab-quvvatlaymiz.",
+    cta: "Bog'lanish",
+    items: [
+      { title: "Litsenziyalash va obuna", desc: "Microsoft, Adobe, Autodesk va boshqa vendorlardan rasmiy litsenziyalarni tanlash, yetkazib berish va boshqarish." },
+      { title: "Kiberxavfsizlik", desc: "Firewall, endpoint himoya, DLP va pochta xavfsizligi — Fortinet, Palo Alto, Kaspersky asosida joriy qilamiz." },
+      { title: "Bulutli yechimlar", desc: "Google Cloud va Microsoft 365 / Azure — migratsiya, sozlash va boshqaruv." },
+      { title: "Server va tarmoq infratuzilma", desc: "Server, storage va tarmoq uskunalarini tanlash, o'rnatish va sozlash." },
+      { title: "Backup va tiklash", desc: "Veeam asosida zaxira nusxa va avariyadan tiklash — ma'lumotlaringiz xavfsiz." },
+      { title: "Biznes ilovalar va CRM", desc: "Bitrix24 va ClickUp — biznes jarayonlarni avtomatlashtirish va joriy qilish." },
+      { title: "Dizayn va muhandislik", desc: "Autodesk, nanoCAD, LIRA-FEM, IDEA StatiCa — CAD/BIM litsenziya va qo'llab-quvvatlash." },
+      { title: "IT support va autsorsing", desc: "O'rnatishdan keyin ham — 24/7 texnik yordam, migratsiya va doimiy boshqaruv." },
+    ],
+  },
+  ru: {
+    eyebrow: "Услуги",
+    title: "Полный спектр IT-решений для бизнеса",
+    sub: "От лицензирования до кибербезопасности, облака и инфраструктуры — поставляем, внедряем и поддерживаем всё через одного интегратора.",
+    cta: "Связаться",
+    items: [
+      { title: "Лицензирование и подписки", desc: "Подбор, поставка и управление официальными лицензиями Microsoft, Adobe, Autodesk и других вендоров." },
+      { title: "Кибербезопасность", desc: "Firewall, защита конечных устройств, DLP и безопасность почты — на базе Fortinet, Palo Alto, Kaspersky." },
+      { title: "Облачные решения", desc: "Google Cloud и Microsoft 365 / Azure — миграция, настройка и управление." },
+      { title: "Серверы и сетевая инфраструктура", desc: "Подбор, установка и настройка серверов, хранилищ и сетевого оборудования." },
+      { title: "Резервное копирование и DR", desc: "Резервное копирование и аварийное восстановление на базе Veeam — ваши данные защищены." },
+      { title: "Бизнес-приложения и CRM", desc: "Bitrix24 и ClickUp — автоматизация и внедрение бизнес-процессов." },
+      { title: "Проектирование и инженерия", desc: "Autodesk, nanoCAD, LIRA-FEM, IDEA StatiCa — лицензии CAD/BIM и поддержка." },
+      { title: "IT-поддержка и аутсорсинг", desc: "После внедрения — техподдержка 24/7, миграция и постоянное управление." },
+    ],
+  },
+  en: {
+    eyebrow: "Services",
+    title: "End-to-end IT solutions for your business",
+    sub: "From licensing to cybersecurity, cloud and infrastructure — we supply, deploy and support it all through one integrator.",
+    cta: "Get in touch",
+    items: [
+      { title: "Licensing & subscriptions", desc: "Selecting, supplying and managing official licenses from Microsoft, Adobe, Autodesk and other vendors." },
+      { title: "Cybersecurity", desc: "Firewall, endpoint protection, DLP and email security — built on Fortinet, Palo Alto, Kaspersky." },
+      { title: "Cloud solutions", desc: "Google Cloud and Microsoft 365 / Azure — migration, setup and management." },
+      { title: "Servers & network infrastructure", desc: "Selecting, installing and configuring servers, storage and network hardware." },
+      { title: "Backup & disaster recovery", desc: "Backup and disaster recovery powered by Veeam — your data stays safe." },
+      { title: "Business applications & CRM", desc: "Bitrix24 and ClickUp — automating and deploying business processes." },
+      { title: "Design & engineering", desc: "Autodesk, nanoCAD, LIRA-FEM, IDEA StatiCa — CAD/BIM licensing and support." },
+      { title: "IT support & outsourcing", desc: "Beyond deployment — 24/7 technical support, migration and ongoing management." },
+    ],
+  },
+  kk: {
+    eyebrow: "Қызметтер",
+    title: "Бизнесіңіз үшін толық IT-шешімдер",
+    sub: "Лицензиялаудан киберқауіпсіздік, бұлт және инфрақұрылымға дейін — барлығын бір интегратор арқылы жеткіземіз, енгіземіз және қолдаймыз.",
+    cta: "Байланысу",
+    items: [
+      { title: "Лицензиялау және жазылым", desc: "Microsoft, Adobe, Autodesk және басқа вендорлардан ресми лицензияларды таңдау, жеткізу және басқару." },
+      { title: "Киберқауіпсіздік", desc: "Firewall, endpoint қорғау, DLP және пошта қауіпсіздігі — Fortinet, Palo Alto, Kaspersky негізінде." },
+      { title: "Бұлттық шешімдер", desc: "Google Cloud және Microsoft 365 / Azure — көшіру, баптау және басқару." },
+      { title: "Сервер және желілік инфрақұрылым", desc: "Сервер, сақтау және желілік жабдықты таңдау, орнату және баптау." },
+      { title: "Резервтік көшіру және қалпына келтіру", desc: "Veeam негізінде резервтік көшіру және апаттан қалпына келтіру — деректеріңіз қорғалған." },
+      { title: "Бизнес-қосымшалар және CRM", desc: "Bitrix24 және ClickUp — бизнес-процестерді автоматтандыру және енгізу." },
+      { title: "Жобалау және инженерия", desc: "Autodesk, nanoCAD, LIRA-FEM, IDEA StatiCa — CAD/BIM лицензиялары және қолдау." },
+      { title: "IT қолдау және аутсорсинг", desc: "Енгізуден кейін де — 24/7 техникалық қолдау, көшіру және тұрақты басқару." },
+    ],
+  },
+  ky: {
+    eyebrow: "Кызматтар",
+    title: "Бизнесиңиз үчүн толук IT-чечимдер",
+    sub: "Лицензиялоодон киберкоопсуздук, булут жана инфраструктурага чейин — баарын бир интегратор аркылуу жеткиребиз, киргизебиз жана колдойбуз.",
+    cta: "Байланышуу",
+    items: [
+      { title: "Лицензиялоо жана жазылуу", desc: "Microsoft, Adobe, Autodesk жана башка вендорлордон расмий лицензияларды тандоо, жеткирүү жана башкаруу." },
+      { title: "Киберкоопсуздук", desc: "Firewall, endpoint коргоо, DLP жана почта коопсуздугу — Fortinet, Palo Alto, Kaspersky негизинде." },
+      { title: "Булут чечимдери", desc: "Google Cloud жана Microsoft 365 / Azure — миграция, тууралоо жана башкаруу." },
+      { title: "Сервер жана тармак инфраструктура", desc: "Сервер, сактагыч жана тармак жабдууларын тандоо, орнотуу жана тууралоо." },
+      { title: "Камдык көчүрүү жана калыбына келтирүү", desc: "Veeam негизинде камдык көчүрүү жана кырсыктан калыбына келтирүү — маалыматыңыз коопсуз." },
+      { title: "Бизнес-тиркемелер жана CRM", desc: "Bitrix24 жана ClickUp — бизнес-процесстерди автоматташтыруу жана киргизүү." },
+      { title: "Долбоорлоо жана инженерия", desc: "Autodesk, nanoCAD, LIRA-FEM, IDEA StatiCa — CAD/BIM лицензиялары жана колдоо." },
+      { title: "IT колдоо жана аутсорсинг", desc: "Киргизгенден кийин да — 24/7 техникалык колдоо, миграция жана туруктуу башкаруу." },
+    ],
+  },
+  tg: {
+    eyebrow: "Хидматҳо",
+    title: "Ҳалли мукаммали IT барои бизнеси шумо",
+    sub: "Аз литсензиякунонӣ то киберамният, абр ва инфрасохтор — ҳамаро тавассути як интегратор таъмин, ҷорӣ ва дастгирӣ мекунем.",
+    cta: "Тамос",
+    items: [
+      { title: "Литсензиякунонӣ ва обуна", desc: "Интихоб, таъмин ва идоракунии литсензияҳои расмии Microsoft, Adobe, Autodesk ва дигар вендорҳо." },
+      { title: "Киберамният", desc: "Firewall, ҳифзи endpoint, DLP ва амнияти почта — дар асоси Fortinet, Palo Alto, Kaspersky." },
+      { title: "Ҳалли абрӣ", desc: "Google Cloud ва Microsoft 365 / Azure — муҳоҷират, танзим ва идоракунӣ." },
+      { title: "Сервер ва инфрасохтори шабака", desc: "Интихоб, насб ва танзими сервер, захира ва таҷҳизоти шабака." },
+      { title: "Нусхабардорӣ ва барқарорсозӣ", desc: "Нусхабардорӣ ва барқарорсозии офат дар асоси Veeam — додаҳои шумо бехатаранд." },
+      { title: "Барномаҳои тиҷоратӣ ва CRM", desc: "Bitrix24 ва ClickUp — автоматизатсия ва ҷорисозии равандҳои тиҷоратӣ." },
+      { title: "Тарроҳӣ ва муҳандисӣ", desc: "Autodesk, nanoCAD, LIRA-FEM, IDEA StatiCa — литсензияҳои CAD/BIM ва дастгирӣ." },
+      { title: "Дастгирии IT ва аутсорсинг", desc: "Пас аз ҷорисозӣ низ — дастгирии техникии 24/7, муҳоҷират ва идоракунии доимӣ." },
+    ],
+  },
+};
+
+// Line icons, indexed to the 8 service lines above.
+const ICONS = [
+  '<path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M9 14l2 2 4-4"/>',
+  '<path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/>',
+  '<path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.5 1.5A4 4 0 0 0 7 19z"/>',
+  '<rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/>',
+  '<ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+  '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+  '<path d="M14 4l6 6-11 11H3v-6z"/><path d="M12 6l6 6"/>',
+  '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M5 5l4.5 4.5M14.5 14.5L19 19M19 5l-4.5 4.5M9.5 14.5L5 19"/>',
+];
+
+const c = T[lang];
+const contactHref = pageUrl(lang, "contact");
+---
+
+<section id="services" class="bg-paper text-ink">
+  <div class="container-x py-24 md:py-32">
+    {!hideHeader && (
+      <div class="reveal flex flex-wrap items-end justify-between gap-6">
+        <div class="max-w-2xl">
+          <span class="eyebrow" style="color:#06b08a">{c.eyebrow}</span>
+          <h2 class="h2 mt-5 text-balance" style="color:#0E1014">{c.title}</h2>
+          <p class="body-lg mt-6 max-w-prose text-ink/70">{c.sub}</p>
+        </div>
+        <a href={contactHref} class="btn btn-dark h-11 px-5 text-sm" data-cursor>
+          {c.cta}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+        </a>
+      </div>
+    )}
+
+    <div data-stagger class={`grid gap-5 sm:grid-cols-2 lg:grid-cols-4 ${hideHeader ? "" : "mt-16"}`}>
+      {
+        c.items.map((s, i) => (
+          <article class="group flex flex-col gap-4 rounded-2xl border border-hairline-dark bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:border-accent-deep/40 hover:shadow-[0_24px_50px_-24px_rgba(6,176,138,0.35)]">
+            <span class="grid h-12 w-12 place-items-center rounded-xl border border-hairline-dark text-accent-deep transition-colors duration-300 group-hover:border-accent-deep/50 group-hover:bg-accent-deep/8">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" set:html={ICONS[i]} />
+            </span>
+            <h3 class="text-[19px] font-semibold leading-tight tracking-tight" style="color:#0E1014">{s.title}</h3>
+            <p class="text-[15px] leading-relaxed text-ink/65">{s.desc}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

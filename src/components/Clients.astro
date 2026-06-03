@@ -1,99 +1,62 @@
 ---
 import type { Lang } from "../lib/i18n";
-import { CLIENTS, SECTOR_ORDER, type ClientSector } from "../lib/clients";
+import { CLIENTS } from "../lib/clients";
 const { lang } = Astro.props as { lang: Lang };
 
-interface Copy {
-  eyebrow: string;
-  title: string;
-  sub: string;
-  sectors: Record<ClientSector, string>;
-}
-
-const T: Record<Lang, Copy> = {
-  uz: {
-    eyebrow: "Mijozlar",
-    title: "Bizga ishonadigan tashkilotlar",
-    sub: "Davlat idoralari, banklar, telekom operatorlari va yirik korxonalar IT infratuzilma, litsenziya va kiberxavfsizlik bo'yicha Softy bilan ishlaydi.",
-    sectors: { government: "Davlat sektori", bank: "Bank va moliya", telecom: "Telekom", enterprise: "Korxonalar" },
-  },
-  ru: {
-    eyebrow: "Клиенты",
-    title: "Организации, которые нам доверяют",
-    sub: "Государственные органы, банки, телеком-операторы и крупные предприятия работают с Softy по ИТ-инфраструктуре, лицензированию и кибербезопасности.",
-    sectors: { government: "Госсектор", bank: "Банки и финансы", telecom: "Телеком", enterprise: "Предприятия" },
-  },
-  en: {
-    eyebrow: "Clients",
-    title: "Organisations that trust us",
-    sub: "Government bodies, banks, telecom operators and large enterprises work with Softy on IT infrastructure, licensing and cybersecurity.",
-    sectors: { government: "Public sector", bank: "Banking & finance", telecom: "Telecom", enterprise: "Enterprises" },
-  },
-  kk: {
-    eyebrow: "Клиенттер",
-    title: "Бізге сенетін ұйымдар",
-    sub: "Мемлекеттік органдар, банктер, телеком операторлары және ірі кәсіпорындар IT инфрақұрылым, лицензиялау және киберқауіпсіздік бойынша Softy-мен жұмыс істейді.",
-    sectors: { government: "Мемлекеттік сектор", bank: "Банк және қаржы", telecom: "Телеком", enterprise: "Кәсіпорындар" },
-  },
-  ky: {
-    eyebrow: "Кардарлар",
-    title: "Бизге ишенген уюмдар",
-    sub: "Мамлекеттик органдар, банктер, телеком операторлору жана ири ишканалар IT инфраструктура, лицензиялоо жана киберкоопсуздук боюнча Softy менен иштешет.",
-    sectors: { government: "Мамлекеттик сектор", bank: "Банк жана каржы", telecom: "Телеком", enterprise: "Ишканалар" },
-  },
-  tg: {
-    eyebrow: "Муштариён",
-    title: "Ташкилотҳое, ки ба мо бовар мекунанд",
-    sub: "Мақомоти давлатӣ, бонкҳо, операторони телеком ва корхонаҳои бузург оид ба инфрасохтори IT, литсензиякунонӣ ва киберамният бо Softy кор мекунанд.",
-    sectors: { government: "Бахши давлатӣ", bank: "Бонк ва молия", telecom: "Телеком", enterprise: "Корхонаҳо" },
-  },
+const T: Record<Lang, { eyebrow: string; title: string }> = {
+  uz: { eyebrow: "Mijozlar", title: "Bizga ishonadigan tashkilotlar" },
+  ru: { eyebrow: "Клиенты", title: "Организации, которые нам доверяют" },
+  en: { eyebrow: "Clients", title: "Organisations that trust us" },
+  kk: { eyebrow: "Клиенттер", title: "Бізге сенетін ұйымдар" },
+  ky: { eyebrow: "Кардарлар", title: "Бизге ишенген уюмдар" },
+  tg: { eyebrow: "Муштариён", title: "Ташкилотҳое, ки ба мо бовар мекунанд" },
 };
-
 const c = T[lang];
-const sorted = [...CLIENTS].sort(
-  (a, b) => SECTOR_ORDER.indexOf(a.sector) - SECTOR_ORDER.indexOf(b.sector),
-);
+// Doubled for a seamless infinite loop (GSAP shifts the track by -50%).
+const loop = [...CLIENTS, ...CLIENTS];
 ---
 
-<section id="clients" class="border-t border-hairline py-24 md:py-32">
+<section id="clients" class="border-t border-hairline py-14 md:py-16">
   <div class="container-x">
-    <div class="reveal max-w-2xl">
+    <div class="reveal max-w-prose">
       <span class="eyebrow">{c.eyebrow}</span>
-      <h2 class="h2 mt-5 text-balance">{c.title}</h2>
-      <p class="body-lg mt-6 text-secondary">{c.sub}</p>
+      <h2 class="mt-3 text-xl font-medium tracking-tight md:text-2xl">{c.title}</h2>
     </div>
+  </div>
 
-    <div
-      data-stagger
-      class="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-5 lg:grid-cols-4"
-    >
+  <!-- White rail so brand-coloured client logos read on the dark page. -->
+  <div class="clients-mask relative mt-8 overflow-hidden bg-paper py-6 md:py-7">
+    <div class="clients-track flex w-max items-center gap-10 px-6 md:gap-14" id="clientsTrack">
       {
-        sorted.map((cl) => (
-          <div
-            class="card-3d group grid aspect-[5/3] place-items-center rounded-xl border border-hairline bg-paper p-5 text-center"
-            title={cl.name}
-          >
-            <div class="flex flex-col items-center justify-center gap-2">
-              {cl.logo ? (
-                <img
-                  src={`/clients/${cl.slug}.svg`}
-                  alt={`${cl.name} — Softy LLC mijozi`}
-                  loading="lazy"
-                  decoding="async"
-                  class="max-h-12 w-auto max-w-[86%] md:max-h-14"
-                />
-              ) : (
-                <span class="text-[16px] font-semibold leading-tight tracking-tight text-ink md:text-[17px]">
-                  {cl.name}
-                </span>
-              )}
-              <span class="font-mono text-[10px] uppercase tracking-eyebrow text-ink/40">
-                {c.sectors[cl.sector]}
-              </span>
-            </div>
-          </div>
-        ))
+        loop.map((cl) =>
+          cl.logo ? (
+            <img
+              src={`/clients/${cl.slug}.png`}
+              alt={cl.name}
+              loading="lazy"
+              decoding="async"
+              class="client-logo h-9 w-auto shrink-0 object-contain md:h-11"
+            />
+          ) : (
+            <span class="shrink-0 select-none whitespace-nowrap text-base font-semibold tracking-tight text-ink/75 md:text-lg">
+              {cl.name}
+            </span>
+          ),
+        )
       }
     </div>
   </div>
 </section>
+
+<style>
+  .clients-mask {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+  .client-logo {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @media (pointer: fine) {
+    .client-logo:hover { transform: scale(1.08); }
+  }
+</style>

@@ -45,7 +45,11 @@
       "Bash(cd 'D:\\\\softy-astro' && echo \"=== public/vendors/ \\(mavjud logolar\\) ===\" && ls public/vendors/ 2>/dev/null | head -30 *)",
       "Bash(cp /tmp/logotest/adobe.svg public/vendors/adobe.svg)",
       "Bash(ls -la public/vendors/googlecloud.svg)",
-      "Bash([ -f \"public/vendors/$v.svg\" ])"
+      "Bash([ -f \"public/vendors/$v.svg\" ])",
+      "Bash(ls -la \"D:\\\\LOGOLAR\\\\Mijozlar\" 2>&1 | head -40; echo \"=== fayl turlari ===\"; ls \"D:\\\\LOGOLAR\\\\Mijozlar\" 2>&1 | sed 's/.*\\\\.//' | sort | uniq -c 2>/dev/null)",
+      "Bash(cd 'D:\\\\softy-astro' && mkdir -p public/clients && cp \"D:\\\\LOGOLAR\\\\Mijozlar\\\\\"*.png public/clients/ && echo \"=== ko'chirildi ===\" && ls public/clients/ && echo \"=== soni ===\" && ls public/clients/*.png | wc -l)",
+      "Bash(mkdir -p public/clients)",
+      "Bash(cp /d/LOGOLAR/Mijozlar/*.png public/clients/)"
     ]
   }
 }

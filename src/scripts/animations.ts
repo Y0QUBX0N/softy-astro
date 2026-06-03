@@ -128,6 +128,7 @@ ready(() => {
   };
   makeMarquee("marqueeTrack", 38);
   makeMarquee("tMarqueeTrack", 60);
+  makeMarquee("clientsTrack", 55);
 
   /* ---------- Scroll story ---------- */
   const storyWrap = document.getElementById("storyWrap");

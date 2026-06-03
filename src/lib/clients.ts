@@ -1,10 +1,9 @@
-// Real Softy LLC clients, grouped by sector for the homepage trust wall.
-// `logo` is set true only once a clean, permitted logo file exists at
-// /public/clients/<slug>.svg — otherwise the name renders as a typeset card.
+// Real Softy LLC clients, grouped by sector. Logos live at
+// /public/clients/<slug>.png (transparent). `logo: false` → no file yet, the
+// name renders as a typeset wordmark instead of a broken image.
 //
 // NOTE: public display of some clients (security agencies, banks, ministries)
-// may require their consent / brand-usage approval. Keep here only the
-// organisations Softy is authorised to show publicly.
+// is shown with the client's permission.
 
 export type ClientSector = "government" | "bank" | "telecom" | "enterprise";
 
@@ -17,25 +16,25 @@ export interface Client {
 
 export const CLIENTS: Client[] = [
   // ── Davlat sektori ──
-  { name: "Kadastr agentligi", sector: "government", slug: "kadastr" },
-  { name: "Kiberxavfsizlik markazi", sector: "government", slug: "cybersec" },
-  { name: "IIV", sector: "government", slug: "iiv" },
-  { name: "O'zarxiv agentligi", sector: "government", slug: "ozarxiv" },
-  { name: "Ekologiya vazirligi", sector: "government", slug: "ekologiya" },
-  { name: "Transport vazirligi", sector: "government", slug: "transport" },
+  { name: "Kadastr agentligi", sector: "government", slug: "kadastr", logo: true },
+  { name: "Kiberxavfsizlik markazi", sector: "government", slug: "cybersec", logo: true },
+  { name: "IIV", sector: "government", slug: "iiv", logo: true },
+  { name: "O'zarxiv agentligi", sector: "government", slug: "ozarxiv", logo: true },
+  { name: "Ekologiya vazirligi", sector: "government", slug: "ekologiya", logo: true },
+  { name: "Transport vazirligi", sector: "government", slug: "transport", logo: true },
   { name: "Elektron auksionlar", sector: "government", slug: "auksion" },
-  { name: "Digital Generation", sector: "government", slug: "digitalgen" },
+  { name: "Digital Generation", sector: "government", slug: "digitalgen", logo: true },
   // ── Bank va moliya ──
-  { name: "NBU", sector: "bank", slug: "nbu" },
-  { name: "Asakabank", sector: "bank", slug: "asakabank" },
-  { name: "Xalq banki", sector: "bank", slug: "xalqbank" },
-  { name: "BRB", sector: "bank", slug: "brb" },
+  { name: "NBU", sector: "bank", slug: "nbu", logo: true },
+  { name: "Asakabank", sector: "bank", slug: "asakabank", logo: true },
+  { name: "Xalq banki", sector: "bank", slug: "xalqbank", logo: true },
+  { name: "BRB", sector: "bank", slug: "brb", logo: true },
   // ── Telekom ──
-  { name: "Beeline", sector: "telecom", slug: "beeline" },
-  { name: "Ucell", sector: "telecom", slug: "ucell" },
+  { name: "Beeline", sector: "telecom", slug: "beeline", logo: true },
+  { name: "Ucell", sector: "telecom", slug: "ucell", logo: true },
   // ── Korxonalar ──
-  { name: "SamAuto", sector: "enterprise", slug: "samauto" },
-  { name: "BYD", sector: "enterprise", slug: "byd" },
+  { name: "SamAuto", sector: "enterprise", slug: "samauto", logo: true },
+  { name: "BYD", sector: "enterprise", slug: "byd", logo: true },
 ];
 
 export const SECTOR_ORDER: ClientSector[] = ["government", "bank", "telecom", "enterprise"];
