@@ -35,7 +35,14 @@
       "Bash(npm run *)",
       "Bash(echo \"EXIT=$?\")",
       "Bash(curl --resolve softy.uz:443:93.127.213.246 -s https://softy.uz/robots.txt)",
-      "Bash(grep -oE '<meta name=\"description\" content=\"[^\"]{0,80}|<h1[^>]*>[^<]{0,60}')"
+      "Bash(grep -oE '<meta name=\"description\" content=\"[^\"]{0,80}|<h1[^>]*>[^<]{0,60}')",
+      "WebFetch(domain:chatgpt.com)",
+      "mcp__Claude_in_Chrome__switch_browser",
+      "mcp__Claude_in_Chrome__get_page_text",
+      "Bash(rm -f astro-dev.log)",
+      "Bash(curl -s -m 3 http://127.0.0.1:4321/ru/ -o /dev/null -w \"dev server: %{http_code}\\\\n\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(cd 'D:\\\\softy-astro' && echo \"=== public/vendors/ \\(mavjud logolar\\) ===\" && ls public/vendors/ 2>/dev/null | head -30 *)"
     ]
   }
 }

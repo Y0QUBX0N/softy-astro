@@ -1,0 +1,99 @@
+---
+import type { Lang } from "../lib/i18n";
+import { CLIENTS, SECTOR_ORDER, type ClientSector } from "../lib/clients";
+const { lang } = Astro.props as { lang: Lang };
+
+interface Copy {
+  eyebrow: string;
+  title: string;
+  sub: string;
+  sectors: Record<ClientSector, string>;
+}
+
+const T: Record<Lang, Copy> = {
+  uz: {
+    eyebrow: "Mijozlar",
+    title: "Bizga ishonadigan tashkilotlar",
+    sub: "Davlat idoralari, banklar, telekom operatorlari va yirik korxonalar IT infratuzilma, litsenziya va kiberxavfsizlik bo'yicha Softy bilan ishlaydi.",
+    sectors: { government: "Davlat sektori", bank: "Bank va moliya", telecom: "Telekom", enterprise: "Korxonalar" },
+  },
+  ru: {
+    eyebrow: "Клиенты",
+    title: "Организации, которые нам доверяют",
+    sub: "Государственные органы, банки, телеком-операторы и крупные предприятия работают с Softy по ИТ-инфраструктуре, лицензированию и кибербезопасности.",
+    sectors: { government: "Госсектор", bank: "Банки и финансы", telecom: "Телеком", enterprise: "Предприятия" },
+  },
+  en: {
+    eyebrow: "Clients",
+    title: "Organisations that trust us",
+    sub: "Government bodies, banks, telecom operators and large enterprises work with Softy on IT infrastructure, licensing and cybersecurity.",
+    sectors: { government: "Public sector", bank: "Banking & finance", telecom: "Telecom", enterprise: "Enterprises" },
+  },
+  kk: {
+    eyebrow: "Клиенттер",
+    title: "Бізге сенетін ұйымдар",
+    sub: "Мемлекеттік органдар, банктер, телеком операторлары және ірі кәсіпорындар IT инфрақұрылым, лицензиялау және киберқауіпсіздік бойынша Softy-мен жұмыс істейді.",
+    sectors: { government: "Мемлекеттік сектор", bank: "Банк және қаржы", telecom: "Телеком", enterprise: "Кәсіпорындар" },
+  },
+  ky: {
+    eyebrow: "Кардарлар",
+    title: "Бизге ишенген уюмдар",
+    sub: "Мамлекеттик органдар, банктер, телеком операторлору жана ири ишканалар IT инфраструктура, лицензиялоо жана киберкоопсуздук боюнча Softy менен иштешет.",
+    sectors: { government: "Мамлекеттик сектор", bank: "Банк жана каржы", telecom: "Телеком", enterprise: "Ишканалар" },
+  },
+  tg: {
+    eyebrow: "Муштариён",
+    title: "Ташкилотҳое, ки ба мо бовар мекунанд",
+    sub: "Мақомоти давлатӣ, бонкҳо, операторони телеком ва корхонаҳои бузург оид ба инфрасохтори IT, литсензиякунонӣ ва киберамният бо Softy кор мекунанд.",
+    sectors: { government: "Бахши давлатӣ", bank: "Бонк ва молия", telecom: "Телеком", enterprise: "Корхонаҳо" },
+  },
+};
+
+const c = T[lang];
+const sorted = [...CLIENTS].sort(
+  (a, b) => SECTOR_ORDER.indexOf(a.sector) - SECTOR_ORDER.indexOf(b.sector),
+);
+---
+
+<section id="clients" class="border-t border-hairline py-24 md:py-32">
+  <div class="container-x">
+    <div class="reveal max-w-2xl">
+      <span class="eyebrow">{c.eyebrow}</span>
+      <h2 class="h2 mt-5 text-balance">{c.title}</h2>
+      <p class="body-lg mt-6 text-secondary">{c.sub}</p>
+    </div>
+
+    <div
+      data-stagger
+      class="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-5 lg:grid-cols-4"
+    >
+      {
+        sorted.map((cl) => (
+          <div
+            class="card-3d group grid aspect-[5/3] place-items-center rounded-xl border border-hairline bg-paper p-5 text-center"
+            title={cl.name}
+          >
+            <div class="flex flex-col items-center justify-center gap-2">
+              {cl.logo ? (
+                <img
+                  src={`/clients/${cl.slug}.svg`}
+                  alt={`${cl.name} — Softy LLC mijozi`}
+                  loading="lazy"
+                  decoding="async"
+                  class="max-h-12 w-auto max-w-[86%] md:max-h-14"
+                />
+              ) : (
+                <span class="text-[16px] font-semibold leading-tight tracking-tight text-ink md:text-[17px]">
+                  {cl.name}
+                </span>
+              )}
+              <span class="font-mono text-[10px] uppercase tracking-eyebrow text-ink/40">
+                {c.sectors[cl.sector]}
+              </span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
