@@ -104,12 +104,12 @@ const uz: Content = {
   meta: {
     title: "Softy LLC — Rasmiy IT-Integrator | Litsenziyalar MDH bo'ylab",
     description:
-      "Barcha operatsion tizimlar uchun rasmiy litsenziyalangan dasturlar, obuna boshqaruvi, o'rnatish va 24/7 texnik yordam. 50+ mijoz. 92% qaytish. Bepul audit oling.",
+      "Barcha operatsion tizimlar uchun rasmiy litsenziyalangan dasturlar, obuna boshqaruvi, o'rnatish va 24/7 texnik yordam. 200+ mijoz. 92% qaytish. Bepul audit oling.",
   },
   pageMeta: {
     home: {
       title: "Softy LLC — Rasmiy IT-Integrator | Litsenziyalar MDH bo'ylab",
-      description: "Vendorlardan to'g'ridan-to'g'ri rasmiy dasturiy litsenziyalar, obuna boshqaruvi, o'rnatish va 24/7 yordam. 50+ mijoz, 92% qaytish. Bepul audit oling.",
+      description: "Vendorlardan to'g'ridan-to'g'ri rasmiy dasturiy litsenziyalar, obuna boshqaruvi, o'rnatish va 24/7 yordam. 200+ mijoz, 92% qaytish. Bepul audit oling.",
     },
     services: {
       title: "Xizmatlar — Litsenziya, obuna, o'rnatish | Softy LLC",
@@ -129,7 +129,7 @@ const uz: Content = {
     },
     about: {
       title: "Biz haqimizda — IT-integrator | Softy LLC",
-      description: "Softy LLC — rasmiy IT-integrator. 50+ mijoz, 92% qaytish, 9+ davlat. Vendorlardan to'g'ridan-to'g'ri litsenziya, obuna va xizmat.",
+      description: "Softy LLC — rasmiy IT-integrator. 200+ mijoz, 92% qaytish, 9+ davlat. Vendorlardan to'g'ridan-to'g'ri litsenziya, obuna va xizmat.",
     },
     contact: {
       title: "Aloqa — Bepul audit oling | Softy LLC",
@@ -145,7 +145,7 @@ const uz: Content = {
     lead: "Bulutli xizmatlar va kiberxavfsizlikdan muhandislik dasturlarigacha — yetakchi jahon vendorlarining rasmiy litsenziyalari. Joriy etamiz va qo'llab-quvvatlaymiz.",
     ctaPrimary: "Bepul audit oling",
     ctaSecondary: "Hamkorlarni ko'rish",
-    trust: ["50+ kompaniya bizga ishonadi", "9 davlat", "24/7 yordam"],
+    trust: ["200+ kompaniya bizga ishonadi", "9 davlat", "24/7 yordam"],
   },
   vendors: { label: "Rasmiy hamkorlik — yetakchi vendorlar bilan to'g'ridan-to'g'ri" },
   partners: { eyebrow: "Hamkorlar", title: "Rasmiy vendor hamkorlarimiz", sub: "Yetakchi xalqaro vendorlar bilan to'g'ridan-to'g'ri hamkorlik — har bir litsenziya kafolatlangan va rasmiy." },
@@ -234,10 +234,10 @@ const uz: Content = {
   stats: {
     eyebrow: "Raqamlarda",
     items: [
-      { value: 50, suffix: "+", label: "Faol mijozlar" },
+      { value: 200, suffix: "+", label: "Faol mijozlar" },
       { value: 92, suffix: "%", label: "Mijozlar qaytishi (3+ yil)" },
       { value: 26, label: "Rasmiy vendorlar" },
-      { value: 9, suffix: "+", label: "MDH davlatlari" },
+      { value: 24, suffix: "/7", label: "Yordam va kuzatuv" },
     ],
   },
   engagement: {
@@ -295,7 +295,7 @@ const uz: Content = {
       "Softy kichik va o'rta korxonalardan tortib yirik tashkilotlargacha bo'lgan bizneslar uchun mo'ljallangan. Har bir mijoz uchun shaxsiy yondashuv va biznes hajmiga moslangan yechimlar — biz uchun standart amaliyot, qoidadan istisno emas.",
       "Bizning vazifamiz oddiy: bitta shartnoma, har bir vendor, hech qanday murosasizlik. Litsenziya auditi orqali ortiqcha xarajatlarni topamiz, o'rnatamiz va doimiy texnik yordam ko'rsatamiz.",
       "Softy ortida — texnologiyaga ishtiyoq bilan qaragan jamoa turadi. Bizning maqsadimiz aniq: har bir mijozning ish jarayonini soddalashtirish va biznesining rivojiga ulush qo'shish. Sotuv emas — uzoq muddatli hamkorlik bizning ish modelimizning asosi.",
-      "MDH'ning 9+ davlatida 50+ kompaniya bizga ishonadi. 92% mijozlar qaytishi, vendor sertifikatlari va doimiy texnik kompetensiya — bu raqamlar emas, bu sizning ishonchingiz va biznesingizning natijasi.",
+      "MDH'ning 9+ davlatida 200+ kompaniya bizga ishonadi. 92% mijozlar qaytishi, vendor sertifikatlari va doimiy texnik kompetensiya — bu raqamlar emas, bu sizning ishonchingiz va biznesingizning natijasi.",
     ],
   },
   testimonials: {
@@ -366,12 +366,12 @@ const ru: Content = {
   meta: {
     title: "Softy LLC — Официальный IT-интегратор | Лицензии по СНГ",
     description:
-      "Официальные лицензии для всех ОС, управление подписками, установка и поддержка 24/7. 50+ клиентов. 92% возврата. Закажите бесплатный аудит.",
+      "Официальные лицензии для всех ОС, управление подписками, установка и поддержка 24/7. 200+ клиентов. 92% возврата. Закажите бесплатный аудит.",
   },
   pageMeta: {
     home: {
       title: "Softy LLC — Официальный IT-интегратор | Лицензии по СНГ",
-      description: "Официальные лицензии напрямую от вендоров, управление подписками, установка и поддержка 24/7. 50+ клиентов, 92% возврата. Бесплатный аудит.",
+      description: "Официальные лицензии напрямую от вендоров, управление подписками, установка и поддержка 24/7. 200+ клиентов, 92% возврата. Бесплатный аудит.",
     },
     services: {
       title: "Услуги — Лицензии, подписки, установка | Softy LLC",
@@ -391,7 +391,7 @@ const ru: Content = {
     },
     about: {
       title: "О нас — IT-интегратор | Softy LLC",
-      description: "Softy LLC — официальный IT-интегратор. 50+ клиентов, 92% возврата, 9+ стран. Лицензии и услуги напрямую от вендоров.",
+      description: "Softy LLC — официальный IT-интегратор. 200+ клиентов, 92% возврата, 9+ стран. Лицензии и услуги напрямую от вендоров.",
     },
     contact: {
       title: "Контакты — Бесплатный аудит | Softy LLC",
@@ -407,7 +407,7 @@ const ru: Content = {
     lead: "От облачных сервисов и кибербезопасности до инженерного ПО — официальные лицензии ведущих мировых вендоров. Внедряем и сопровождаем под ключ.",
     ctaPrimary: "Бесплатный аудит",
     ctaSecondary: "Наши вендоры",
-    trust: ["Нам доверяют 50+ компаний", "9 стран", "Поддержка 24/7"],
+    trust: ["Нам доверяют 200+ компаний", "9 стран", "Поддержка 24/7"],
   },
   vendors: { label: "Официальное партнёрство — напрямую с ведущими вендорами" },
   partners: { eyebrow: "Партнёры", title: "Наши официальные вендор-партнёры", sub: "Прямое партнёрство с ведущими мировыми вендорами — каждая лицензия гарантированная и официальная." },
@@ -496,10 +496,10 @@ const ru: Content = {
   stats: {
     eyebrow: "В цифрах",
     items: [
-      { value: 50, suffix: "+", label: "Активных клиентов" },
+      { value: 200, suffix: "+", label: "Активных клиентов" },
       { value: 92, suffix: "%", label: "Возврат клиентов (3+ года)" },
       { value: 26, label: "Официальных вендоров" },
-      { value: 9, suffix: "+", label: "Стран СНГ" },
+      { value: 24, suffix: "/7", label: "Поддержка и сопровождение" },
     ],
   },
   engagement: {
@@ -557,7 +557,7 @@ const ru: Content = {
       "Softy ориентирована на бизнес от малых и средних предприятий до крупных организаций. Индивидуальный подход к каждому клиенту и решения, адаптированные под размер бизнеса — наша стандартная практика, а не исключение из правил.",
       "Наша задача проста: один договор, любой вендор, без компромиссов. Через аудит лицензий мы находим переплаты, устанавливаем и обеспечиваем постоянную техподдержку.",
       "За Softy стоит команда, увлечённая технологиями. Наша цель ясна: упростить рабочие процессы каждого клиента и внести вклад в развитие его бизнеса. Не продажа — а долгосрочное партнёрство лежит в основе нашей модели работы.",
-      "В 9+ странах СНГ нам доверяют 50+ компаний. 92% возврата клиентов, сертификации вендоров и стабильные технические компетенции — это не просто цифры, это результат вашего доверия и роста вашего бизнеса.",
+      "В 9+ странах СНГ нам доверяют 200+ компаний. 92% возврата клиентов, сертификации вендоров и стабильные технические компетенции — это не просто цифры, это результат вашего доверия и роста вашего бизнеса.",
     ],
   },
   testimonials: {
@@ -628,12 +628,12 @@ const en: Content = {
   meta: {
     title: "Softy LLC — Official IT Integrator | Licenses across the CIS",
     description:
-      "Official licensed software for every OS, subscription management, deployment and 24/7 support. 50+ clients. 92% retention. Get a free audit.",
+      "Official licensed software for every OS, subscription management, deployment and 24/7 support. 200+ clients. 92% retention. Get a free audit.",
   },
   pageMeta: {
     home: {
       title: "Softy LLC — Official IT Integrator | Licenses across the CIS",
-      description: "Genuine software licenses direct from vendors, subscription management, deployment and 24/7 support. 50+ clients, 92% retention. Free audit.",
+      description: "Genuine software licenses direct from vendors, subscription management, deployment and 24/7 support. 200+ clients, 92% retention. Free audit.",
     },
     services: {
       title: "Services — Licensing, subscriptions, deployment | Softy",
@@ -653,7 +653,7 @@ const en: Content = {
     },
     about: {
       title: "About — IT integrator | Softy LLC",
-      description: "Softy LLC is an official IT integrator. 50+ clients, 92% retention, 9+ countries. Licenses and services direct from vendors.",
+      description: "Softy LLC is an official IT integrator. 200+ clients, 92% retention, 9+ countries. Licenses and services direct from vendors.",
     },
     contact: {
       title: "Contact — Get a free audit | Softy LLC",
@@ -669,7 +669,7 @@ const en: Content = {
     lead: "From cloud and cybersecurity to engineering software — official licenses from leading global vendors. We deploy and support, end to end.",
     ctaPrimary: "Get a free audit",
     ctaSecondary: "See our vendors",
-    trust: ["Trusted by 50+ companies", "9 countries", "24/7 support"],
+    trust: ["Trusted by 200+ companies", "9 countries", "24/7 support"],
   },
   vendors: { label: "Official partnerships — direct with leading vendors" },
   partners: { eyebrow: "Partners", title: "Our official vendor partners", sub: "Direct partnerships with leading global vendors — every license guaranteed and official." },
@@ -758,10 +758,10 @@ const en: Content = {
   stats: {
     eyebrow: "By the numbers",
     items: [
-      { value: 50, suffix: "+", label: "Active clients" },
+      { value: 200, suffix: "+", label: "Active clients" },
       { value: 92, suffix: "%", label: "Client retention (3+ yrs)" },
       { value: 26, label: "Official vendors" },
-      { value: 9, suffix: "+", label: "CIS countries" },
+      { value: 24, suffix: "/7", label: "Support & maintenance" },
     ],
   },
   engagement: {
@@ -819,7 +819,7 @@ const en: Content = {
       "Softy is built for businesses from small and medium enterprises to large organizations. A tailored approach for every client and solutions matched to your business size — that's our standard practice, not the exception.",
       "Our mission is simple: one contract, every vendor, zero compromises. Through license audits we find the overspend, deploy, and provide ongoing technical support.",
       "Behind Softy stands a team passionate about technology. Our goal is clear: simplify every client's work and contribute to their business growth. Not the sale — but a long-term partnership lies at the core of how we work.",
-      "Across 9+ CIS countries, 50+ companies trust us. 92% client retention, vendor certifications and steady technical competence — these aren't just numbers, they're the result of your trust and the growth of your business.",
+      "Across 9+ CIS countries, 200+ companies trust us. 92% client retention, vendor certifications and steady technical competence — these aren't just numbers, they're the result of your trust and the growth of your business.",
     ],
   },
   testimonials: {
@@ -890,12 +890,12 @@ const kk: Content = {
   meta: {
     title: "Softy LLC — Ресми IT-интегратор | Лицензиялар ТМД бойынша",
     description:
-      "Барлық операциялық жүйелерге ресми лицензияланған бағдарламалар, жазылым басқару, орнату және 24/7 техникалық қолдау. 50+ клиент. 92% қайтару. Тегін аудит алыңыз.",
+      "Барлық операциялық жүйелерге ресми лицензияланған бағдарламалар, жазылым басқару, орнату және 24/7 техникалық қолдау. 200+ клиент. 92% қайтару. Тегін аудит алыңыз.",
   },
   pageMeta: {
     home: {
       title: "Softy LLC — Ресми IT-интегратор | Лицензиялар ТМД бойынша",
-      description: "Вендорлардан тікелей ресми бағдарламалық лицензиялар, жазылым басқару, орнату және 24/7 қолдау. 50+ клиент, 92% қайтару. Тегін аудит алыңыз.",
+      description: "Вендорлардан тікелей ресми бағдарламалық лицензиялар, жазылым басқару, орнату және 24/7 қолдау. 200+ клиент, 92% қайтару. Тегін аудит алыңыз.",
     },
     services: {
       title: "Қызметтер — Лицензия, жазылым, орнату | Softy LLC",
@@ -915,7 +915,7 @@ const kk: Content = {
     },
     about: {
       title: "Біз туралы — IT-интегратор | Softy LLC",
-      description: "Softy LLC — ресми IT-интегратор. 50+ клиент, 92% қайтару, 9+ ел. Вендорлардан тікелей лицензия, жазылым және қызмет.",
+      description: "Softy LLC — ресми IT-интегратор. 200+ клиент, 92% қайтару, 9+ ел. Вендорлардан тікелей лицензия, жазылым және қызмет.",
     },
     contact: {
       title: "Байланыс — Тегін аудит алыңыз | Softy LLC",
@@ -931,7 +931,7 @@ const kk: Content = {
     lead: "Бұлттық қызметтер мен киберқауіпсіздіктен инженерлік бағдарламаларға дейін — жетекші әлемдік вендорлардың ресми лицензиялары. Енгіземіз және қолдаймыз.",
     ctaPrimary: "Тегін аудит алыңыз",
     ctaSecondary: "Серіктестерді көру",
-    trust: ["50+ компания бізге сенеді", "9 ел", "24/7 қолдау"],
+    trust: ["200+ компания бізге сенеді", "9 ел", "24/7 қолдау"],
   },
   vendors: { label: "Ресми серіктестік — жетекші вендорлармен тікелей" },
   partners: { eyebrow: "Серіктестер", title: "Біздің ресми вендор-серіктестеріміз", sub: "Жетекші халықаралық вендорлармен тікелей серіктестік — әр лицензия кепілдендірілген әрі ресми." },
@@ -1020,10 +1020,10 @@ const kk: Content = {
   stats: {
     eyebrow: "Сандармен",
     items: [
-      { value: 50, suffix: "+", label: "Белсенді клиенттер" },
+      { value: 200, suffix: "+", label: "Белсенді клиенттер" },
       { value: 92, suffix: "%", label: "Клиенттер қайтуы (3+ жыл)" },
       { value: 26, label: "Ресми вендорлар" },
-      { value: 9, suffix: "+", label: "ТМД елдері" },
+      { value: 24, suffix: "/7", label: "Қолдау және сүйемелдеу" },
     ],
   },
   engagement: {
@@ -1081,7 +1081,7 @@ const kk: Content = {
       "Softy шағын және орта кәсіпорындардан бастап ірі ұйымдарға дейінгі бизнеске бағытталған. Әр клиентке жеке көзқарас және бизнес көлеміне сәйкестендірілген шешімдер — біздің стандартты тәжірибеміз, ережеден ерекшелік емес.",
       "Біздің міндетіміз қарапайым: бір шарт, әр вендор, ешқандай ымырасыздық. Лицензия аудиті арқылы артық шығындарды табамыз, орнатамыз және тұрақты техникалық қолдау көрсетеміз.",
       "Softy-дің артында технологияға қызығушылықпен қарайтын команда тұр. Біздің мақсатымыз айқын: әр клиенттің жұмыс үдерістерін жеңілдету және оның бизнесінің дамуына үлес қосу. Сату емес — ұзақ мерзімді серіктестік біздің жұмыс үлгіміздің негізі.",
-      "ТМД-ның 9+ елінде 50+ компания бізге сенеді. 92% клиенттер қайтуы, вендор сертификаттары және тұрақты техникалық құзыреттілік — бұл жай сандар емес, бұл сіздің сеніміңіз бен бизнесіңіздің өсуінің нәтижесі.",
+      "ТМД-ның 9+ елінде 200+ компания бізге сенеді. 92% клиенттер қайтуы, вендор сертификаттары және тұрақты техникалық құзыреттілік — бұл жай сандар емес, бұл сіздің сеніміңіз бен бизнесіңіздің өсуінің нәтижесі.",
     ],
   },
   testimonials: {
@@ -1152,12 +1152,12 @@ const ky: Content = {
   meta: {
     title: "Softy LLC — Расмий IT-интегратор | Лицензиялар КМШ боюнча",
     description:
-      "Бардык операциялык системаларга расмий лицензияланган программалар, жазылууну башкаруу, орнотуу жана 24/7 техникалык колдоо. 50+ кардар. 92% кайтуу. Акысыз аудит алыңыз.",
+      "Бардык операциялык системаларга расмий лицензияланган программалар, жазылууну башкаруу, орнотуу жана 24/7 техникалык колдоо. 200+ кардар. 92% кайтуу. Акысыз аудит алыңыз.",
   },
   pageMeta: {
     home: {
       title: "Softy LLC — Расмий IT-интегратор | Лицензиялар КМШ боюнча",
-      description: "Вендорлордон түз расмий программалык лицензиялар, жазылууну башкаруу, орнотуу жана 24/7 колдоо. 50+ кардар, 92% кайтуу. Акысыз аудит алыңыз.",
+      description: "Вендорлордон түз расмий программалык лицензиялар, жазылууну башкаруу, орнотуу жана 24/7 колдоо. 200+ кардар, 92% кайтуу. Акысыз аудит алыңыз.",
     },
     services: {
       title: "Кызматтар — Лицензия, жазылуу, орнотуу | Softy LLC",
@@ -1177,7 +1177,7 @@ const ky: Content = {
     },
     about: {
       title: "Биз жөнүндө — IT-интегратор | Softy LLC",
-      description: "Softy LLC — расмий IT-интегратор. 50+ кардар, 92% кайтуу, 9+ өлкө. Вендорлордон түз лицензия, жазылуу жана кызмат.",
+      description: "Softy LLC — расмий IT-интегратор. 200+ кардар, 92% кайтуу, 9+ өлкө. Вендорлордон түз лицензия, жазылуу жана кызмат.",
     },
     contact: {
       title: "Байланыш — Акысыз аудит алыңыз | Softy LLC",
@@ -1193,7 +1193,7 @@ const ky: Content = {
     lead: "Булут кызматтарынан жана киберкоопсуздуктан инженердик программаларга чейин — алдыңкы дүйнөлүк вендорлордун расмий лицензиялары. Киргизебиз жана колдойбуз.",
     ctaPrimary: "Акысыз аудит алыңыз",
     ctaSecondary: "Өнөктөштөрдү көрүү",
-    trust: ["50+ компания бизге ишенет", "9 өлкө", "24/7 колдоо"],
+    trust: ["200+ компания бизге ишенет", "9 өлкө", "24/7 колдоо"],
   },
   vendors: { label: "Расмий өнөктөштүк — алдыңкы вендорлор менен түз" },
   partners: { eyebrow: "Өнөктөштөр", title: "Биздин расмий вендор-өнөктөштөрүбүз", sub: "Алдыңкы эл аралык вендорлор менен түз өнөктөштүк — ар бир лицензия кепилденген жана расмий." },
@@ -1282,10 +1282,10 @@ const ky: Content = {
   stats: {
     eyebrow: "Сандарда",
     items: [
-      { value: 50, suffix: "+", label: "Активдүү кардарлар" },
+      { value: 200, suffix: "+", label: "Активдүү кардарлар" },
       { value: 92, suffix: "%", label: "Кардарлардын кайтуусу (3+ жыл)" },
       { value: 26, label: "Расмий вендорлор" },
-      { value: 9, suffix: "+", label: "КМШ өлкөлөрү" },
+      { value: 24, suffix: "/7", label: "Колдоо жана коштоо" },
     ],
   },
   engagement: {
@@ -1343,7 +1343,7 @@ const ky: Content = {
       "Softy чакан жана орто ишканалардан ири уюмдарга чейинки бизнеске багытталган. Ар бир кардарга жеке мамиле жана бизнес көлөмүнө ылайыкталган чечимдер — биз үчүн стандарттык тажрыйба, эрежеден өзгөчө учур эмес.",
       "Биздин милдетибиз жөнөкөй: бир келишим, ар бир вендор, эч кандай жеңилдик жок. Лицензия аудити аркылуу ашык чыгымдарды табабыз, орнотобуз жана туруктуу техникалык колдоо көрсөтөбүз.",
       "Softy-нин артында технологияга кызыгуу менен караган команда турат. Биздин максатыбыз так: ар бир кардардын иш процесстерин жөнөкөйлөтүү жана анын бизнесинин өнүгүшүнө салым кошуу. Сатуу эмес — узак мөөнөттүү өнөктөштүк биздин иш моделибиздин негизи.",
-      "КМШнын 9+ өлкөсүндө 50+ компания бизге ишенет. 92% кардарлардын кайтуусу, вендор сертификаттары жана туруктуу техникалык компетенциялар — бул жөн эле сандар эмес, бул сиздин ишенимиңиздин жана бизнесиңиздин өсүшүнүн натыйжасы.",
+      "КМШнын 9+ өлкөсүндө 200+ компания бизге ишенет. 92% кардарлардын кайтуусу, вендор сертификаттары жана туруктуу техникалык компетенциялар — бул жөн эле сандар эмес, бул сиздин ишенимиңиздин жана бизнесиңиздин өсүшүнүн натыйжасы.",
     ],
   },
   testimonials: {
@@ -1414,12 +1414,12 @@ const tg: Content = {
   meta: {
     title: "Softy LLC — Интегратори расмии IT | Литсензияҳо дар ИДМ",
     description:
-      "Барномаҳои литсензионии расмӣ барои ҳама системаҳои оператсионӣ, идоракунии обуна, насб ва дастгирии техникии 24/7. 50+ муштарӣ. 92% бозгашт. Аудити ройгон гиред.",
+      "Барномаҳои литсензионии расмӣ барои ҳама системаҳои оператсионӣ, идоракунии обуна, насб ва дастгирии техникии 24/7. 200+ муштарӣ. 92% бозгашт. Аудити ройгон гиред.",
   },
   pageMeta: {
     home: {
       title: "Softy LLC — Интегратори расмии IT | Литсензияҳо дар ИДМ",
-      description: "Литсензияҳои барномавии расмӣ мустақиман аз вендорҳо, идоракунии обуна, насб ва дастгирии 24/7. 50+ муштарӣ, 92% бозгашт. Аудити ройгон гиред.",
+      description: "Литсензияҳои барномавии расмӣ мустақиман аз вендорҳо, идоракунии обуна, насб ва дастгирии 24/7. 200+ муштарӣ, 92% бозгашт. Аудити ройгон гиред.",
     },
     services: {
       title: "Хидматҳо — Литсензия, обуна, насб | Softy LLC",
@@ -1439,7 +1439,7 @@ const tg: Content = {
     },
     about: {
       title: "Дар бораи мо — Интегратори IT | Softy LLC",
-      description: "Softy LLC — интегратори расмии IT. 50+ муштарӣ, 92% бозгашт, 9+ кишвар. Литсензия, обуна ва хидмат мустақиман аз вендорҳо.",
+      description: "Softy LLC — интегратори расмии IT. 200+ муштарӣ, 92% бозгашт, 9+ кишвар. Литсензия, обуна ва хидмат мустақиман аз вендорҳо.",
     },
     contact: {
       title: "Тамос — Аудити ройгон гиред | Softy LLC",
@@ -1455,7 +1455,7 @@ const tg: Content = {
     lead: "Аз хадамоти абрӣ ва амнияти киберӣ то нармафзори муҳандисӣ — литсензияҳои расмии вендорҳои пешбари ҷаҳонӣ. Ҷорӣ мекунем ва дастгирӣ мекунем.",
     ctaPrimary: "Аудити ройгон гиред",
     ctaSecondary: "Шариконро дидан",
-    trust: ["50+ ширкат ба мо бовар мекунанд", "9 кишвар", "Дастгирии 24/7"],
+    trust: ["200+ ширкат ба мо бовар мекунанд", "9 кишвар", "Дастгирии 24/7"],
   },
   vendors: { label: "Шарикии расмӣ — мустақиман бо вендорҳои пешсаф" },
   partners: { eyebrow: "Шарикон", title: "Шарикони расмии вендории мо", sub: "Шарикии мустақим бо вендорҳои пешбари ҷаҳонӣ — ҳар литсензия кафолатнок ва расмӣ." },
@@ -1544,10 +1544,10 @@ const tg: Content = {
   stats: {
     eyebrow: "Дар рақамҳо",
     items: [
-      { value: 50, suffix: "+", label: "Муштариёни фаъол" },
+      { value: 200, suffix: "+", label: "Муштариёни фаъол" },
       { value: 92, suffix: "%", label: "Бозгашти муштариён (3+ сол)" },
       { value: 26, label: "Вендорҳои расмӣ" },
-      { value: 9, suffix: "+", label: "Кишварҳои ИДМ" },
+      { value: 24, suffix: "/7", label: "Дастгирӣ ва ҳамроҳӣ" },
     ],
   },
   engagement: {
@@ -1605,7 +1605,7 @@ const tg: Content = {
       "Softy барои бизнес — аз корхонаҳои хурду миёна то ташкилотҳои калон таҳия шудааст. Муносибати инфиродӣ барои ҳар муштарӣ ва ҳалҳои мутобиқшуда ба ҳаҷми бизнес — амалияи стандартии мост, на истисно аз қоида.",
       "Вазифаи мо содда аст: як шартнома, ҳар вендор, ҳеҷ муросо. Тавассути аудити литсензия хароҷоти зиёдатиро меёбем, насб мекунем ва дастгирии доимии техникӣ мерасонем.",
       "Дар паси Softy дастае истодааст, ки ба технология бо шавқ муносибат мекунад. Ҳадафи мо равшан аст: содда кардани раванди кории ҳар муштарӣ ва саҳмгузорӣ дар рушди бизнеси ӯ. На фурӯш — балки шарикии дарозмуддат асоси модели кории мост.",
-      "Дар 9+ кишвари ИДМ 50+ ширкат ба мо бовар мекунанд. 92% бозгашти муштариён, сертификатҳои вендорӣ ва салоҳияти техникии устувор — ин танҳо рақамҳо нестанд, балки натиҷаи боварии шумо ва рушди бизнеси шумост.",
+      "Дар 9+ кишвари ИДМ 200+ ширкат ба мо бовар мекунанд. 92% бозгашти муштариён, сертификатҳои вендорӣ ва салоҳияти техникии устувор — ин танҳо рақамҳо нестанд, балки натиҷаи боварии шумо ва рушди бизнеси шумост.",
     ],
   },
   testimonials: {
