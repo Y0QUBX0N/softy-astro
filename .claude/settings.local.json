@@ -69,7 +69,9 @@
       "PowerShell($flutter = Get-Command flutter -ErrorAction SilentlyContinue; if \\($flutter\\) { $flutter.Source } else { \"not on path\" })",
       "PowerShell($sdk = \"$env:LOCALAPPDATA\\\\Android\\\\Sdk\"; Get-ChildItem $sdk -Directory | Select-Object -ExpandProperty Name; Write-Output '---'; Get-ChildItem \"$sdk\\\\platform-tools\\\\adb.exe\", \"$sdk\\\\emulator\\\\emulator.exe\" -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName)",
       "Bash(cd \"/c/Users/Yoqubxon/Downloads/logos_work\" *)",
-      "Bash(curl -s -m 3 http://127.0.0.1:4321/uz/ -o /dev/null -w \"dev: %{http_code}\\\\n\")"
+      "Bash(curl -s -m 3 http://127.0.0.1:4321/uz/ -o /dev/null -w \"dev: %{http_code}\\\\n\")",
+      "Bash(node trim-logos.cjs)",
+      "Bash(rm -f trim-logos.cjs)"
     ]
   }
 }
