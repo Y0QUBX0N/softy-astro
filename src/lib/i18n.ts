@@ -289,12 +289,12 @@ const uz: Content = {
   about: {
     eyebrow: "Biz haqimizda",
     title: "Sizning to'liq IT-hamkoringiz.",
-    lead: "Softy LLC — Markaziy Osiyo va MDH bo'ylab biznes uchun korporativ dasturiy ta'minotni litsenziyalash, o'rnatish va boshqarish bilan shug'ullanuvchi rasmiy IT-integrator.",
+    lead: "2022-yilda tashkil etilgan Softy LLC — Markaziy Osiyo va MDH bo'ylab biznes, davlat idoralari va tashkilotlar uchun korporativ dasturiy ta'minotni litsenziyalash, o'rnatish va boshqarish bilan shug'ullanuvchi rasmiy IT-integrator.",
     body: [
       "Biz dastur ishlab chiqarmaymiz — yetakchi vendorlar bilan to'g'ridan-to'g'ri hamkorligimiz tufayli mijozlarimiz kafolatlangan mahsulotlarni eng qulay shartlarda oladi. Windowsdan iOSgacha, ofis dasturlaridan AI vositalarigacha — barchasi bir manzildan.",
       "Softy kichik va o'rta korxonalardan tortib yirik tashkilotlargacha bo'lgan bizneslar uchun mo'ljallangan. Har bir mijoz uchun shaxsiy yondashuv va biznes hajmiga moslangan yechimlar — biz uchun standart amaliyot, qoidadan istisno emas.",
       "Bizning vazifamiz oddiy: bitta shartnoma, har bir vendor, hech qanday murosasizlik. Litsenziya auditi orqali ortiqcha xarajatlarni topamiz, o'rnatamiz va doimiy texnik yordam ko'rsatamiz.",
-      "Softy ortida — texnologiyaga ishtiyoq bilan qaragan jamoa turadi. Bizning maqsadimiz aniq: har bir mijozning ish jarayonini soddalashtirish va biznesining rivojiga ulush qo'shish. Sotuv emas — uzoq muddatli hamkorlik bizning ish modelimizning asosi.",
+      "Softy ortida — texnologiyaga ishtiyoq bilan qaragan jamoa turadi. Bizning maqsadimiz aniq: har bir mijozning ish jarayonini soddalashtirish, biznesining rivojiga ulush qo'shish va O'zbekistondagi eng yirik va innovatsion IT kompaniyalardan biriga aylanish. Sotuv emas — uzoq muddatli hamkorlik bizning ish modelimizning asosi.",
       "MDH'ning 9+ davlatida 200+ kompaniya bizga ishonadi. 92% mijozlar qaytishi, vendor sertifikatlari va doimiy texnik kompetensiya — bu raqamlar emas, bu sizning ishonchingiz va biznesingizning natijasi.",
     ],
   },
@@ -551,12 +551,12 @@ const ru: Content = {
   about: {
     eyebrow: "О нас",
     title: "Ваш полный IT-партнёр.",
-    lead: "Softy LLC — официальный IT-интегратор, который занимается лицензированием, установкой и управлением корпоративным ПО для бизнеса в Центральной Азии и СНГ.",
+    lead: "Основанная в 2022 году, Softy LLC — официальный IT-интегратор, который занимается лицензированием, установкой и управлением корпоративным ПО для бизнеса, госучреждений и организаций в Центральной Азии и СНГ.",
     body: [
       "Мы не производим ПО — благодаря прямому партнёрству с ведущими вендорами наши клиенты получают гарантированные продукты на лучших условиях. От Windows до iOS, от офисных программ до AI-инструментов — всё из одного места.",
       "Softy ориентирована на бизнес от малых и средних предприятий до крупных организаций. Индивидуальный подход к каждому клиенту и решения, адаптированные под размер бизнеса — наша стандартная практика, а не исключение из правил.",
       "Наша задача проста: один договор, любой вендор, без компромиссов. Через аудит лицензий мы находим переплаты, устанавливаем и обеспечиваем постоянную техподдержку.",
-      "За Softy стоит команда, увлечённая технологиями. Наша цель ясна: упростить рабочие процессы каждого клиента и внести вклад в развитие его бизнеса. Не продажа — а долгосрочное партнёрство лежит в основе нашей модели работы.",
+      "За Softy стоит команда, увлечённая технологиями. Наша цель ясна: упростить рабочие процессы каждого клиента, внести вклад в развитие его бизнеса и стать одной из крупнейших и самых инновационных IT-компаний Узбекистана. Не продажа — а долгосрочное партнёрство лежит в основе нашей модели работы.",
       "В 9+ странах СНГ нам доверяют 200+ компаний. 92% возврата клиентов, сертификации вендоров и стабильные технические компетенции — это не просто цифры, это результат вашего доверия и роста вашего бизнеса.",
     ],
   },
@@ -813,12 +813,12 @@ const en: Content = {
   about: {
     eyebrow: "About us",
     title: "Your complete IT partner.",
-    lead: "Softy LLC is an official IT integrator that licenses, deploys, and operates enterprise software for businesses across Central Asia and the CIS.",
+    lead: "Founded in 2022, Softy LLC is an official IT integrator that licenses, deploys, and operates enterprise software for businesses, government bodies, and institutions across Central Asia and the CIS.",
     body: [
       "We don't build software — through direct partnerships with leading vendors, our clients get guaranteed products on the best terms. From Windows to iOS, from office apps to AI tools, everything from one place.",
       "Softy is built for businesses from small and medium enterprises to large organizations. A tailored approach for every client and solutions matched to your business size — that's our standard practice, not the exception.",
       "Our mission is simple: one contract, every vendor, zero compromises. Through license audits we find the overspend, deploy, and provide ongoing technical support.",
-      "Behind Softy stands a team passionate about technology. Our goal is clear: simplify every client's work and contribute to their business growth. Not the sale — but a long-term partnership lies at the core of how we work.",
+      "Behind Softy stands a team passionate about technology. Our goal is clear: to simplify every client's work, contribute to their business growth, and become one of Uzbekistan's largest and most innovative IT companies. Not the sale — but a long-term partnership lies at the core of how we work.",
       "Across 9+ CIS countries, 200+ companies trust us. 92% client retention, vendor certifications and steady technical competence — these aren't just numbers, they're the result of your trust and the growth of your business.",
     ],
   },
@@ -1075,12 +1075,12 @@ const kk: Content = {
   about: {
     eyebrow: "Біз туралы",
     title: "Сіздің толық IT-серіктесіңіз.",
-    lead: "Softy LLC — Орталық Азия мен ТМД бойынша бизнеске корпоративтік бағдарламалық қамтаманы лицензиялау, орнату және басқарумен айналысатын ресми IT-интегратор.",
+    lead: "2022 жылы құрылған Softy LLC — Орталық Азия мен ТМД бойынша бизнеске, мемлекеттік мекемелер мен ұйымдарға корпоративтік бағдарламалық қамтаманы лицензиялау, орнату және басқарумен айналысатын ресми IT-интегратор.",
     body: [
       "Біз бағдарлама жасамаймыз — жетекші вендорлармен тікелей серіктестік арқасында клиенттеріміз кепілдендірілген өнімдерді ең қолайлы шартпен алады. Windows-тан iOS-қа, офис бағдарламаларынан AI құралдарына дейін — бәрі бір жерден.",
       "Softy шағын және орта кәсіпорындардан бастап ірі ұйымдарға дейінгі бизнеске бағытталған. Әр клиентке жеке көзқарас және бизнес көлеміне сәйкестендірілген шешімдер — біздің стандартты тәжірибеміз, ережеден ерекшелік емес.",
       "Біздің міндетіміз қарапайым: бір шарт, әр вендор, ешқандай ымырасыздық. Лицензия аудиті арқылы артық шығындарды табамыз, орнатамыз және тұрақты техникалық қолдау көрсетеміз.",
-      "Softy-дің артында технологияға қызығушылықпен қарайтын команда тұр. Біздің мақсатымыз айқын: әр клиенттің жұмыс үдерістерін жеңілдету және оның бизнесінің дамуына үлес қосу. Сату емес — ұзақ мерзімді серіктестік біздің жұмыс үлгіміздің негізі.",
+      "Softy-дің артында технологияға қызығушылықпен қарайтын команда тұр. Біздің мақсатымыз айқын: әр клиенттің жұмыс үдерістерін жеңілдету, оның бизнесінің дамуына үлес қосу және Өзбекстандағы ең ірі әрі инновациялық IT-компаниялардың біріне айналу. Сату емес — ұзақ мерзімді серіктестік біздің жұмыс үлгіміздің негізі.",
       "ТМД-ның 9+ елінде 200+ компания бізге сенеді. 92% клиенттер қайтуы, вендор сертификаттары және тұрақты техникалық құзыреттілік — бұл жай сандар емес, бұл сіздің сеніміңіз бен бизнесіңіздің өсуінің нәтижесі.",
     ],
   },
@@ -1337,12 +1337,12 @@ const ky: Content = {
   about: {
     eyebrow: "Биз жөнүндө",
     title: "Сиздин толук IT-өнөктөшүңүз.",
-    lead: "Softy LLC — Борбордук Азия жана КМШ боюнча бизнес үчүн корпоративдик программалык камсыздоону лицензиялоо, орнотуу жана башкаруу менен алектенген расмий IT-интегратор.",
+    lead: "2022-жылы түзүлгөн Softy LLC — Борбордук Азия жана КМШ боюнча бизнес, мамлекеттик мекемелер жана уюмдар үчүн корпоративдик программалык камсыздоону лицензиялоо, орнотуу жана башкаруу менен алектенген расмий IT-интегратор.",
     body: [
       "Биз программа жасабайбыз — алдыңкы вендорлор менен түз өнөктөштүктүн аркасында кардарларыбыз кепилденген өнүмдөрдү эң ыңгайлуу шартта алышат. Windows-тон iOS-ко, офис программаларынан AI куралдарына чейин — баары бир жерден.",
       "Softy чакан жана орто ишканалардан ири уюмдарга чейинки бизнеске багытталган. Ар бир кардарга жеке мамиле жана бизнес көлөмүнө ылайыкталган чечимдер — биз үчүн стандарттык тажрыйба, эрежеден өзгөчө учур эмес.",
       "Биздин милдетибиз жөнөкөй: бир келишим, ар бир вендор, эч кандай жеңилдик жок. Лицензия аудити аркылуу ашык чыгымдарды табабыз, орнотобуз жана туруктуу техникалык колдоо көрсөтөбүз.",
-      "Softy-нин артында технологияга кызыгуу менен караган команда турат. Биздин максатыбыз так: ар бир кардардын иш процесстерин жөнөкөйлөтүү жана анын бизнесинин өнүгүшүнө салым кошуу. Сатуу эмес — узак мөөнөттүү өнөктөштүк биздин иш моделибиздин негизи.",
+      "Softy-нин артында технологияга кызыгуу менен караган команда турат. Биздин максатыбыз так: ар бир кардардын иш процесстерин жөнөкөйлөтүү, анын бизнесинин өнүгүшүнө салым кошуу жана Өзбекстандагы эң ири жана инновациялык IT-компаниялардын бирине айлануу. Сатуу эмес — узак мөөнөттүү өнөктөштүк биздин иш моделибиздин негизи.",
       "КМШнын 9+ өлкөсүндө 200+ компания бизге ишенет. 92% кардарлардын кайтуусу, вендор сертификаттары жана туруктуу техникалык компетенциялар — бул жөн эле сандар эмес, бул сиздин ишенимиңиздин жана бизнесиңиздин өсүшүнүн натыйжасы.",
     ],
   },
@@ -1599,12 +1599,12 @@ const tg: Content = {
   about: {
     eyebrow: "Дар бораи мо",
     title: "Шарики пурраи IT-и шумо.",
-    lead: "Softy LLC — интегратори расмии IT, ки бо литсензиякунонӣ, насб ва идоракунии таъминоти барномавии корпоративӣ барои бизнес дар саросари Осиёи Марказӣ ва ИДМ машғул аст.",
+    lead: "Соли 2022 таъсисёфта, Softy LLC — интегратори расмии IT, ки бо литсензиякунонӣ, насб ва идоракунии таъминоти барномавии корпоративӣ барои бизнес, муассисаҳои давлатӣ ва ташкилотҳо дар саросари Осиёи Марказӣ ва ИДМ машғул аст.",
     body: [
       "Мо барнома намесозем — ба шарофати шарикии мустақим бо вендорҳои пешсаф муштариёни мо маҳсулоти кафолатнокро бо беҳтарин шартҳо мегиранд. Аз Windows то iOS, аз барномаҳои офисӣ то абзорҳои AI — ҳамааш аз як ҷой.",
       "Softy барои бизнес — аз корхонаҳои хурду миёна то ташкилотҳои калон таҳия шудааст. Муносибати инфиродӣ барои ҳар муштарӣ ва ҳалҳои мутобиқшуда ба ҳаҷми бизнес — амалияи стандартии мост, на истисно аз қоида.",
       "Вазифаи мо содда аст: як шартнома, ҳар вендор, ҳеҷ муросо. Тавассути аудити литсензия хароҷоти зиёдатиро меёбем, насб мекунем ва дастгирии доимии техникӣ мерасонем.",
-      "Дар паси Softy дастае истодааст, ки ба технология бо шавқ муносибат мекунад. Ҳадафи мо равшан аст: содда кардани раванди кории ҳар муштарӣ ва саҳмгузорӣ дар рушди бизнеси ӯ. На фурӯш — балки шарикии дарозмуддат асоси модели кории мост.",
+      "Дар паси Softy дастае истодааст, ки ба технология бо шавқ муносибат мекунад. Ҳадафи мо равшан аст: содда кардани раванди кории ҳар муштарӣ, саҳмгузорӣ дар рушди бизнеси ӯ ва табдил ёфтан ба яке аз бузургтарин ва навоваронатарин ширкатҳои IT-и Ӯзбекистон. На фурӯш — балки шарикии дарозмуддат асоси модели кории мост.",
       "Дар 9+ кишвари ИДМ 200+ ширкат ба мо бовар мекунанд. 92% бозгашти муштариён, сертификатҳои вендорӣ ва салоҳияти техникии устувор — ин танҳо рақамҳо нестанд, балки натиҷаи боварии шумо ва рушди бизнеси шумост.",
     ],
   },
