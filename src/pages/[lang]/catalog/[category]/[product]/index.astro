@@ -1,6 +1,6 @@
 ---
 import { LANGS, isLang, DEFAULT_LANG, getContent, type Lang } from "../../../../../lib/i18n";
-import { CATEGORIES, PRODUCTS, getCategory, getProduct, productsByCategory } from "../../../../../lib/catalog";
+import { CATEGORIES, PRODUCTS, getCategory, getProduct, productsByCategory, productLogo } from "../../../../../lib/catalog";
 import { productCopy } from "../../../../../lib/catalog-i18n";
 import { pageUrl } from "../../../../../lib/nav";
 import Base from "../../../../../layouts/Base.astro";
@@ -47,11 +47,11 @@ const related = productsByCategory(category.slug).filter((p) => p.slug !== produ
         <div class="reveal grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
           <div class="card-3d flex h-80 items-center justify-center rounded-3xl bg-paper p-6 sm:p-8 lg:h-[28rem] lg:p-10">
             <img
-              src={`/vendors/${product.slug}.svg`}
+              src={productLogo(product.slug)}
               alt={product.vendor}
               width="520"
               height="260"
-              class="h-auto max-h-[16rem] w-auto max-w-[88%] lg:max-h-[20rem]"
+              class="h-auto max-h-[16rem] w-auto max-w-[88%] object-contain lg:max-h-[20rem]"
             />
           </div>
 
@@ -136,7 +136,7 @@ const related = productsByCategory(category.slug).filter((p) => p.slug !== produ
                   data-cursor
                 >
                   <div class="flex h-28 items-center justify-center rounded-lg bg-paper p-5">
-                    <img src={`/vendors/${p.slug}.svg`} alt={p.vendor} loading="lazy" width="180" height="64" class="max-h-16 w-auto max-w-[82%]" />
+                    <img src={productLogo(p.slug)} alt={p.vendor} loading="lazy" width="180" height="64" class="max-h-16 w-auto max-w-[82%] object-contain" />
                   </div>
                   <div>
                     <div class="font-mono text-[11px] uppercase tracking-eyebrow text-muted">{p.vendor}</div>

@@ -1,6 +1,7 @@
 // Catalog: categories → products → product detail.
 // Product copy is authored in Uzbek (the primary market language).
-// Vendor logos live at /public/vendors/<vendor>.svg.
+// Vendor logos live at /public/vendors/<vendor>.<ext> (svg or png).
+import { VENDORS } from "./vendors";
 
 export const CATEGORY_SLUGS = [
   "office",
@@ -185,6 +186,25 @@ export const PRODUCTS: Product[] = [
     ],
     os: ["Windows", "macOS", "Linux", "iOS", "Android"],
     audience: "SMB, sog'liqni saqlash, ta'lim, davlat sektori",
+  },
+  {
+    slug: "drweb",
+    vendor: "Dr.Web",
+    name: "Dr.Web Enterprise Security Suite",
+    category: "antivirus",
+    tagline: "MDH bozorida sinovdan o'tgan, sertifikatlangan ko'p qatlamli antivirus himoyasi.",
+    summary:
+      "Dr.Web Enterprise Security Suite — server, ish stansiyalari va mobil qurilmalar uchun markazlashgan antivirus himoyasi. Proaktiv texnologiyalar, kichik tizim yuklamasi va MDH normativlariga muvofiqligi bilan ajralib turadi.",
+    features: [
+      "Ko'p qatlamli antivirus va anti-ransomware himoyasi",
+      "Markazlashgan boshqaruv (Control Center)",
+      "Dr.Web Preventive Protection (proaktiv himoya)",
+      "Email va veb-trafik filtri",
+      "Server, ish stansiyasi va mobil qurilmalar",
+      "MDH normativlari va sertifikatlari",
+    ],
+    os: ["Windows", "macOS", "Linux", "Android"],
+    audience: "Davlat tashkilotlari, biznes, MDH bozori mijozlari",
   },
 
   /* ─────────────── DESIGN & ENGINEERING ─────────────── */
@@ -459,4 +479,10 @@ export function getProduct(slug: string): Product | undefined {
 
 export function productsByCategory(slug: CategorySlug): Product[] {
   return PRODUCTS.filter(p => p.category === slug);
+}
+
+// Vendor logo path with the right extension (most are svg, a few are png).
+const VENDOR_EXT = new Map(VENDORS.map((v) => [v.slug, v.ext ?? "svg"]));
+export function productLogo(slug: string): string {
+  return `/vendors/${slug}.${VENDOR_EXT.get(slug) ?? "svg"}`;
 }

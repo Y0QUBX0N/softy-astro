@@ -1,6 +1,6 @@
 ---
 import { LANGS, isLang, DEFAULT_LANG, getContent, type Lang } from "../../../../lib/i18n";
-import { CATEGORIES, productsByCategory, getCategory } from "../../../../lib/catalog";
+import { CATEGORIES, productsByCategory, getCategory, productLogo } from "../../../../lib/catalog";
 import { productCopy } from "../../../../lib/catalog-i18n";
 import { pageUrl } from "../../../../lib/nav";
 import Base from "../../../../layouts/Base.astro";
@@ -52,7 +52,7 @@ const catalogHref = pageUrl(lang, "catalog");
                 data-cursor
               >
                 <div class="flex h-32 items-center justify-center rounded-xl bg-paper p-6 md:h-36">
-                  <img src={`/vendors/${p.slug}.svg`} alt={p.vendor} loading="lazy" decoding="async" width="220" height="80" class="max-h-20 w-auto max-w-[82%] md:max-h-[88px]" />
+                  <img src={productLogo(p.slug)} alt={p.vendor} loading="lazy" decoding="async" width="220" height="80" class="max-h-20 w-auto max-w-[82%] object-contain md:max-h-[88px]" />
                 </div>
                 <div class="flex-1">
                   <div class="font-mono text-[11px] uppercase tracking-eyebrow text-muted">{p.vendor}</div>
