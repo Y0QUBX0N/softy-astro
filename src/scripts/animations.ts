@@ -162,18 +162,8 @@ ready(() => {
       steps.forEach((el, idx) => el.classList.toggle("story-active", idx === i));
     };
 
-    ScrollTrigger.matchMedia({
-      "(min-width: 1024px)": () => {
-        ScrollTrigger.create({
-          trigger: storyWrap,
-          start: "top 120",
-          end: "bottom bottom",
-          pin: storyPin,
-          pinSpacing: false,
-        });
-      },
-    });
-
+    // The left visual is pinned with CSS position: sticky (see ScrollStory.astro).
+    // Here we only drive the number / title / progress as each step scrolls in.
     steps.forEach((s, i) => {
       ScrollTrigger.create({
         trigger: s,

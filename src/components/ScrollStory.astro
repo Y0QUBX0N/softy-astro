@@ -21,9 +21,9 @@ const icons = [
     )}
 
     <div id="storyWrap" class={`grid gap-12 lg:grid-cols-2 lg:gap-20 ${hideHeader ? "" : "mt-16"}`}>
-      <!-- pinned visual -->
+      <!-- pinned visual (CSS sticky on desktop) -->
       <div class="hidden lg:block">
-        <div id="storyPin" class="flex h-[80svh] flex-col justify-center">
+        <div id="storyPin" class="lg:sticky lg:top-24">
           <div class="relative aspect-square w-full max-w-[440px] overflow-hidden rounded-lg border border-hairline bg-ink-2">
             <div
               class="pointer-events-none absolute inset-0"
