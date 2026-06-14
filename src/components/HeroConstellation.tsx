@@ -42,7 +42,7 @@ type Star = {
   glow: number; // cursor-proximity glow, eased 0..1
 };
 
-export default function HeroConstellation() {
+export default function HeroConstellation({ labels = true }: { labels?: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -167,7 +167,7 @@ export default function HeroConstellation() {
       // Labels only on tablet+ — on a phone the cursor radius covers most of
       // the narrow canvas and the names would crowd the headline. There the
       // dot/line mesh alone stays as quiet ambient texture.
-      const showLabels = w >= 768;
+      const showLabels = labels && w >= 768;
       ctx.font = "12px 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace";
       ctx.textBaseline = "middle";
       for (let i = 0; i < N; i++) {
