@@ -192,8 +192,8 @@ const uz: Content = {
   problem: {
     eyebrow: "Muammo",
     title: "Kompaniyangiz har yili dasturiy ta'minotga keragidan ortiq sarflamoqda.",
-    figure: "30%",
-    figureCaption: "IT-byudjet ortiqcha va takroriy dasturlarga ketadi",
+    figure: "100+",
+    figureCaption: "o'rtacha korxonadagi dastur va obunalar soni",
     sub: "Sabab oddiy — to'g'ri litsenziya, to'g'ri vendordan, to'g'ri shartda. Biz har bir litsenziyangizni, har bir bo'shliqni va har bir ortiqcha xarajatni topamiz.",
   },
   pillars: {
@@ -454,8 +454,8 @@ const ru: Content = {
   problem: {
     eyebrow: "Проблема",
     title: "Ваша компания ежегодно тратит на ПО больше необходимого.",
-    figure: "30%",
-    figureCaption: "IT-бюджета уходит на лишний и дублирующий софт",
+    figure: "100+",
+    figureCaption: "программ и подписок в средней компании",
     sub: "Причина проста — правильная лицензия, от правильного вендора, на правильных условиях. Мы найдём каждую лицензию, каждый пробел и каждую лишнюю статью расходов.",
   },
   pillars: {
@@ -716,8 +716,8 @@ const en: Content = {
   problem: {
     eyebrow: "The problem",
     title: "Your company spends more on software than it needs to.",
-    figure: "30%",
-    figureCaption: "of the IT budget is wasted on excess, duplicate software",
+    figure: "100+",
+    figureCaption: "software products & subscriptions in the average company",
     sub: "The reason is simple — the right license, from the right vendor, on the right terms. We map every license, every gap, and every unnecessary cost.",
   },
   pillars: {
@@ -978,8 +978,8 @@ const kk: Content = {
   problem: {
     eyebrow: "Мәселе",
     title: "Компанияңыз бағдарламалық қамтамаға жыл сайын қажеттен артық жұмсайды.",
-    figure: "30%",
-    figureCaption: "IT-бюджет артық әрі қайталанатын софтқа кетеді",
+    figure: "100+",
+    figureCaption: "орташа компаниядағы бағдарлама мен жазылым саны",
     sub: "Себебі қарапайым — дұрыс лицензия, дұрыс вендордан, дұрыс шартта. Біз әр лицензияңызды, әр олқылықты және әр артық шығынды табамыз.",
   },
   pillars: {
@@ -1240,8 +1240,8 @@ const ky: Content = {
   problem: {
     eyebrow: "Көйгөй",
     title: "Компанияңыз программалык камсыздоого жыл сайын керектүүдөн ашык жумшайт.",
-    figure: "30%",
-    figureCaption: "IT-бюджет ашыкча жана кайталанган софтко кетет",
+    figure: "100+",
+    figureCaption: "орточо компаниядагы программа жана жазылуулар саны",
     sub: "Себеби жөнөкөй — туура лицензия, туура вендордон, туура шартта. Биз ар бир лицензияңызды, ар бир боштукту жана ар бир ашык чыгымды табабыз.",
   },
   pillars: {
@@ -1502,8 +1502,8 @@ const tg: Content = {
   problem: {
     eyebrow: "Мушкил",
     title: "Ширкати шумо ҳар сол барои нармафзор аз ниёз зиёдтар сарф мекунад.",
-    figure: "30%",
-    figureCaption: "буҷети IT ба нармафзори зиёдатӣ ва такрорӣ сарф мешавад",
+    figure: "100+",
+    figureCaption: "шумораи барномаву обунаҳо дар ширкати миёна",
     sub: "Сабаб содда аст — литсензияи дуруст, аз вендори дуруст, бо шарти дуруст. Мо ҳар литсензия, ҳар холигоҳ ва ҳар хароҷоти зиёдатиро меёбем.",
   },
   pillars: {

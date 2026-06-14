@@ -160,7 +160,7 @@ function formatEmailText(lead: Lead, ip: string): string {
 
 async function sendEmail(lead: Lead, ip: string): Promise<boolean> {
   const m = mailer();
-  const to = env("LEAD_EMAIL_TO");
+  const to = env("LEAD_EMAIL_TO") || "info@softy.uz";
   const from = env("SMTP_FROM") || env("SMTP_USER");
   if (!m || !to || !from) return false;
   try {
