@@ -177,6 +177,7 @@ const uz: Content = {
     members: [
       { name: "Umidjon Fatullayev", role: "Asoschi va Bosh ijrochi direktor", bio: "Softy LLC asoschisi va strategik yo'lboshchi. Kompaniya rivojini boshqaradi, operatsiyalarni yo'lga qo'yadi va mijozlarga eng yaxshi tajribani taqdim etishga e'tibor qaratadi." },
       { name: "Yoqubxon Abdurahimov", role: "Dasturchi-mutaxassis", bio: "Dasturlash va jamoa ishlab chiqishi bo'yicha tajribali mutaxassis. Mijoz integratsiyalarini va texnik yechimlarni amalga oshiradi." },
+      { name: "Shoxrux Soloxov", role: "Sotuv menejeri", bio: "Mijozlar bilan ishlash va sotuv bo'yicha mutaxassis. Korxonalarning ehtiyojlarini o'rganib, mos litsenziya va yechimlarni tanlashda yordam beradi." },
     ],
   },
   values: {
@@ -439,6 +440,7 @@ const ru: Content = {
     members: [
       { name: "Умиджон Фатуллаев", role: "Основатель и Генеральный директор", bio: "Основатель и стратегический руководитель Softy LLC. Управляет развитием компании, операциями и фокусируется на лучшем клиентском опыте." },
       { name: "Якубхон Абдурахимов", role: "Разработчик-специалист", bio: "Опытный специалист по программированию и командной разработке. Реализует клиентские интеграции и технические решения." },
+      { name: "Шохрух Солохов", role: "Менеджер по продажам", bio: "Специалист по продажам и работе с клиентами. Изучает потребности компаний и помогает подобрать подходящие лицензии и решения." },
     ],
   },
   values: {
@@ -701,6 +703,7 @@ const en: Content = {
     members: [
       { name: "Umidjon Fatullayev", role: "Founder & Chief Executive Officer", bio: "Founder and strategic leader of Softy LLC. Drives company growth, operations and an unwavering focus on customer experience." },
       { name: "Yoqubxon Abdurahimov", role: "Software Developer", bio: "Experienced programming and collaborative-development specialist. Delivers client integrations and technical solutions." },
+      { name: "Shoxrux Soloxov", role: "Sales Manager", bio: "Sales and client-relations specialist. Understands each company's needs and helps choose the right licenses and solutions." },
     ],
   },
   values: {
@@ -963,6 +966,7 @@ const kk: Content = {
     members: [
       { name: "Үмиджон Фатуллаев", role: "Негізін қалаушы және Бас атқарушы директор", bio: "Softy LLC негізін қалаушы әрі стратегиялық жетекшісі. Компания дамуын басқарады, операцияларды жолға қояды және клиент тәжірибесіне ерекше мән береді." },
       { name: "Якубхон Абдурахимов", role: "Бағдарламашы-маман", bio: "Бағдарламалау және команда дамыту бойынша тәжірибелі маман. Клиент интеграцияларын және техникалық шешімдерді жүзеге асырады." },
+      { name: "Шохрух Солохов", role: "Сату менеджері", bio: "Сатылым және клиенттермен жұмыс маманы. Компаниялардың қажеттіліктерін зерттеп, қолайлы лицензиялар мен шешімдерді таңдауға көмектеседі." },
     ],
   },
   values: {
@@ -1225,6 +1229,7 @@ const ky: Content = {
     members: [
       { name: "Умижон Фатуллаев", role: "Негиздөөчү жана Башкы аткаруучу директор", bio: "Softy LLC негиздөөчүсү жана стратегиялык жетекчиси. Компания өнүгүүсүн башкарат, операцияларды жолго коёт жана кардар тажрыйбасына өзгөчө көңүл бөлөт." },
       { name: "Якубхон Абдурахимов", role: "Программалоочу-адис", bio: "Программалоо жана команда менен иштөө боюнча тажрыйбалуу адис. Кардар интеграцияларын жана техникалык чечимдерди ишке ашырат." },
+      { name: "Шохрух Солохов", role: "Сатуу менеджери", bio: "Сатуу жана кардарлар менен иштөө боюнча адис. Компаниялардын муктаждыктарын изилдеп, ылайыктуу лицензияларды жана чечимдерди тандоого жардам берет." },
     ],
   },
   values: {
@@ -1487,6 +1492,7 @@ const tg: Content = {
     members: [
       { name: "Умидҷон Фатуллаев", role: "Муассис ва Директори Иҷроия", bio: "Муассис ва роҳбари стратегии Softy LLC. Рушди ширкатро идора мекунад, амалиётро ба роҳ мемонад ва ба таҷрибаи беҳтарини муштарӣ диққат медиҳад." },
       { name: "Яқубхон Абдураҳимов", role: "Барномасоз-мутахассис", bio: "Мутахассиси ботаҷрибаи барномасозӣ ва кор бо даста. Интегратсияҳои муштариён ва ҳалли техникиро амалӣ мекунад." },
+      { name: "Шоҳрух Солохов", role: "Менеҷери фурӯш", bio: "Мутахассиси фурӯш ва кор бо муштариён. Ниёзҳои ширкатҳоро меомӯзад ва дар интихоби литсензияву ҳалли мувофиқ кӯмак мекунад." },
     ],
   },
   values: {
