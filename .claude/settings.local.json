@@ -71,7 +71,10 @@
       "Bash(cd \"/c/Users/Yoqubxon/Downloads/logos_work\" *)",
       "Bash(curl -s -m 3 http://127.0.0.1:4321/uz/ -o /dev/null -w \"dev: %{http_code}\\\\n\")",
       "Bash(node trim-logos.cjs)",
-      "Bash(rm -f trim-logos.cjs)"
+      "Bash(rm -f trim-logos.cjs)",
+      "Read(//c/Users/Yoqubxon/Downloads/**)",
+      "Bash(node beeline-proc.cjs)",
+      "Bash(rm -f beeline-proc.cjs)"
     ]
   }
 }

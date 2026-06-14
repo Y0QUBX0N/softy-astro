@@ -28,7 +28,7 @@ export const CLIENTS: Client[] = [
   { name: "Xalq banki", sector: "bank", slug: "xalqbank", ext: "svg" },
   { name: "BRB", sector: "bank", slug: "brb", ext: "svg" },
   // ── Telekom ──
-  { name: "Beeline", sector: "telecom", slug: "beeline", ext: "svg" },
+  { name: "Beeline", sector: "telecom", slug: "beeline" },
   { name: "Ucell", sector: "telecom", slug: "ucell", ext: "svg" },
   // ── Korxonalar ──
   { name: "SamAuto", sector: "enterprise", slug: "samauto" },
