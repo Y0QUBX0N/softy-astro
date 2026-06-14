@@ -15,29 +15,19 @@ const loop = [...VENDORS, ...VENDORS];
   <div class="marquee-mask relative mt-7 overflow-hidden bg-paper py-8 md:py-9" id="marquee">
     <div class="marquee-track flex w-max items-center gap-16 px-6 md:gap-24" id="marqueeTrack">
       {
-        loop.map((v) =>
-          v.logo === false ? (
-            <span
-              data-slug={v.slug}
-              class="vendor-wordmark shrink-0 select-none whitespace-nowrap text-[26px] font-semibold tracking-tight text-ink md:text-[30px]"
-              data-cursor
-            >
-              {v.name}
-            </span>
-          ) : (
-            <img
-              src={`/vendors/${v.slug}.svg`}
-              alt={v.name}
-              loading="lazy"
-              decoding="async"
-              width="200"
-              height="64"
-              data-slug={v.slug}
-              class="vendor-logo h-12 w-auto shrink-0 md:h-14"
-              data-cursor
-            />
-          ),
-        )
+        loop.map((v) => (
+          <img
+            src={`/vendors/${v.slug}.${v.ext ?? "svg"}`}
+            alt={v.name}
+            loading="lazy"
+            decoding="async"
+            width="200"
+            height="64"
+            data-slug={v.slug}
+            class="vendor-logo h-12 w-auto shrink-0 md:h-14"
+            data-cursor
+          />
+        ))
       }
     </div>
   </div>
@@ -56,19 +46,10 @@ const loop = [...VENDORS, ...VENDORS];
   @media (pointer: fine) {
     .vendor-logo:hover { transform: scale(1.08); }
   }
-  /* Per-vendor size compensation — Kaspersky/Veeam ship horizontal
-     wordmark SVGs that look small next to icon-style marks at the same
-     CSS height. Scale them up so the marquee reads balanced. */
-  .vendor-logo[data-slug="kaspersky"],
-  .vendor-logo[data-slug="veeam"]    { transform: scale(1.75); transform-origin: center; }
-  .vendor-logo[data-slug="ibm"]      { transform: scale(1.3); }
-  .vendor-logo[data-slug="microsoft"]{ transform: scale(1.18); }
-  .vendor-logo[data-slug="fortinet"] { transform: scale(1.1); }
+  /* Icon-style marks read small next to wide wordmarks at the same height —
+     nudge the compact ones up so the marquee stays visually balanced. */
+  .vendor-logo[data-slug="kaspersky"] { transform: scale(1.35); transform-origin: center; }
   @media (pointer: fine) {
-    .vendor-logo[data-slug="kaspersky"]:hover,
-    .vendor-logo[data-slug="veeam"]:hover { transform: scale(1.88); }
-    .vendor-logo[data-slug="ibm"]:hover   { transform: scale(1.4); }
-    .vendor-logo[data-slug="microsoft"]:hover { transform: scale(1.27); }
-    .vendor-logo[data-slug="fortinet"]:hover { transform: scale(1.2); }
+    .vendor-logo[data-slug="kaspersky"]:hover { transform: scale(1.45); }
   }
 </style>

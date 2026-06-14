@@ -1,1 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 64"><rect x="40" y="26" width="34" height="24" rx="3" fill="#2E7D32"/><path d="M46 26v-5a11 11 0 0 1 22 0v5" fill="none" stroke="#2E7D32" stroke-width="4"/><circle cx="57" cy="37" r="3.5" fill="#fff"/><text x="86" y="44" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="30" letter-spacing="2" fill="#2E7D32">SSL</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260" fill="none">
+  <defs>
+    <linearGradient id="sslg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#34d27b"/>
+      <stop offset="1" stop-color="#149e57"/>
+    </linearGradient>
+  </defs>
+  <!-- shield -->
+  <path d="M130 12 L226 46 V128 C226 188 188 224 130 248 C72 224 34 188 34 128 V46 Z" fill="url(#sslg)"/>
+  <!-- padlock body -->
+  <rect x="84" y="120" width="92" height="74" rx="12" fill="#ffffff"/>
+  <!-- padlock shackle -->
+  <path d="M100 120 V104 a30 30 0 0 1 60 0 V120" stroke="#ffffff" stroke-width="16" fill="none" stroke-linecap="round"/>
+  <!-- keyhole -->
+  <circle cx="130" cy="150" r="11" fill="#149e57"/>
+  <rect x="125" y="156" width="10" height="22" rx="5" fill="#149e57"/>
+  <!-- SSL text -->
+  <text x="130" y="232" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="30" fill="#ffffff" letter-spacing="2">SSL</text>
+</svg>

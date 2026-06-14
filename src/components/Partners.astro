@@ -20,21 +20,15 @@ const c = getContent(lang);
             class="card-3d group grid aspect-[5/3] place-items-center rounded-xl border border-hairline bg-paper p-7 md:p-9"
             title={v.name}
           >
-            {v.logo === false ? (
-              <span class="select-none text-center text-xl font-semibold tracking-tight text-ink md:text-2xl">
-                {v.name}
-              </span>
-            ) : (
-              <img
-                src={`/vendors/${v.slug}.svg`}
-                alt={`${v.name} — Softy LLC partner`}
-                loading="lazy"
-                decoding="async"
-                width="220"
-                height="72"
-                class="max-h-16 w-auto max-w-[88%] opacity-95 transition-opacity duration-300 group-hover:opacity-100 md:max-h-[72px]"
-              />
-            )}
+            <img
+              src={`/vendors/${v.slug}.${v.ext ?? "svg"}`}
+              alt={`${v.name} — Softy LLC partner`}
+              loading="lazy"
+              decoding="async"
+              width="220"
+              height="72"
+              class="max-h-16 w-auto max-w-[88%] object-contain opacity-95 transition-opacity duration-300 group-hover:opacity-100 md:max-h-[72px]"
+            />
           </div>
         ))
       }
