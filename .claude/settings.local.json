@@ -55,7 +55,21 @@
       "PowerShell(\"node stopped\")",
       "Bash(curl -s -m 3 http://127.0.0.1:4321/uz/ -o /dev/null -w \"%{http_code}\\\\n\")",
       "Bash(curl -s -m 5 http://127.0.0.1:4321/uz/)",
-      "Bash(grep -nA1 \"testimonials: {\" src/lib/i18n.ts)"
+      "Bash(grep -nA1 \"testimonials: {\" src/lib/i18n.ts)",
+      "Bash(mkdir -p \"C:/Users/Yoqubxon/Downloads/soya-quli-pdf/chapters\")",
+      "Bash(mkdir -p \"C:/Users/Yoqubxon/Downloads/soya-quli-pdf/fonts\")",
+      "Bash(python -c \"import reportlab, fontTools; print\\('reportlab', reportlab.Version\\); print\\('fonttools OK'\\)\")",
+      "PowerShell($py = \\(Get-Command python -ErrorAction SilentlyContinue\\); if \\($py\\) { python --version } else { Write-Output \"python yo'q\" }; $pyl = \\(Get-Command py -ErrorAction SilentlyContinue\\); if \\($pyl\\) { py --version } else { Write-Output \"py launcher yo'q\" })",
+      "PowerShell(flutter --version)",
+      "PowerShell($candidates = @\\(\"C:\\\\flutter\\\\bin\\\\flutter.bat\", \"C:\\\\src\\\\flutter\\\\bin\\\\flutter.bat\", \"D:\\\\flutter\\\\bin\\\\flutter.bat\", \"$env:LOCALAPPDATA\\\\flutter\\\\bin\\\\flutter.bat\", \"$env:USERPROFILE\\\\flutter\\\\bin\\\\flutter.bat\", \"C:\\\\tools\\\\flutter\\\\bin\\\\flutter.bat\", \"D:\\\\sdk\\\\flutter\\\\bin\\\\flutter.bat\"\\); foreach \\($c in $candidates\\) { if \\(Test-Path $c\\) { Write-Output \"FOUND: $c\" } }; Get-ChildItem \"C:\\\\\", \"D:\\\\\", \"$env:USERPROFILE\" -Directory -ErrorAction SilentlyContinue | Where-Object { $_.Name -match 'flutter|fvm' } | Select-Object -ExpandProperty FullName)",
+      "PowerShell(\\(Get-Command flutter -ErrorAction SilentlyContinue\\).Source; if \\(Test-Path \"C:\\\\flutter\\\\packages\\\\flutter\\\\lib\\\\src\\\\material\\\\navigation_bar.dart\"\\) { \"exists\" } else { \"missing\" })",
+      "Bash(grep -o '\"rootUri\": \"file:///[^\"]*flutter[^\"]*\"')",
+      "Bash(python3 -c ' *)",
+      "Bash(ls /e/hayot/ 2>/dev/null | head -20; ls ~/AppData/Local/Pub/Cache/hosted/pub.dev/ 2>/dev/null | grep -i \"^drift\" | head -5)",
+      "PowerShell($flutter = Get-Command flutter -ErrorAction SilentlyContinue; if \\($flutter\\) { $flutter.Source } else { \"not on path\" })",
+      "PowerShell($sdk = \"$env:LOCALAPPDATA\\\\Android\\\\Sdk\"; Get-ChildItem $sdk -Directory | Select-Object -ExpandProperty Name; Write-Output '---'; Get-ChildItem \"$sdk\\\\platform-tools\\\\adb.exe\", \"$sdk\\\\emulator\\\\emulator.exe\" -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName)",
+      "Bash(cd \"/c/Users/Yoqubxon/Downloads/logos_work\" *)",
+      "Bash(curl -s -m 3 http://127.0.0.1:4321/uz/ -o /dev/null -w \"dev: %{http_code}\\\\n\")"
     ]
   }
 }

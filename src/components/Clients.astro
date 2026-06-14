@@ -28,21 +28,15 @@ const loop = [...CLIENTS, ...CLIENTS];
   <div class="clients-mask relative mt-8 overflow-hidden bg-paper py-10 md:py-12">
     <div class="clients-track flex w-max items-center gap-10 px-6 md:gap-14" id="clientsTrack">
       {
-        loop.map((cl) =>
-          cl.logo ? (
-            <img
-              src={`/clients/${cl.slug}.png`}
-              alt={cl.name}
-              loading="lazy"
-              decoding="async"
-              class="client-logo h-16 w-auto shrink-0 object-contain md:h-24"
-            />
-          ) : (
-            <span class="shrink-0 select-none whitespace-nowrap text-base font-semibold tracking-tight text-ink/75 md:text-lg">
-              {cl.name}
-            </span>
-          ),
-        )
+        loop.map((cl) => (
+          <img
+            src={`/clients/${cl.slug}.${cl.ext ?? "png"}`}
+            alt={cl.name}
+            loading="lazy"
+            decoding="async"
+            class="client-logo h-16 w-auto shrink-0 object-contain md:h-24"
+          />
+        ))
       }
     </div>
   </div>
