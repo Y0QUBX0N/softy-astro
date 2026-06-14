@@ -126,7 +126,6 @@ ready(() => {
     wrap?.addEventListener("mouseenter", () => tween.pause());
     wrap?.addEventListener("mouseleave", () => tween.play());
   };
-  makeMarquee("marqueeTrack", 38);
   makeMarquee("tMarqueeTrack", 60);
   makeMarquee("clientsTrack", 55);
 

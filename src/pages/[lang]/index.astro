@@ -3,7 +3,6 @@ import { LANGS, isLang, DEFAULT_LANG, type Lang } from "../../lib/i18n";
 import Base from "../../layouts/Base.astro";
 import Nav from "../../components/Nav.astro";
 import Hero from "../../components/Hero.astro";
-import VendorMarquee from "../../components/VendorMarquee.astro";
 import ProblemFraming from "../../components/ProblemFraming.astro";
 import Pillars from "../../components/Pillars.astro";
 import WhyUs from "../../components/WhyUs.astro";
@@ -25,7 +24,6 @@ const lang: Lang = isLang(raw) ? raw : DEFAULT_LANG;
   <Nav lang={lang} page="home" />
   <main id="main">
     <Hero lang={lang} />
-    <VendorMarquee lang={lang} />
     <ProblemFraming lang={lang} />
     <Pillars lang={lang} variant="preview" />
     <WhyUs lang={lang} />
