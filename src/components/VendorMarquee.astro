@@ -46,10 +46,4 @@ const loop = [...VENDORS, ...VENDORS];
   @media (pointer: fine) {
     .vendor-logo:hover { transform: scale(1.08); }
   }
-  /* Icon-style marks read small next to wide wordmarks at the same height —
-     nudge the compact ones up so the marquee stays visually balanced. */
-  .vendor-logo[data-slug="kaspersky"] { transform: scale(1.35); transform-origin: center; }
-  @media (pointer: fine) {
-    .vendor-logo[data-slug="kaspersky"]:hover { transform: scale(1.45); }
-  }
 </style>
