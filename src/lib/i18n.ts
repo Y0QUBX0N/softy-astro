@@ -142,7 +142,7 @@ const uz: Content = {
     eyebrow: "Rasmiy IT-Integrator · MDH bo'ylab",
     titleA: "IT-bo'limingiz,",
     titleAccent: "biz bilan.",
-    lead: "Microsoft 365'dan AI vositalargacha — barcha rasmiy litsenziyalarni bir manzildan oling. Biz o'rnatamiz, biz qo'llab-quvvatlaymiz.",
+    lead: "Bulutli xizmatlar va kiberxavfsizlikdan muhandislik dasturlarigacha — yetakchi jahon vendorlarining rasmiy litsenziyalari. Joriy etamiz va qo'llab-quvvatlaymiz.",
     ctaPrimary: "Bepul audit oling",
     ctaSecondary: "Hamkorlarni ko'rish",
     trust: ["50+ kompaniya bizga ishonadi", "9 davlat", "24/7 yordam"],
@@ -192,8 +192,8 @@ const uz: Content = {
   problem: {
     eyebrow: "Muammo",
     title: "Sizning kompaniyangiz har yili dasturlarga ortiqcha to'layapti.",
-    figure: "$67,000",
-    figureCaption: "o'rtacha mijoz bir yilda tejaydi",
+    figure: "30%",
+    figureCaption: "IT-byudjet ortiqcha va takroriy dasturlarga ketadi",
     sub: "Sabab oddiy — to'g'ri litsenziya, to'g'ri vendordan, to'g'ri shartda. Biz har bir litsenziyangizni, har bir bo'shliqni va har bir ortiqcha to'lovni topamiz.",
   },
   pillars: {
@@ -236,7 +236,7 @@ const uz: Content = {
     items: [
       { value: 50, suffix: "+", label: "Faol mijozlar" },
       { value: 92, suffix: "%", label: "Mijozlar qaytishi (3+ yil)" },
-      { value: 67, prefix: "$", suffix: "K", label: "O'rtacha tejov / mijoz" },
+      { value: 26, label: "Rasmiy vendorlar" },
       { value: 9, suffix: "+", label: "MDH davlatlari" },
     ],
   },
@@ -404,7 +404,7 @@ const ru: Content = {
     eyebrow: "Официальный IT-интегратор · по СНГ",
     titleA: "Ваш IT-отдел",
     titleAccent: "с нами.",
-    lead: "От Microsoft 365 до AI-инструментов — все официальные лицензии в одном месте. Мы устанавливаем, мы поддерживаем.",
+    lead: "От облачных сервисов и кибербезопасности до инженерного ПО — официальные лицензии ведущих мировых вендоров. Внедряем и сопровождаем под ключ.",
     ctaPrimary: "Бесплатный аудит",
     ctaSecondary: "Наши вендоры",
     trust: ["Нам доверяют 50+ компаний", "9 стран", "Поддержка 24/7"],
@@ -454,8 +454,8 @@ const ru: Content = {
   problem: {
     eyebrow: "Проблема",
     title: "Ваша компания ежегодно переплачивает за софт.",
-    figure: "$67,000",
-    figureCaption: "в среднем экономит клиент за год",
+    figure: "30%",
+    figureCaption: "IT-бюджета уходит на лишний и дублирующий софт",
     sub: "Причина проста — правильная лицензия, от правильного вендора, на правильных условиях. Мы найдём каждую лицензию, каждый пробел и каждую переплату.",
   },
   pillars: {
@@ -498,7 +498,7 @@ const ru: Content = {
     items: [
       { value: 50, suffix: "+", label: "Активных клиентов" },
       { value: 92, suffix: "%", label: "Возврат клиентов (3+ года)" },
-      { value: 67, prefix: "$", suffix: "K", label: "Средняя экономия / клиент" },
+      { value: 26, label: "Официальных вендоров" },
       { value: 9, suffix: "+", label: "Стран СНГ" },
     ],
   },
@@ -666,7 +666,7 @@ const en: Content = {
     eyebrow: "Official IT Integrator · across the CIS",
     titleA: "Your IT department,",
     titleAccent: "with us.",
-    lead: "From Microsoft 365 to AI tools — every official license from one place. We deploy it, we support it.",
+    lead: "From cloud and cybersecurity to engineering software — official licenses from leading global vendors. We deploy and support, end to end.",
     ctaPrimary: "Get a free audit",
     ctaSecondary: "See our vendors",
     trust: ["Trusted by 50+ companies", "9 countries", "24/7 support"],
@@ -716,8 +716,8 @@ const en: Content = {
   problem: {
     eyebrow: "The problem",
     title: "Your company is overpaying for software every year.",
-    figure: "$67,000",
-    figureCaption: "saved by the average client per year",
+    figure: "30%",
+    figureCaption: "of the IT budget is wasted on excess, duplicate software",
     sub: "The reason is simple — the right license, from the right vendor, on the right terms. We map every license, every gap, and every overspend.",
   },
   pillars: {
@@ -760,7 +760,7 @@ const en: Content = {
     items: [
       { value: 50, suffix: "+", label: "Active clients" },
       { value: 92, suffix: "%", label: "Client retention (3+ yrs)" },
-      { value: 67, prefix: "$", suffix: "K", label: "Average saving / client" },
+      { value: 26, label: "Official vendors" },
       { value: 9, suffix: "+", label: "CIS countries" },
     ],
   },
@@ -928,7 +928,7 @@ const kk: Content = {
     eyebrow: "Ресми IT-интегратор · ТМД бойынша",
     titleA: "IT-бөліміңіз,",
     titleAccent: "біз біргеміз.",
-    lead: "Microsoft 365-тен AI құралдарына дейін — барлық ресми лицензияларды бір жерден алыңыз. Біз орнатамыз, біз қолдаймыз.",
+    lead: "Бұлттық қызметтер мен киберқауіпсіздіктен инженерлік бағдарламаларға дейін — жетекші әлемдік вендорлардың ресми лицензиялары. Енгіземіз және қолдаймыз.",
     ctaPrimary: "Тегін аудит алыңыз",
     ctaSecondary: "Серіктестерді көру",
     trust: ["50+ компания бізге сенеді", "9 ел", "24/7 қолдау"],
@@ -978,8 +978,8 @@ const kk: Content = {
   problem: {
     eyebrow: "Мәселе",
     title: "Сіздің компанияңыз бағдарламаларға жыл сайын артық төлейді.",
-    figure: "$67,000",
-    figureCaption: "орташа клиент жылына үнемдейді",
+    figure: "30%",
+    figureCaption: "IT-бюджет артық әрі қайталанатын софтқа кетеді",
     sub: "Себебі қарапайым — дұрыс лицензия, дұрыс вендордан, дұрыс шартта. Біз әр лицензияңызды, әр олқылықты және әр артық төлемді табамыз.",
   },
   pillars: {
@@ -1022,7 +1022,7 @@ const kk: Content = {
     items: [
       { value: 50, suffix: "+", label: "Белсенді клиенттер" },
       { value: 92, suffix: "%", label: "Клиенттер қайтуы (3+ жыл)" },
-      { value: 67, prefix: "$", suffix: "K", label: "Орташа үнем / клиент" },
+      { value: 26, label: "Ресми вендорлар" },
       { value: 9, suffix: "+", label: "ТМД елдері" },
     ],
   },
@@ -1190,7 +1190,7 @@ const ky: Content = {
     eyebrow: "Расмий IT-интегратор · КМШ боюнча",
     titleA: "IT-бөлүмүңүз,",
     titleAccent: "биз менен.",
-    lead: "Microsoft 365тен AI куралдарына чейин — бардык расмий лицензияларды бир жерден алыңыз. Биз орнотобуз, биз колдойбуз.",
+    lead: "Булут кызматтарынан жана киберкоопсуздуктан инженердик программаларга чейин — алдыңкы дүйнөлүк вендорлордун расмий лицензиялары. Киргизебиз жана колдойбуз.",
     ctaPrimary: "Акысыз аудит алыңыз",
     ctaSecondary: "Өнөктөштөрдү көрүү",
     trust: ["50+ компания бизге ишенет", "9 өлкө", "24/7 колдоо"],
@@ -1240,8 +1240,8 @@ const ky: Content = {
   problem: {
     eyebrow: "Көйгөй",
     title: "Сиздин компанияңыз программаларга жыл сайын ашык төлөйт.",
-    figure: "$67,000",
-    figureCaption: "орточо кардар жылына үнөмдөйт",
+    figure: "30%",
+    figureCaption: "IT-бюджет ашыкча жана кайталанган софтко кетет",
     sub: "Себеби жөнөкөй — туура лицензия, туура вендордон, туура шартта. Биз ар бир лицензияңызды, ар бир боштукту жана ар бир ашык төлөмдү табабыз.",
   },
   pillars: {
@@ -1284,7 +1284,7 @@ const ky: Content = {
     items: [
       { value: 50, suffix: "+", label: "Активдүү кардарлар" },
       { value: 92, suffix: "%", label: "Кардарлардын кайтуусу (3+ жыл)" },
-      { value: 67, prefix: "$", suffix: "K", label: "Орточо үнөм / кардар" },
+      { value: 26, label: "Расмий вендорлор" },
       { value: 9, suffix: "+", label: "КМШ өлкөлөрү" },
     ],
   },
@@ -1452,7 +1452,7 @@ const tg: Content = {
     eyebrow: "Интегратори расмии IT · дар саросари ИДМ",
     titleA: "Шуъбаи IT-и шумо,",
     titleAccent: "бо мо.",
-    lead: "Аз Microsoft 365 то абзорҳои AI — ҳама литсензияҳои расмиро аз як ҷой гиред. Мо насб мекунем, мо дастгирӣ мекунем.",
+    lead: "Аз хадамоти абрӣ ва амнияти киберӣ то нармафзори муҳандисӣ — литсензияҳои расмии вендорҳои пешбари ҷаҳонӣ. Ҷорӣ мекунем ва дастгирӣ мекунем.",
     ctaPrimary: "Аудити ройгон гиред",
     ctaSecondary: "Шариконро дидан",
     trust: ["50+ ширкат ба мо бовар мекунанд", "9 кишвар", "Дастгирии 24/7"],
@@ -1502,8 +1502,8 @@ const tg: Content = {
   problem: {
     eyebrow: "Мушкил",
     title: "Ширкати шумо ҳар сол барои барномаҳо зиёдатӣ мепардозад.",
-    figure: "$67,000",
-    figureCaption: "муштарии миёна дар як сол сарфа мекунад",
+    figure: "30%",
+    figureCaption: "буҷети IT ба нармафзори зиёдатӣ ва такрорӣ сарф мешавад",
     sub: "Сабаб содда аст — литсензияи дуруст, аз вендори дуруст, бо шарти дуруст. Мо ҳар литсензия, ҳар холигоҳ ва ҳар пардохти зиёдатиро меёбем.",
   },
   pillars: {
@@ -1546,7 +1546,7 @@ const tg: Content = {
     items: [
       { value: 50, suffix: "+", label: "Муштариёни фаъол" },
       { value: 92, suffix: "%", label: "Бозгашти муштариён (3+ сол)" },
-      { value: 67, prefix: "$", suffix: "K", label: "Сарфаи миёна / муштарӣ" },
+      { value: 26, label: "Вендорҳои расмӣ" },
       { value: 9, suffix: "+", label: "Кишварҳои ИДМ" },
     ],
   },
