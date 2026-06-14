@@ -191,10 +191,10 @@ const uz: Content = {
   },
   problem: {
     eyebrow: "Muammo",
-    title: "Sizning kompaniyangiz har yili dasturlarga ortiqcha to'layapti.",
+    title: "Kompaniyangiz har yili dasturiy ta'minotga keragidan ortiq sarflamoqda.",
     figure: "30%",
     figureCaption: "IT-byudjet ortiqcha va takroriy dasturlarga ketadi",
-    sub: "Sabab oddiy — to'g'ri litsenziya, to'g'ri vendordan, to'g'ri shartda. Biz har bir litsenziyangizni, har bir bo'shliqni va har bir ortiqcha to'lovni topamiz.",
+    sub: "Sabab oddiy — to'g'ri litsenziya, to'g'ri vendordan, to'g'ri shartda. Biz har bir litsenziyangizni, har bir bo'shliqni va har bir ortiqcha xarajatni topamiz.",
   },
   pillars: {
     eyebrow: "Biz nima qilamiz",
@@ -303,7 +303,7 @@ const uz: Content = {
     title: "Aqlli kompaniyalar bizga ishonadi.",
     items: [
       { quote: "Softy bizning litsenziya xarajatlarimizni bir choragda 34% ga kamaytirdi. Endi 12 ta hisob o'rniga bitta hisobni boshqaramiz.", name: "Dilshod Karimov", role: "IT direktor, mid-market logistika", initials: "DK" },
-      { quote: "Bepul audit haqiqatan ham bepul edi va birinchi oyda $9,000 dan ortiq ortiqcha to'lovni topdi. Bu juda nodir uchraydi.", name: "Aziza Rahimova", role: "Moliya direktori (CFO), savdo tarmog'i", initials: "AR" },
+      { quote: "Bepul audit haqiqatan ham bepul edi va birinchi oyda $9,000 dan ortiq ortiqcha xarajatni topdi. Bu juda nodir uchraydi.", name: "Aziza Rahimova", role: "Moliya direktori (CFO), savdo tarmog'i", initials: "AR" },
       { quote: "Windows'dan Mac'ga migratsiya 48 soatda, bironta uzilishsiz amalga oshdi. 24/7 yordam haqiqatan ishlaydi.", name: "Sardor Yusupov", role: "Operatsiyalar boshlig'i, fintech", initials: "SY" },
       { quote: "Bir shartnoma — Microsoft, Adobe va Autodesk. Sotib olish bo'limimiz Softy'ni eng yaxshi qarorimiz deb ataydi.", name: "Nigora Tosheva", role: "Xaridlar yetakchisi, ishlab chiqarish", initials: "NT" },
     ],
@@ -317,11 +317,11 @@ const uz: Content = {
       { q: "MDH qaysi davlatlarida ishlaysiz?", a: "O'zbekiston, Qozog'iston, Qirg'iziston, Tojikiston, Turkmaniston, Ozarbayjon, Rossiya va boshqalar." },
       { q: "To'lov qanday amalga oshiriladi?", a: "Oylik yoki yillik. UZS, RUB, USD da to'lov mumkin — bank transferi, korporativ karta yoki Visa/Mastercard orqali." },
       { q: "O'rnatish va texnik yordamga qancha vaqt ketadi?", a: "O'rnatish odatda 24–48 soat ichida. Texnik yordam 24/7 mavjud, SLA javob vaqti 1 soatgacha." },
-      { q: "Bepul audit nima va u qanday ishlaydi?", a: "Sizning hozirgi dasturiy ta'minot xarajatlaringizni ko'rib chiqamiz, ortiqcha to'lovlarni topamiz va kamida 20% tejash imkonini ko'rsatamiz." },
+      { q: "Bepul audit nima va u qanday ishlaydi?", a: "Sizning hozirgi dasturiy ta'minot xarajatlaringizni ko'rib chiqamiz, ortiqcha xarajatlarni topamiz va kamida 20% tejash imkonini ko'rsatamiz." },
     ],
   },
   finalCta: {
-    title: "Bugun ortiqcha to'lashni to'xtating.",
+    title: "IT-xarajatlaringizni bugun optimallashtiring.",
     sub: "Bepul audit oling — biznesingiz uchun eng mos yechimni biz bilan toping. 24 soat ichida javob beramiz.",
     call: "Qo'ng'iroq qilish",
     telegram: "Telegram'da yozish",
@@ -453,10 +453,10 @@ const ru: Content = {
   },
   problem: {
     eyebrow: "Проблема",
-    title: "Ваша компания ежегодно переплачивает за софт.",
+    title: "Ваша компания ежегодно тратит на ПО больше необходимого.",
     figure: "30%",
     figureCaption: "IT-бюджета уходит на лишний и дублирующий софт",
-    sub: "Причина проста — правильная лицензия, от правильного вендора, на правильных условиях. Мы найдём каждую лицензию, каждый пробел и каждую переплату.",
+    sub: "Причина проста — правильная лицензия, от правильного вендора, на правильных условиях. Мы найдём каждую лицензию, каждый пробел и каждую лишнюю статью расходов.",
   },
   pillars: {
     eyebrow: "Что мы делаем",
@@ -488,7 +488,7 @@ const ru: Content = {
     sub: "От запроса до постоянной поддержки — каждый шаг понятен.",
     steps: [
       { num: "01", title: "Запрос", desc: "Расскажите, как выглядит ваш технический стек. Одного разговора достаточно." },
-      { num: "02", title: "Аудит", desc: "Картируем каждую лицензию, каждый пробел и каждую переплату." },
+      { num: "02", title: "Аудит", desc: "Картируем каждую лицензию, каждый пробел и каждую лишнюю статью расходов." },
       { num: "03", title: "Поставка", desc: "Договариваемся, лицензируем и устанавливаем — вам ни о чём не нужно думать." },
       { num: "04", title: "Поддержка", desc: "Мониторим, продлеваем и отвечаем. Всегда." },
     ],
@@ -555,7 +555,7 @@ const ru: Content = {
     body: [
       "Мы не производим ПО — благодаря прямому партнёрству с ведущими вендорами наши клиенты получают гарантированные продукты на лучших условиях. От Windows до iOS, от офисных программ до AI-инструментов — всё из одного места.",
       "Softy ориентирована на бизнес от малых и средних предприятий до крупных организаций. Индивидуальный подход к каждому клиенту и решения, адаптированные под размер бизнеса — наша стандартная практика, а не исключение из правил.",
-      "Наша задача проста: один договор, любой вендор, без компромиссов. Через аудит лицензий мы находим переплаты, устанавливаем и обеспечиваем постоянную техподдержку.",
+      "Наша задача проста: один договор, любой вендор, без компромиссов. Через аудит лицензий мы находим лишние расходы, устанавливаем и обеспечиваем постоянную техподдержку.",
       "За Softy стоит команда, увлечённая технологиями. Наша цель ясна: упростить рабочие процессы каждого клиента, внести вклад в развитие его бизнеса и стать одной из крупнейших и самых инновационных IT-компаний Узбекистана. Не продажа — а долгосрочное партнёрство лежит в основе нашей модели работы.",
       "В 9+ странах СНГ нам доверяют 200+ компаний. 92% возврата клиентов, сертификации вендоров и стабильные технические компетенции — это не просто цифры, это результат вашего доверия и роста вашего бизнеса.",
     ],
@@ -565,7 +565,7 @@ const ru: Content = {
     title: "Умные компании нам доверяют.",
     items: [
       { quote: "Softy снизил наши расходы на лицензии на 34% за квартал. Теперь один счёт вместо двенадцати.", name: "Дильшод Каримов", role: "IT-директор, логистика", initials: "ДК" },
-      { quote: "Бесплатный аудит был действительно бесплатным и нашёл переплату на $9,000 в первый месяц. Это редкость.", name: "Азиза Рахимова", role: "CFO, розничная сеть", initials: "АР" },
+      { quote: "Бесплатный аудит был действительно бесплатным и нашёл лишних расходов на $9,000 в первый месяц. Это редкость.", name: "Азиза Рахимова", role: "CFO, розничная сеть", initials: "АР" },
       { quote: "Миграция с Windows на Mac за 48 часов без единого простоя. Поддержка 24/7 действительно работает.", name: "Сардор Юсупов", role: "Руководитель операций, финтех", initials: "СЮ" },
       { quote: "Один договор — Microsoft, Adobe и Autodesk. Отдел закупок называет Softy лучшим решением.", name: "Нигора Тошева", role: "Руководитель закупок, производство", initials: "НТ" },
     ],
@@ -579,11 +579,11 @@ const ru: Content = {
       { q: "В каких странах СНГ вы работаете?", a: "Узбекистан, Казахстан, Кыргызстан, Таджикистан, Туркменистан, Азербайджан, Россия и другие." },
       { q: "Как происходит оплата?", a: "Помесячно или ежегодно. Оплата в UZS, RUB, USD — банковский перевод, корпоративная карта или Visa/Mastercard." },
       { q: "Сколько занимает установка и поддержка?", a: "Установка обычно за 24–48 часов. Поддержка 24/7, время реакции по SLA до 1 часа." },
-      { q: "Что такое бесплатный аудит и как он работает?", a: "Мы анализируем ваши текущие расходы на ПО, находим переплаты и показываем экономию минимум 20%." },
+      { q: "Что такое бесплатный аудит и как он работает?", a: "Мы анализируем ваши текущие расходы на ПО, находим лишние расходы и показываем экономию минимум 20%." },
     ],
   },
   finalCta: {
-    title: "Перестаньте переплачивать уже сегодня.",
+    title: "Оптимизируйте IT-расходы уже сегодня.",
     sub: "Закажите бесплатный аудит — найдём лучшее решение для вашего бизнеса. Ответим в течение 24 часов.",
     call: "Позвонить",
     telegram: "Написать в Telegram",
@@ -715,10 +715,10 @@ const en: Content = {
   },
   problem: {
     eyebrow: "The problem",
-    title: "Your company is overpaying for software every year.",
+    title: "Your company spends more on software than it needs to.",
     figure: "30%",
     figureCaption: "of the IT budget is wasted on excess, duplicate software",
-    sub: "The reason is simple — the right license, from the right vendor, on the right terms. We map every license, every gap, and every overspend.",
+    sub: "The reason is simple — the right license, from the right vendor, on the right terms. We map every license, every gap, and every unnecessary cost.",
   },
   pillars: {
     eyebrow: "What we do",
@@ -750,7 +750,7 @@ const en: Content = {
     sub: "From inquiry to ongoing support — every step is clear.",
     steps: [
       { num: "01", title: "Inquiry", desc: "Tell us what your stack looks like. One conversation is enough." },
-      { num: "02", title: "Audit", desc: "We map every license, every gap, and every overspend." },
+      { num: "02", title: "Audit", desc: "We map every license, every gap, and every unnecessary cost." },
       { num: "03", title: "Delivery", desc: "We negotiate, license, and deploy — so you don't have to think about it." },
       { num: "04", title: "Support", desc: "We monitor, renew, and respond. Forever." },
     ],
@@ -817,7 +817,7 @@ const en: Content = {
     body: [
       "We don't build software — through direct partnerships with leading vendors, our clients get guaranteed products on the best terms. From Windows to iOS, from office apps to AI tools, everything from one place.",
       "Softy is built for businesses from small and medium enterprises to large organizations. A tailored approach for every client and solutions matched to your business size — that's our standard practice, not the exception.",
-      "Our mission is simple: one contract, every vendor, zero compromises. Through license audits we find the overspend, deploy, and provide ongoing technical support.",
+      "Our mission is simple: one contract, every vendor, zero compromises. Through license audits we find the excess costs, deploy, and provide ongoing technical support.",
       "Behind Softy stands a team passionate about technology. Our goal is clear: to simplify every client's work, contribute to their business growth, and become one of Uzbekistan's largest and most innovative IT companies. Not the sale — but a long-term partnership lies at the core of how we work.",
       "Across 9+ CIS countries, 200+ companies trust us. 92% client retention, vendor certifications and steady technical competence — these aren't just numbers, they're the result of your trust and the growth of your business.",
     ],
@@ -827,7 +827,7 @@ const en: Content = {
     title: "Smart companies trust us.",
     items: [
       { quote: "Softy cut our licensing costs by 34% in a single quarter. We now manage one bill instead of twelve.", name: "Dilshod Karimov", role: "IT Director, logistics", initials: "DK" },
-      { quote: "The free audit was actually free and found over $9,000 in overspend in the first month. That's rare.", name: "Aziza Rahimova", role: "CFO, retail chain", initials: "AR" },
+      { quote: "The free audit was actually free and found over $9,000 in excess costs in the first month. That's rare.", name: "Aziza Rahimova", role: "CFO, retail chain", initials: "AR" },
       { quote: "Windows-to-Mac migration in 48 hours with zero downtime. The 24/7 support genuinely works.", name: "Sardor Yusupov", role: "Head of Operations, fintech", initials: "SY" },
       { quote: "One contract for Microsoft, Adobe and Autodesk. Our procurement team calls Softy our best decision.", name: "Nigora Tosheva", role: "Procurement Lead, manufacturing", initials: "NT" },
     ],
@@ -841,11 +841,11 @@ const en: Content = {
       { q: "Which CIS countries do you operate in?", a: "Uzbekistan, Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan, Azerbaijan, Russia and others." },
       { q: "How does payment work?", a: "Monthly or annual. Pay in UZS, RUB, or USD — via bank transfer, corporate card, or Visa/Mastercard." },
       { q: "How long do deployment and support take?", a: "Deployment is usually within 24–48 hours. Support is available 24/7, with SLA response up to 1 hour." },
-      { q: "What is the free audit and how does it work?", a: "We review your current software spend, find the overspend, and show you at least 20% in savings." },
+      { q: "What is the free audit and how does it work?", a: "We review your current software spend, find the excess costs, and show you at least 20% in savings." },
     ],
   },
   finalCta: {
-    title: "Stop overpaying today.",
+    title: "Optimize your IT spend today.",
     sub: "Get a free audit — we'll find the best solution for your business. We reply within 24 hours.",
     call: "Call us",
     telegram: "Message on Telegram",
@@ -977,10 +977,10 @@ const kk: Content = {
   },
   problem: {
     eyebrow: "Мәселе",
-    title: "Сіздің компанияңыз бағдарламаларға жыл сайын артық төлейді.",
+    title: "Компанияңыз бағдарламалық қамтамаға жыл сайын қажеттен артық жұмсайды.",
     figure: "30%",
     figureCaption: "IT-бюджет артық әрі қайталанатын софтқа кетеді",
-    sub: "Себебі қарапайым — дұрыс лицензия, дұрыс вендордан, дұрыс шартта. Біз әр лицензияңызды, әр олқылықты және әр артық төлемді табамыз.",
+    sub: "Себебі қарапайым — дұрыс лицензия, дұрыс вендордан, дұрыс шартта. Біз әр лицензияңызды, әр олқылықты және әр артық шығынды табамыз.",
   },
   pillars: {
     eyebrow: "Біз не істейміз",
@@ -1089,7 +1089,7 @@ const kk: Content = {
     title: "Ақылды компаниялар бізге сенеді.",
     items: [
       { quote: "Softy біздің лицензия шығынымызды бір тоқсанда 34%-ға қысқартты. Енді 12 есепшоттың орнына біреуін басқарамыз.", name: "Дилшод Каримов", role: "IT директор, орта нарық логистикасы", initials: "DK" },
-      { quote: "Тегін аудит шынымен тегін болды және алғашқы айда $9,000-нан астам артық төлемді тапты. Бұл өте сирек кездеседі.", name: "Әзиза Рахимова", role: "Қаржы директоры (CFO), сауда желісі", initials: "AR" },
+      { quote: "Тегін аудит шынымен тегін болды және алғашқы айда $9,000-нан астам артық шығынды тапты. Бұл өте сирек кездеседі.", name: "Әзиза Рахимова", role: "Қаржы директоры (CFO), сауда желісі", initials: "AR" },
       { quote: "Windows-тан Mac-қа көшу 48 сағатта, еш үзіліссіз өтті. 24/7 қолдау шынымен жұмыс істейді.", name: "Сардор Юсупов", role: "Операция басшысы, fintech", initials: "SY" },
       { quote: "Бір шарт — Microsoft, Adobe және Autodesk. Сатып алу бөлімі Softy-ді ең жақсы шешіміміз деп атайды.", name: "Нигора Тошева", role: "Сатып алу жетекшісі, өндіріс", initials: "NT" },
     ],
@@ -1103,11 +1103,11 @@ const kk: Content = {
       { q: "ТМД-ның қай елдерінде жұмыс істейсіздер?", a: "Өзбекстан, Қазақстан, Қырғызстан, Тәжікстан, Түрікменстан, Әзірбайжан, Ресей және басқалар." },
       { q: "Төлем қалай жүргізіледі?", a: "Айлық немесе жылдық. UZS, RUB, USD-да төлеуге болады — банк аударымы, корпоративтік карта немесе Visa/Mastercard арқылы." },
       { q: "Орнату мен техникалық қолдауға қанша уақыт кетеді?", a: "Орнату әдетте 24–48 сағат ішінде. Техникалық қолдау 24/7 қолжетімді, SLA жауап уақыты 1 сағатқа дейін." },
-      { q: "Тегін аудит дегеніміз не және ол қалай жұмыс істейді?", a: "Сіздің қазіргі бағдарламалық шығындарыңызды қарап шығамыз, артық төлемдерді табамыз және кемінде 20% үнемдеу мүмкіндігін көрсетеміз." },
+      { q: "Тегін аудит дегеніміз не және ол қалай жұмыс істейді?", a: "Сіздің қазіргі бағдарламалық шығындарыңызды қарап шығамыз, артық шығындарды табамыз және кемінде 20% үнемдеу мүмкіндігін көрсетеміз." },
     ],
   },
   finalCta: {
-    title: "Бүгін артық төлеуді тоқтатыңыз.",
+    title: "IT-шығындарыңызды бүгін оңтайландырыңыз.",
     sub: "Тегін аудит алыңыз — бизнесіңізге ең қолайлы шешімді бізбен табыңыз. 24 сағат ішінде жауап береміз.",
     call: "Қоңырау шалу",
     telegram: "Telegram-да жазу",
@@ -1239,10 +1239,10 @@ const ky: Content = {
   },
   problem: {
     eyebrow: "Көйгөй",
-    title: "Сиздин компанияңыз программаларга жыл сайын ашык төлөйт.",
+    title: "Компанияңыз программалык камсыздоого жыл сайын керектүүдөн ашык жумшайт.",
     figure: "30%",
     figureCaption: "IT-бюджет ашыкча жана кайталанган софтко кетет",
-    sub: "Себеби жөнөкөй — туура лицензия, туура вендордон, туура шартта. Биз ар бир лицензияңызды, ар бир боштукту жана ар бир ашык төлөмдү табабыз.",
+    sub: "Себеби жөнөкөй — туура лицензия, туура вендордон, туура шартта. Биз ар бир лицензияңызды, ар бир боштукту жана ар бир ашык чыгымды табабыз.",
   },
   pillars: {
     eyebrow: "Биз эмне кылабыз",
@@ -1351,7 +1351,7 @@ const ky: Content = {
     title: "Акылдуу компаниялар бизге ишенет.",
     items: [
       { quote: "Softy биздин лицензия чыгымыбызды бир чейректе 34%га кыскартты. Эми 12 эсептин ордуна бирөөнү башкарабыз.", name: "Дилшод Каримов", role: "IT директору, орто рынок логистикасы", initials: "DK" },
-      { quote: "Акысыз аудит чындап акысыз болду жана биринчи айда $9,000ден ашык ашык төлөмдү тапты. Бул өтө сейрек кездешет.", name: "Азиза Рахимова", role: "Каржы директору (CFO), соода тармагы", initials: "AR" },
+      { quote: "Акысыз аудит чындап акысыз болду жана биринчи айда $9,000ден ашык ашык чыгымды тапты. Бул өтө сейрек кездешет.", name: "Азиза Рахимова", role: "Каржы директору (CFO), соода тармагы", initials: "AR" },
       { quote: "Windows-тон Mac-ка көчүү 48 саатта, эч үзгүлтүксүз өттү. 24/7 колдоо чындап иштейт.", name: "Сардор Юсупов", role: "Операция башчысы, fintech", initials: "SY" },
       { quote: "Бир келишим — Microsoft, Adobe жана Autodesk. Сатып алуу бөлүмү Softy-ди эң жакшы чечимибиз деп атайт.", name: "Нигора Тошева", role: "Сатып алуу жетекчиси, өндүрүш", initials: "NT" },
     ],
@@ -1365,11 +1365,11 @@ const ky: Content = {
       { q: "КМШнын кайсы өлкөлөрүндө иштейсиздер?", a: "Өзбекстан, Казакстан, Кыргызстан, Тажикстан, Түркмөнстан, Азербайжан, Россия жана башкалар." },
       { q: "Төлөм кантип жүргүзүлөт?", a: "Айлык же жылдык. UZS, RUB, USD менен төлөөгө болот — банк которуу, корпоративдик карта же Visa/Mastercard аркылуу." },
       { q: "Орнотуу жана техникалык колдоого канча убакыт кетет?", a: "Орнотуу адатта 24–48 саат ичинде. Техникалык колдоо 24/7 жеткиликтүү, SLA жооп убактысы 1 саатка чейин." },
-      { q: "Акысыз аудит деген эмне жана ал кантип иштейт?", a: "Сиздин азыркы программалык чыгымдарыңызды карап чыгабыз, ашык төлөмдөрдү табабыз жана жок дегенде 20% үнөмдөө мүмкүнчүлүгүн көрсөтөбүз." },
+      { q: "Акысыз аудит деген эмне жана ал кантип иштейт?", a: "Сиздин азыркы программалык чыгымдарыңызды карап чыгабыз, ашык чыгымдарды табабыз жана жок дегенде 20% үнөмдөө мүмкүнчүлүгүн көрсөтөбүз." },
     ],
   },
   finalCta: {
-    title: "Бүгүн ашык төлөөнү токтотуңуз.",
+    title: "IT-чыгымдарыңызды бүгүн оптималдаштырыңыз.",
     sub: "Акысыз аудит алыңыз — бизнесиңизге эң ылайыктуу чечимди биз менен табыңыз. 24 саат ичинде жооп беребиз.",
     call: "Чалуу",
     telegram: "Telegram-га жазуу",
@@ -1501,10 +1501,10 @@ const tg: Content = {
   },
   problem: {
     eyebrow: "Мушкил",
-    title: "Ширкати шумо ҳар сол барои барномаҳо зиёдатӣ мепардозад.",
+    title: "Ширкати шумо ҳар сол барои нармафзор аз ниёз зиёдтар сарф мекунад.",
     figure: "30%",
     figureCaption: "буҷети IT ба нармафзори зиёдатӣ ва такрорӣ сарф мешавад",
-    sub: "Сабаб содда аст — литсензияи дуруст, аз вендори дуруст, бо шарти дуруст. Мо ҳар литсензия, ҳар холигоҳ ва ҳар пардохти зиёдатиро меёбем.",
+    sub: "Сабаб содда аст — литсензияи дуруст, аз вендори дуруст, бо шарти дуруст. Мо ҳар литсензия, ҳар холигоҳ ва ҳар хароҷоти зиёдатиро меёбем.",
   },
   pillars: {
     eyebrow: "Мо чӣ мекунем",
@@ -1613,7 +1613,7 @@ const tg: Content = {
     title: "Ширкатҳои доно ба мо бовар мекунанд.",
     items: [
       { quote: "Softy хароҷоти литсензияи моро дар як семоҳа 34% коҳиш дод. Акнун ба ҷои 12 ҳисоб якторо идора мекунем.", name: "Дилшод Каримов", role: "Директори IT, логистикаи бозори миёна", initials: "DK" },
-      { quote: "Аудити ройгон воқеан ройгон буд ва дар моҳи аввал зиёда аз $9,000 пардохти зиёдатиро ёфт. Ин хеле нодир аст.", name: "Азиза Раҳимова", role: "Директори молиявӣ (CFO), шабакаи савдо", initials: "AR" },
+      { quote: "Аудити ройгон воқеан ройгон буд ва дар моҳи аввал зиёда аз $9,000 хароҷоти зиёдатиро ёфт. Ин хеле нодир аст.", name: "Азиза Раҳимова", role: "Директори молиявӣ (CFO), шабакаи савдо", initials: "AR" },
       { quote: "Муҳоҷират аз Windows ба Mac дар 48 соат, бидуни ягон танаффус анҷом ёфт. Дастгирии 24/7 воқеан кор мекунад.", name: "Сардор Юсупов", role: "Сардори амалиёт, fintech", initials: "SY" },
       { quote: "Як шартнома — Microsoft, Adobe ва Autodesk. Шуъбаи харидорӣ Softy-ро беҳтарин қарори мо меномад.", name: "Нигора Тошева", role: "Роҳбари харид, истеҳсолот", initials: "NT" },
     ],
@@ -1627,11 +1627,11 @@ const tg: Content = {
       { q: "Дар кадом кишварҳои ИДМ кор мекунед?", a: "Ӯзбекистон, Қазоқистон, Қирғизистон, Тоҷикистон, Туркманистон, Озарбойҷон, Русия ва дигарон." },
       { q: "Пардохт чӣ гуна анҷом меёбад?", a: "Моҳона ё солона. Бо UZS, RUB, USD пардохт кардан мумкин — интиқоли бонкӣ, корти корпоративӣ ё Visa/Mastercard." },
       { q: "Насб ва дастгирии техникӣ чӣ қадар вақт мегирад?", a: "Насб одатан дар тӯли 24–48 соат. Дастгирии техникӣ 24/7 дастрас аст, вақти ҷавоби SLA то 1 соат." },
-      { q: "Аудити ройгон чист ва чӣ тавр кор мекунад?", a: "Хароҷоти ҳозираи барномавии шуморо аз назар мегузаронем, пардохтҳои зиёдатиро меёбем ва имкони камаш 20% сарфаро нишон медиҳем." },
+      { q: "Аудити ройгон чист ва чӣ тавр кор мекунад?", a: "Хароҷоти ҳозираи барномавии шуморо аз назар мегузаронем, хароҷоти зиёдатиро меёбем ва имкони камаш 20% сарфаро нишон медиҳем." },
     ],
   },
   finalCta: {
-    title: "Имрӯз зиёдатӣ пардохтанро бас кунед.",
+    title: "Хароҷоти IT-и худро имрӯз оптимизатсия кунед.",
     sub: "Аудити ройгон гиред — ҳалли беҳтаринро барои бизнеси худ бо мо ёбед. Дар тӯли 24 соат ҷавоб медиҳем.",
     call: "Занг задан",
     telegram: "Дар Telegram навиштан",
