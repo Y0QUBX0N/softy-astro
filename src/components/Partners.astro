@@ -3,6 +3,7 @@ import { getContent, type Lang } from "../lib/i18n";
 import { VENDORS } from "../lib/vendors";
 const { lang } = Astro.props as { lang: Lang };
 const c = getContent(lang);
+const INITIAL = 8; // cards shown by default; the rest reveal on "show all"
 ---
 
 <section id="partners" class="border-t border-hairline py-24 md:py-32">
@@ -13,11 +14,14 @@ const c = getContent(lang);
       <p class="body-lg mt-6 text-secondary">{c.partners.sub}</p>
     </div>
 
-    <div data-stagger class="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-5 lg:grid-cols-4">
+    <div id="vendorGrid" data-stagger class="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-5 lg:grid-cols-4">
       {
-        VENDORS.map((v) => (
+        VENDORS.map((v, i) => (
           <div
-            class="card-3d group grid aspect-[5/3] place-items-center rounded-xl border border-hairline bg-paper p-7 md:p-9"
+            class:list={[
+              "card-3d group grid aspect-[5/3] place-items-center rounded-xl border border-hairline bg-paper p-7 md:p-9",
+              i >= INITIAL && "vendor-extra",
+            ]}
             title={v.name}
           >
             <img
@@ -33,5 +37,82 @@ const c = getContent(lang);
         ))
       }
     </div>
+
+    {VENDORS.length > INITIAL && (
+      <div class="reveal mt-10 flex justify-center">
+        <button
+          id="vendorToggle"
+          type="button"
+          class="btn btn-ghost"
+          data-cursor
+          aria-expanded="false"
+          aria-controls="vendorGrid"
+        >
+          <span data-more>{c.partners.showAll}</span>
+          <span data-less class="hidden">{c.partners.showLess}</span>
+          <svg class="vendor-chevron ml-1.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+    )}
   </div>
 </section>
+
+<style>
+  /* Extra vendor cards stay collapsed until "show all" is pressed. */
+  .vendor-extra { display: none; }
+  #vendorGrid.is-expanded .vendor-extra { display: grid; }
+  .vendor-chevron { transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+  #vendorToggle[aria-expanded="true"] .vendor-chevron { transform: rotate(180deg); }
+</style>
+
+<script>
+  const grid = document.getElementById("vendorGrid");
+  const btn = document.getElementById("vendorToggle");
+  if (grid && btn) {
+    const extras = Array.from(grid.querySelectorAll(".vendor-extra")) as HTMLElement[];
+    const more = btn.querySelector("[data-more]");
+    const less = btn.querySelector("[data-less]");
+    const EASE = "cubic-bezier(0.16, 1, 0.3, 1)";
+    let expanded = false;
+
+    btn.addEventListener("click", () => {
+      expanded = !expanded;
+      btn.setAttribute("aria-expanded", String(expanded));
+      more?.classList.toggle("hidden", expanded);
+      less?.classList.toggle("hidden", !expanded);
+
+      if (expanded) {
+        grid.classList.add("is-expanded"); // extras -> display:grid
+        // prime the hidden state, then cascade them in next frame
+        extras.forEach((el) => {
+          el.style.transition = "none";
+          el.style.opacity = "0";
+          el.style.transform = "translateY(16px)";
+        });
+        requestAnimationFrame(() =>
+          extras.forEach((el, i) => {
+            const d = Math.min(i, 16) * 45;
+            el.style.transition = `opacity 0.5s ${EASE} ${d}ms, transform 0.5s ${EASE} ${d}ms`;
+            el.style.opacity = "1";
+            el.style.transform = "none";
+          }),
+        );
+      } else {
+        extras.forEach((el) => {
+          el.style.transition = `opacity 0.3s ${EASE}, transform 0.3s ${EASE}`;
+          el.style.opacity = "0";
+          el.style.transform = "translateY(12px)";
+        });
+        window.setTimeout(() => {
+          if (!expanded) grid.classList.remove("is-expanded");
+        }, 320);
+        // keep the section header in view after the grid shrinks
+        const sec = document.getElementById("partners");
+        if (sec) {
+          const y = sec.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      }
+    });
+  }
+</script>

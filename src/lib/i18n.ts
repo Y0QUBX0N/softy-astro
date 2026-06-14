@@ -60,7 +60,7 @@ export interface Content {
   nav: { services: string; solutions: string; catalog: string; coverage: string; about: string; contact: string; cta: string; language: string };
   hero: { eyebrow: string; titleA: string; titleAccent: string; lead: string; ctaPrimary: string; ctaSecondary: string; trust: [string, string, string] };
   vendors: { label: string };
-  partners: { eyebrow: string; title: string; sub: string };
+  partners: { eyebrow: string; title: string; sub: string; showAll: string; showLess: string };
   catalog: {
     eyebrow: string;
     title: string;
@@ -148,7 +148,7 @@ const uz: Content = {
     trust: ["200+ kompaniya bizga ishonadi", "9 davlat", "24/7 yordam"],
   },
   vendors: { label: "Rasmiy hamkorlik — yetakchi vendorlar bilan to'g'ridan-to'g'ri" },
-  partners: { eyebrow: "Hamkorlar", title: "Rasmiy vendor hamkorlarimiz", sub: "Yetakchi xalqaro vendorlar bilan to'g'ridan-to'g'ri hamkorlik — har bir litsenziya kafolatlangan va rasmiy." },
+  partners: { eyebrow: "Hamkorlar", title: "Rasmiy vendor hamkorlarimiz", sub: "Yetakchi xalqaro vendorlar bilan to'g'ridan-to'g'ri hamkorlik — har bir litsenziya kafolatlangan va rasmiy.", showAll: "Barcha vendorlarni ko'rsatish", showLess: "Yig'ish" },
   catalog: {
     eyebrow: "Katalog",
     title: "Dasturiy ta'minot mahsulotlari",
@@ -410,7 +410,7 @@ const ru: Content = {
     trust: ["Нам доверяют 200+ компаний", "9 стран", "Поддержка 24/7"],
   },
   vendors: { label: "Официальное партнёрство — напрямую с ведущими вендорами" },
-  partners: { eyebrow: "Партнёры", title: "Наши официальные вендор-партнёры", sub: "Прямое партнёрство с ведущими мировыми вендорами — каждая лицензия гарантированная и официальная." },
+  partners: { eyebrow: "Партнёры", title: "Наши официальные вендор-партнёры", sub: "Прямое партнёрство с ведущими мировыми вендорами — каждая лицензия гарантированная и официальная.", showAll: "Показать всех вендоров", showLess: "Свернуть" },
   catalog: {
     eyebrow: "Каталог",
     title: "Программные продукты",
@@ -672,7 +672,7 @@ const en: Content = {
     trust: ["Trusted by 200+ companies", "9 countries", "24/7 support"],
   },
   vendors: { label: "Official partnerships — direct with leading vendors" },
-  partners: { eyebrow: "Partners", title: "Our official vendor partners", sub: "Direct partnerships with leading global vendors — every license guaranteed and official." },
+  partners: { eyebrow: "Partners", title: "Our official vendor partners", sub: "Direct partnerships with leading global vendors — every license guaranteed and official.", showAll: "Show all vendors", showLess: "Show less" },
   catalog: {
     eyebrow: "Catalog",
     title: "Software products",
@@ -934,7 +934,7 @@ const kk: Content = {
     trust: ["200+ компания бізге сенеді", "9 ел", "24/7 қолдау"],
   },
   vendors: { label: "Ресми серіктестік — жетекші вендорлармен тікелей" },
-  partners: { eyebrow: "Серіктестер", title: "Біздің ресми вендор-серіктестеріміз", sub: "Жетекші халықаралық вендорлармен тікелей серіктестік — әр лицензия кепілдендірілген әрі ресми." },
+  partners: { eyebrow: "Серіктестер", title: "Біздің ресми вендор-серіктестеріміз", sub: "Жетекші халықаралық вендорлармен тікелей серіктестік — әр лицензия кепілдендірілген әрі ресми.", showAll: "Барлық вендорларды көрсету", showLess: "Жию" },
   catalog: {
     eyebrow: "Каталог",
     title: "Бағдарламалық өнімдер",
@@ -1196,7 +1196,7 @@ const ky: Content = {
     trust: ["200+ компания бизге ишенет", "9 өлкө", "24/7 колдоо"],
   },
   vendors: { label: "Расмий өнөктөштүк — алдыңкы вендорлор менен түз" },
-  partners: { eyebrow: "Өнөктөштөр", title: "Биздин расмий вендор-өнөктөштөрүбүз", sub: "Алдыңкы эл аралык вендорлор менен түз өнөктөштүк — ар бир лицензия кепилденген жана расмий." },
+  partners: { eyebrow: "Өнөктөштөр", title: "Биздин расмий вендор-өнөктөштөрүбүз", sub: "Алдыңкы эл аралык вендорлор менен түз өнөктөштүк — ар бир лицензия кепилденген жана расмий.", showAll: "Бардык вендорлорду көрсөтүү", showLess: "Жыйноо" },
   catalog: {
     eyebrow: "Каталог",
     title: "Программалык продуктулар",
@@ -1458,7 +1458,7 @@ const tg: Content = {
     trust: ["200+ ширкат ба мо бовар мекунанд", "9 кишвар", "Дастгирии 24/7"],
   },
   vendors: { label: "Шарикии расмӣ — мустақиман бо вендорҳои пешсаф" },
-  partners: { eyebrow: "Шарикон", title: "Шарикони расмии вендории мо", sub: "Шарикии мустақим бо вендорҳои пешбари ҷаҳонӣ — ҳар литсензия кафолатнок ва расмӣ." },
+  partners: { eyebrow: "Шарикон", title: "Шарикони расмии вендории мо", sub: "Шарикии мустақим бо вендорҳои пешбари ҷаҳонӣ — ҳар литсензия кафолатнок ва расмӣ.", showAll: "Ҳамаи вендорҳоро нишон додан", showLess: "Печонидан" },
   catalog: {
     eyebrow: "Каталог",
     title: "Маҳсулоти барномавӣ",
