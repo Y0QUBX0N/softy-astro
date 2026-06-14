@@ -61,10 +61,20 @@ const contactHref = pageUrl(lang, "contact");
   </div>
 </header>
 
-<!-- Mobile menu -->
+<!-- Mobile menu backdrop -->
+<div
+  id="menuBackdrop"
+  class="fixed inset-0 z-[129] bg-ink/70 backdrop-blur-sm lg:hidden"
+  data-close
+  aria-hidden="true"
+>
+</div>
+
+<!-- Mobile menu — slides in from the right as a ~80% drawer -->
 <div
   id="mobileMenu"
-  class="fixed inset-0 z-[130] hidden flex-col bg-ink/98 px-6 pb-8 pt-24 backdrop-blur-xl lg:hidden"
+  class="fixed right-0 top-0 z-[130] flex h-full w-[80%] max-w-xs flex-col border-l border-hairline bg-ink/98 px-6 pb-8 pt-24 shadow-[0_0_60px_rgba(0,0,0,0.55)] backdrop-blur-xl lg:hidden"
+  aria-hidden="true"
 >
   <nav class="flex flex-col gap-1" aria-label="Mobile">
     {
@@ -88,3 +98,37 @@ const contactHref = pageUrl(lang, "contact");
     </div>
   </div>
 </div>
+
+<style>
+  /* Backdrop fades; drawer slides in from the right. visibility is delayed on
+     close so the off-screen panel stays out of the tab order. */
+  #menuBackdrop {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  #menuBackdrop.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  #mobileMenu {
+    transform: translateX(100%);
+    visibility: hidden;
+    transition:
+      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      visibility 0s 0.35s;
+  }
+  #mobileMenu.is-open {
+    transform: translateX(0);
+    visibility: visible;
+    transition:
+      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      visibility 0s 0s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #mobileMenu,
+    #menuBackdrop {
+      transition-duration: 0.01ms;
+    }
+  }
+</style>

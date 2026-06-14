@@ -31,20 +31,33 @@ ready(() => {
     window.addEventListener("scroll", update, { passive: true });
   }
 
-  /* ---------- Mobile menu ---------- */
+  /* ---------- Mobile menu (right-side drawer) ---------- */
   const burger = document.getElementById("burger");
   const menu = document.getElementById("mobileMenu");
+  const backdrop = document.getElementById("menuBackdrop");
   if (burger && menu) {
-    const setOpen = (open: boolean) => {
-      menu.classList.toggle("hidden", !open);
-      menu.classList.toggle("flex", open);
-      burger.setAttribute("aria-expanded", String(open));
-      document.body.style.overflow = open ? "hidden" : "";
+    const ICON_MENU =
+      '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
+    const ICON_CLOSE =
+      '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+    let open = false;
+    const setOpen = (o: boolean) => {
+      open = o;
+      menu.classList.toggle("is-open", o);
+      backdrop?.classList.toggle("is-open", o);
+      burger.innerHTML = o ? ICON_CLOSE : ICON_MENU;
+      burger.setAttribute("aria-expanded", String(o));
+      menu.setAttribute("aria-hidden", String(!o));
+      document.body.style.overflow = o ? "hidden" : "";
     };
-    burger.addEventListener("click", () => setOpen(menu.classList.contains("hidden")));
+    burger.addEventListener("click", () => setOpen(!open));
+    backdrop?.addEventListener("click", () => setOpen(false));
     menu.querySelectorAll("[data-close]").forEach((a) =>
       a.addEventListener("click", () => setOpen(false))
     );
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && open) setOpen(false);
+    });
   }
 
   /* ---------- Hero word reveal ---------- */
