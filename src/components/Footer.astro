@@ -9,6 +9,11 @@ const legal = LEGAL_LABELS[lang];
 const home = pageUrl(lang, "home");
 const year = new Date().getUTCFullYear();
 
+// Google Maps deep-link for the office address (opens in a new tab). Uses a
+// fixed, geocodable query so it resolves the same regardless of UI language.
+const mapsQuery = "81 Kichik halqa yo'li, Yunusabad, Tashkent, Uzbekistan";
+const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery)}`;
+
 const socials = [
   { label: "Telegram", href: "https://t.me/Softy_admin", path: '<path d="M21.5 4L2.5 11.5l6 2 2.5 7 3-4.5 5 4z"/>' },
   { label: "LinkedIn", href: "https://www.linkedin.com/company/softysolution", path: '<rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 014 0v4" stroke="#0E1014" fill="none" stroke-width="2"/>' },
@@ -75,7 +80,17 @@ const socials = [
           <li><a href="tel:+998956400404" class="text-primary/80 transition-colors hover:text-accent">+998 (95) 640-04-04</a></li>
           <li><a href="mailto:info@softy.uz" class="text-primary/80 transition-colors hover:text-accent">info@softy.uz</a></li>
           <li><a href="https://t.me/Softy_admin" target="_blank" rel="noopener" class="text-primary/80 transition-colors hover:text-accent">@Softy_admin</a></li>
-          <li class="max-w-[200px] leading-relaxed text-muted">{c.contact.address}</li>
+          <li>
+            <a
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor
+              class="block max-w-[200px] leading-relaxed text-muted transition-colors hover:text-accent"
+            >
+              {c.contact.address}
+            </a>
+          </li>
         </ul>
       </div>
     </div>
