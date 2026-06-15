@@ -19,7 +19,14 @@ export default defineConfig({
     tailwind({ applyBaseStyles: false }),
     react(),
     sitemap({
-      filter: (page) => !page.includes("/api/") && !page.endsWith("/404/"),
+      // Exclude /api/, the 404, and the bare root "/" (which 302-redirects to
+      // /ru/ — a redirect URL must not sit in the sitemap, or Search Console
+      // flags it "redirect page, not indexed"). All locale homepages (/uz/,
+      // /ru/, …) are real 200 pages and stay in.
+      filter: (page) =>
+        !page.includes("/api/") &&
+        !page.endsWith("/404/") &&
+        page !== "https://softy.uz/",
       changefreq: "weekly",
       priority: 0.7,
     }),
