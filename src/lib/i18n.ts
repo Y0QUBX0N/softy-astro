@@ -140,7 +140,7 @@ const uz: Content = {
   nav: { services: "Xizmatlar", solutions: "Yechimlar", catalog: "Katalog", coverage: "MDH qamrovi", about: "Biz haqimizda", contact: "Aloqa", cta: "Bepul audit", language: "Til" },
   hero: {
     eyebrow: "Rasmiy IT-Integrator · MDH bo'ylab",
-    titleA: "Biznesingiz uchun",
+    titleA: "Tashkilotingiz uchun",
     titleAccent: "to'liq IT-yechimlar.",
     lead: "Bulutli xizmatlar va kiberxavfsizlikdan muhandislik dasturlarigacha — yetakchi jahon vendorlarining rasmiy litsenziyalari. Joriy etamiz va qo'llab-quvvatlaymiz.",
     ctaPrimary: "Bepul audit oling",
@@ -403,7 +403,7 @@ const ru: Content = {
   nav: { services: "Услуги", solutions: "Решения", catalog: "Каталог", coverage: "Охват СНГ", about: "О нас", contact: "Контакты", cta: "Бесплатный аудит", language: "Язык" },
   hero: {
     eyebrow: "Официальный IT-интегратор · по СНГ",
-    titleA: "Для вашего бизнеса —",
+    titleA: "Для вашей организации —",
     titleAccent: "полные IT-решения.",
     lead: "От облачных сервисов и кибербезопасности до инженерного ПО — официальные лицензии ведущих мировых вендоров. Внедряем и сопровождаем под ключ.",
     ctaPrimary: "Бесплатный аудит",
@@ -666,7 +666,7 @@ const en: Content = {
   nav: { services: "Services", solutions: "Solutions", catalog: "Catalog", coverage: "CIS Coverage", about: "About", contact: "Contact", cta: "Free audit", language: "Language" },
   hero: {
     eyebrow: "Official IT Integrator · across the CIS",
-    titleA: "For your business —",
+    titleA: "For your organization —",
     titleAccent: "complete IT solutions.",
     lead: "From cloud and cybersecurity to engineering software — official licenses from leading global vendors. We deploy and support, end to end.",
     ctaPrimary: "Get a free audit",
@@ -929,7 +929,7 @@ const kk: Content = {
   nav: { services: "Қызметтер", solutions: "Шешімдер", catalog: "Каталог", coverage: "ТМД қамтуы", about: "Біз туралы", contact: "Байланыс", cta: "Тегін аудит", language: "Тіл" },
   hero: {
     eyebrow: "Ресми IT-интегратор · ТМД бойынша",
-    titleA: "Бизнесіңіз үшін",
+    titleA: "Ұйымыңыз үшін",
     titleAccent: "толық IT-шешімдер.",
     lead: "Бұлттық қызметтер мен киберқауіпсіздіктен инженерлік бағдарламаларға дейін — жетекші әлемдік вендорлардың ресми лицензиялары. Енгіземіз және қолдаймыз.",
     ctaPrimary: "Тегін аудит алыңыз",
@@ -1192,7 +1192,7 @@ const ky: Content = {
   nav: { services: "Кызматтар", solutions: "Чечимдер", catalog: "Каталог", coverage: "КМШ камтуусу", about: "Биз жөнүндө", contact: "Байланыш", cta: "Акысыз аудит", language: "Тил" },
   hero: {
     eyebrow: "Расмий IT-интегратор · КМШ боюнча",
-    titleA: "Бизнесиңиз үчүн",
+    titleA: "Уюмуңуз үчүн",
     titleAccent: "толук IT-чечимдер.",
     lead: "Булут кызматтарынан жана киберкоопсуздуктан инженердик программаларга чейин — алдыңкы дүйнөлүк вендорлордун расмий лицензиялары. Киргизебиз жана колдойбуз.",
     ctaPrimary: "Акысыз аудит алыңыз",
@@ -1455,7 +1455,7 @@ const tg: Content = {
   nav: { services: "Хидматҳо", solutions: "Ҳалҳо", catalog: "Каталог", coverage: "Фарогирии ИДМ", about: "Дар бораи мо", contact: "Тамос", cta: "Аудити ройгон", language: "Забон" },
   hero: {
     eyebrow: "Интегратори расмии IT · дар саросари ИДМ",
-    titleA: "Барои бизнеси шумо —",
+    titleA: "Барои ташкилоти шумо —",
     titleAccent: "ҳалҳои мукаммали IT.",
     lead: "Аз хадамоти абрӣ ва амнияти киберӣ то нармафзори муҳандисӣ — литсензияҳои расмии вендорҳои пешбари ҷаҳонӣ. Ҷорӣ мекунем ва дастгирӣ мекунем.",
     ctaPrimary: "Аудити ройгон гиред",
