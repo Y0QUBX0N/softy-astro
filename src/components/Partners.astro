@@ -19,7 +19,7 @@ const INITIAL = 8; // cards shown by default; the rest reveal on "show all"
         VENDORS.map((v, i) => (
           <div
             class:list={[
-              "card-3d group grid aspect-[5/3] place-items-center rounded-xl border border-hairline bg-paper p-7 md:p-9",
+              "card-3d group grid aspect-[5/3] place-items-center rounded-xl border border-hairline bg-paper p-4 sm:p-6 md:p-9",
               i >= INITIAL && "vendor-extra",
             ]}
             title={v.name}
