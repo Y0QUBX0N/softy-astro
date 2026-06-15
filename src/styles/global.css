@@ -206,6 +206,30 @@
     -webkit-backdrop-filter: blur(14px) saturate(140%);
   }
 
+  /* Animated nav underline — slides in on hover, stays under the active page.
+     Pure CSS transform, so it's effectively free. */
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 5px;
+    height: 1.5px;
+    border-radius: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @media (pointer: fine) {
+    .nav-link:hover::after { transform: scaleX(1); }
+  }
+  .nav-link[aria-current="page"]::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+
   /* Section reveal — CSS-driven so content is ALWAYS visible even if JS fails.
      Optional JS in animations.ts adds IntersectionObserver for as-you-scroll
      timing on long pages, but the default animation runs on page load. */

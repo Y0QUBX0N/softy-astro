@@ -25,7 +25,7 @@ const products = productsByCategory(category.slug);
 const catalogHref = pageUrl(lang, "catalog");
 ---
 
-<Base lang={lang} page="catalog">
+<Base lang={lang} page="catalog" slug={`catalog/${category.slug}`} metaTitle={`${meta.name} | Softy LLC`} metaDescription={meta.desc}>
   <Nav lang={lang} page="catalog" />
   <main id="main">
     <section class="border-t border-hairline pb-8 pt-32 md:pt-40">

@@ -7,14 +7,22 @@ import CookieBanner from "../components/CookieBanner.astro";
 interface Props {
   lang: Lang;
   page: PageKey;
+  /** For routes that aren't PageKeys (privacy, terms): override the canonical/
+      hreflang slug and the meta title/description so they don't inherit another page's. */
+  slug?: string;
+  metaTitle?: string;
+  metaDescription?: string;
 }
-const { lang, page } = Astro.props;
+const { lang, page, slug, metaTitle, metaDescription } = Astro.props;
 const c = getContent(lang);
 const pm = c.pageMeta[page];
 const site = "https://softy.uz";
-const canonical = `${site}${pageUrl(lang, page)}`;
-// Single branded OG image (SVG + raster fallback if the project later adds /og.png).
-const ogImage = `${site}/og.svg`;
+const path = (l: Lang) => (slug ? `/${l}/${slug}/` : pageUrl(l, page));
+const canonical = `${site}${path(lang)}`;
+const title = metaTitle ?? pm.title;
+const description = metaDescription ?? pm.description;
+// Branded raster OG image (1200×630) — broadly supported by social/link unfurlers.
+const ogImage = `${site}/og.png`;
 
 // Privacy-friendly analytics: enabled only when PUBLIC_PLAUSIBLE_DOMAIN is set.
 const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN as string | undefined;
@@ -93,7 +101,7 @@ const faqLd =
     : null;
 
 const crumbs = [{ name: "Home", url: `${site}${pageUrl(lang, "home")}` }];
-if (page !== "home") crumbs.push({ name: pm.title, url: canonical });
+if (page !== "home") crumbs.push({ name: title, url: canonical });
 const breadcrumbLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -120,21 +128,21 @@ const breadcrumbLd = {
     {googleVerify && <meta name="google-site-verification" content={googleVerify} />}
     {yandexVerify && <meta name="yandex-verification" content={yandexVerify} />}
 
-    <title>{pm.title}</title>
-    <meta name="description" content={pm.description} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
     <meta name="keywords" content="Softy LLC, Microsoft 365, Adobe Creative Cloud, Kaspersky, Autodesk, Veeam, Fortinet, Bitrix24, IT integrator, software licensing, cloud, EDR, DLP, Tashkent, Uzbekistan, CIS" />
     <link rel="canonical" href={canonical} />
 
     {LANGS.map((l) => (
-      <link rel="alternate" hreflang={l} href={`${site}${pageUrl(l, page)}`} />
+      <link rel="alternate" hreflang={l} href={`${site}${path(l)}`} />
     ))}
-    <link rel="alternate" hreflang="x-default" href={`${site}${pageUrl("uz", page)}`} />
+    <link rel="alternate" hreflang="x-default" href={`${site}${path("uz")}`} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Softy LLC" />
-    <meta property="og:title" content={pm.title} />
-    <meta property="og:description" content={pm.description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
@@ -143,8 +151,8 @@ const breadcrumbLd = {
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={pm.title} />
-    <meta name="twitter:description" content={pm.description} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
     <!-- Fonts -->

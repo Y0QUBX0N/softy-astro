@@ -31,7 +31,7 @@ const contactHref = pageUrl(lang, "contact");
 const related = productsByCategory(category.slug).filter((p) => p.slug !== product.slug).slice(0, 3);
 ---
 
-<Base lang={lang} page="catalog">
+<Base lang={lang} page="catalog" slug={`catalog/${category.slug}/${product.slug}`} metaTitle={`${product.name} | Softy LLC`} metaDescription={copy.tagline}>
   <Nav lang={lang} page="catalog" />
   <main id="main">
     <section class="border-t border-hairline pb-12 pt-32 md:pt-40">

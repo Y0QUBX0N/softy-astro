@@ -14,7 +14,7 @@ const lang: Lang = isLang(raw) ? raw : DEFAULT_LANG;
 const page = getLegalPage("privacy", lang);
 ---
 
-<Base lang={lang} page="about">
+<Base lang={lang} page="about" slug="privacy" metaTitle={`${page.title} | Softy LLC`} metaDescription={page.subtitle}>
   <Nav lang={lang} page="about" />
   <main id="main">
     <LegalPage lang={lang} page={page} />
