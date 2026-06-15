@@ -134,6 +134,20 @@ const ru: Overlay = {
     ],
     audience: "SMB, здравоохранение, образование, госсектор",
   },
+  drweb: {
+    tagline: "Проверенная, сертифицированная многоуровневая антивирусная защита для рынка СНГ.",
+    summary:
+      "Dr.Web Enterprise Security Suite — централизованная антивирусная защита серверов, рабочих станций и мобильных устройств. Отличается проактивными технологиями, низкой нагрузкой на систему и соответствием нормативам СНГ.",
+    features: [
+      "Многоуровневая антивирусная и анти-ransomware защита",
+      "Централизованное управление (Control Center)",
+      "Dr.Web Preventive Protection (проактивная защита)",
+      "Фильтрация email и веб-трафика",
+      "Серверы, рабочие станции и мобильные устройства",
+      "Нормативы и сертификаты СНГ",
+    ],
+    audience: "Госорганы, бизнес, клиенты на рынке СНГ",
+  },
   autodesk: {
     tagline: "Промышленный стандарт проектирования, BIM, механики и анимации.",
     summary:
@@ -431,6 +445,20 @@ const en: Overlay = {
       "One of the lowest system footprints",
     ],
     audience: "SMB, healthcare, education, public sector",
+  },
+  drweb: {
+    tagline: "Proven, certified multi-layered antivirus protection for the CIS market.",
+    summary:
+      "Dr.Web Enterprise Security Suite delivers centralized antivirus protection for servers, workstations, and mobile devices. It stands out with proactive technologies, a low system footprint, and compliance with CIS regulations.",
+    features: [
+      "Multi-layered antivirus and anti-ransomware protection",
+      "Centralized management (Control Center)",
+      "Dr.Web Preventive Protection (proactive defense)",
+      "Email and web-traffic filtering",
+      "Servers, workstations, and mobile devices",
+      "CIS regulations and certifications",
+    ],
+    audience: "Government bodies, business, CIS-market clients",
   },
   autodesk: {
     tagline: "The industry standard for design, BIM, mechanical engineering and animation.",
@@ -730,6 +758,20 @@ const kk: Overlay = {
     ],
     audience: "SMB, денсаулық сақтау, білім беру, мемлекеттік сектор",
   },
+  drweb: {
+    tagline: "ТМД нарығында сыналған, сертификатталған көп деңгейлі антивирустық қорғаныс.",
+    summary:
+      "Dr.Web Enterprise Security Suite — серверлерді, жұмыс станцияларын және мобильді құрылғыларды орталықтандырылған антивирустық қорғау. Проактивті технологиялары, жүйеге аз жүктемесі және ТМД нормативтеріне сәйкестігімен ерекшеленеді.",
+    features: [
+      "Көп деңгейлі антивирустық және анти-ransomware қорғаныс",
+      "Орталықтандырылған басқару (Control Center)",
+      "Dr.Web Preventive Protection (проактивті қорғаныс)",
+      "Email және веб-трафикті сүзу",
+      "Серверлер, жұмыс станциялары және мобильді құрылғылар",
+      "ТМД нормативтері мен сертификаттары",
+    ],
+    audience: "Мемлекеттік органдар, бизнес, ТМД нарығының клиенттері",
+  },
   autodesk: {
     tagline: "Жобалау, BIM, механика және анимация бойынша өнеркәсіптік стандарт.",
     summary:
@@ -1028,6 +1070,20 @@ const ky: Overlay = {
     ],
     audience: "SMB, саламаттыкты сактоо, билим берүү, мамлекеттик сектор",
   },
+  drweb: {
+    tagline: "КМШ рыногунда сыналган, сертификатталган көп катмарлуу антивирус коргоосу.",
+    summary:
+      "Dr.Web Enterprise Security Suite — серверлерди, жумушчу станцияларды жана мобилдик түзмөктөрдү борборлоштурулган антивирус коргоо. Проактивдүү технологиялары, системага аз жүктөмү жана КМШ ченемдерине шайкештиги менен айырмаланат.",
+    features: [
+      "Көп катмарлуу антивирус жана анти-ransomware коргоо",
+      "Борборлоштурулган башкаруу (Control Center)",
+      "Dr.Web Preventive Protection (проактивдүү коргоо)",
+      "Email жана веб-трафикти чыпкалоо",
+      "Серверлер, жумушчу станциялар жана мобилдик түзмөктөр",
+      "КМШ ченемдери жана сертификаттары",
+    ],
+    audience: "Мамлекеттик органдар, бизнес, КМШ рыногунун кардарлары",
+  },
   autodesk: {
     tagline: "Долбоорлоо, BIM, механика жана анимация боюнча өнөр жай стандарты.",
     summary:
@@ -1325,6 +1381,20 @@ const tg: Overlay = {
       "Яке аз пасттарин сарбориҳо ба система",
     ],
     audience: "SMB, тандурустӣ, маориф, бахши давлатӣ",
+  },
+  drweb: {
+    tagline: "Ҳимояи зиддивирусии бисёрқабатаи санҷидашуда ва сертификатсияшуда барои бозори ИДМ.",
+    summary:
+      "Dr.Web Enterprise Security Suite — ҳимояи зиддивирусии марказонидашуда барои серверҳо, мизҳои корӣ ва дастгоҳҳои мобилӣ. Бо технологияҳои фаъолона, сарбории ками система ва мутобиқат бо меъёрҳои ИДМ фарқ мекунад.",
+    features: [
+      "Ҳимояи зиддивирусӣ ва зидди-ransomware-и бисёрқабата",
+      "Идоракунии марказонидашуда (Control Center)",
+      "Dr.Web Preventive Protection (ҳимояи фаъолона)",
+      "Филтри email ва веб-трафик",
+      "Серверҳо, мизҳои корӣ ва дастгоҳҳои мобилӣ",
+      "Меъёрҳо ва сертификатҳои ИДМ",
+    ],
+    audience: "Мақомоти давлатӣ, бизнес, муштариёни бозори ИДМ",
   },
   autodesk: {
     tagline: "Стандарти саноатӣ дар тарроҳӣ, BIM, механика ва аниматсия.",
